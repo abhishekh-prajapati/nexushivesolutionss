@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | NexusHive Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --contact-purple: #4E2FDA;
+            --contact-navy: #111827;
+        }
+
+        body {
+            background-color: #ffffff;
+            background-image: var(--grad-mesh);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* --- Sophisticated Contact Layout --- */
+        .contact-wrapper {
+            padding: 180px 0 120px;
+        }
+
+        .contact-hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .contact-hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--contact-navy);
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            font-size: 1.4rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .contact-main-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* --- Left Side: High-End Contact Stack --- */
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(78, 47, 218, 0.08);
+            transition: var(--transition);
+        }
+
+        .contact-detail-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 30px 60px rgba(78, 47, 218, 0.05);
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background: var(--contact-purple);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .detail-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .detail-body p, .detail-body a {
+            font-size: 1.15rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            line-height: 1.6;
+            display: block;
+        }
+
+        .detail-body a:hover {
+            color: var(--contact-purple);
+        }
+
+        /* --- Right Side: The Consultation Form --- */
+        .form-panel {
+            background: #ffffff;
+            padding: 70px;
+            border-radius: 32px;
+            box-shadow: 0 50px 100px rgba(17, 24, 39, 0.08);
+            border: 1px solid rgba(17, 24, 39, 0.03);
+            position: relative;
+        }
+
+        .form-panel::after {
+            content: 'CONNECT';
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(78, 47, 218, 0.02);
+            pointer-events: none;
+        }
+
+        .field-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input-wrapper {
+            margin-bottom: 30px;
+        }
+
+        .input-wrapper label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--contact-navy);
+            margin-bottom: 12px;
+        }
+
+        .input-wrapper input, 
+        .input-wrapper textarea, 
+        .input-wrapper select {
+            width: 100%;
+            background: #fdfdfd;
+            border: 1px solid #edf2f7;
+            padding: 18px 24px;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            color: var(--contact-navy);
+        }
+
+        .input-wrapper input:focus, 
+        .input-wrapper textarea:focus {
+            outline: none;
+            border-color: var(--contact-purple);
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(78, 47, 218, 0.05);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--contact-navy);
+            color: white;
+            padding: 22px;
+            border-radius: 16px;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            background: var(--contact-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(78, 47, 218, 0.2);
+        }
+
+        .submit-btn i {
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover i {
+            transform: translate(5px, -5px);
+        }
+
+        @media (max-width: 1024px) {
+            .contact-main-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+            .contact-hero h1 { font-size: 3.5rem; }
+            .form-panel { padding: 40px; }
+            .contact-wrapper { padding: 140px 0 80px; }
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper { padding: 110px 0 60px; }
+            .contact-hero { margin-bottom: 50px; }
+            .contact-hero h1 { font-size: 2.4rem; }
+            .contact-hero p { font-size: 1rem; }
+            .contact-main-grid { padding: 0 16px; gap: 24px; }
+            .form-panel { padding: 32px 24px; }
+            .form-panel::after {
+                font-size: 2.5rem;
+                top: 16px;
+                right: 16px;
+            }
+            .field-group-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+                margin-bottom: 0;
+            }
+            .input-wrapper { margin-bottom: 20px; }
+            .contact-detail-card { padding: 22px; }
+            .submit-btn { font-size: 1rem; padding: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero h1 { font-size: 1.9rem; }
+            .contact-hero p { font-size: 0.95rem; }
+            .form-panel { padding: 24px 16px; }
+            .contact-main-grid { padding: 0 12px; }
+            .input-wrapper input,
+            .input-wrapper textarea,
+            .input-wrapper select { padding: 14px 16px; font-size: 0.95rem; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Unified -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-flex">
+                <a href="index.html" class="logo">Nexus<span>Hive</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <div class="dropdown">
+                            <div class="mega-grid">
+                                <!-- Column 1: Strategy & Structure -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#hr-strategy">Strategy & Setup</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#hr-strategy">Org Architecture</a></li>
+                                        <li><a href="services.html#hr-strategy">HR Manuals</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#hr-consulting">HR Consulting</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#hr-consulting">Audit Readiness</a></li>
+                                        <li><a href="services.html#hr-consulting">Policy Vetting</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#audits">Specialized Audits</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#audits">Lab Law Audit</a></li>
+                                        <li><a href="services.html#audits">Forensic HR Audit</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#growth">Business Growth</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#growth">Scaling Advisory</a></li>
+                                        <li><a href="services.html#growth">Project Execution</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 2: Compliance & Finance -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#compliance">Statutory & Law</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#compliance">Labour Laws</a></li>
+                                        <li><a href="services.html#compliance">Workplace Adherence</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#posh">POSH & Ethics</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#posh">IC Formation</a></li>
+                                        <li><a href="services.html#posh">Sensitization</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#registration">Registrations</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#registration">PF/ESI/PT</a></li>
+                                        <li><a href="services.html#registration">Startup India/MSME</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#finance">Accounts & Finance</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
+                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 3: Talent & Innovation -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#staffing">Sourcing & Staffing</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#staffing">Executive Search</a></li>
+                                        <li><a href="services.html#staffing">Onboarding Protocol</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#facilitation">HR Facilitation</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#facilitation">Fractional CHRO</a></li>
+                                        <li><a href="services.html#facilitation">KRA/KPI/OKR Hub</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#training">Training & Tech</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#training">Skill Gap Diagnosis</a></li>
+                                        <li><a href="services.html#tech">SaaS Implementation</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#others">Other Solutions</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#others">Brand & Identity</a></li>
+                                        <li><a href="services.html#others">Corporate Offsites</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+
+                <!-- Hamburger (mobile only) -->
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <main class="contact-wrapper">
+        <div class="contact-hero container reveal">
+            <h1>Connect <span class="startup-highlight">Globally</span></h1>
+            <p>Initiate a high-stakes consultation with our forensic advisory team to secure your enterprise's structural integrity.</p>
+        </div>
+
+        <div class="contact-main-grid">
+            <!-- Left Info Panel -->
+            <div class="info-panel reveal">
+                <div class="contact-detail-card">
+                    <div class="detail-header">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Headquarters</h3>
+                    </div>
+                    <div class="detail-body">
+                        <p>No 11 & 12, Ganesh Nagar Layout,<br>Telecom Road, Virupakshapura,<br>Bangalore- 560097</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail-card">
+                    <div class="detail-header">
+                        <div class="icon-box"><i class="fas fa-envelope-open"></i></div>
+                        <h3>Digital Hub</h3>
+                    </div>
+                    <div class="detail-body">
+                        <a href="mailto:info@nexushive.com">info@nexushive.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail-card">
+                    <div class="detail-header">
+                        <div class="icon-box"><i class="fas fa-phone-volume"></i></div>
+                        <h3>Direct Client Line</h3>
+                    </div>
+                    <div class="detail-body">
+                        <a href="tel:+918088052874">+91 80880 52874</a>
+                        <a href="https://wa.me/918088052874" style="margin-top: 10px; color: #25D366;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="form-panel reveal stagger-1">
+                <form id="consultationForm">
+                    <div class="field-group-row">
+                        <div class="input-wrapper">
+                            <label>Designated Name</label>
+                            <input type="text" name="name" placeholder="Full legal name" required>
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Institutional Email</label>
+                            <input type="email" name="email" placeholder="email@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="field-group-row">
+                        <div class="input-wrapper">
+                            <label>Direct Contact</label>
+                            <input type="tel" name="phone" placeholder="+91 00000 00000" required>
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Inquiry Intent</label>
+                            <select name="intent" required>
+                                <option value="" disabled selected>Select Inquiry Subject</option>
+                                <option value="HR Setup & Strategy">HR Setup & Strategy</option>
+                                <option value="Statutory & Law">Statutory & Law</option>
+                                <option value="HR Consulting">HR Consulting</option>
+                                <option value="Registration (PF/ESI/PT)">Registration (PF/ESI/PT)</option>
+                                <option value="POSH Compliance">POSH Compliance</option>
+                                <option value="HR Facilitation">HR Facilitation</option>
+                                <option value="Sourcing & Staffing">Sourcing & Staffing</option>
+                                <option value="Specialized Audits">Specialized Audits</option>
+                                <option value="Training & Skilling">Training & Skilling</option>
+                                <option value="Accounts & Finance">Accounts & Finance</option>
+                                <option value="Tech & Software">Tech & Software</option>
+                                <option value="Business Growth">Business Growth</option>
+                                <option value="Other Services">Other Services</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label>Brief Objective</label>
+                        <textarea name="message" rows="4" placeholder="Describe your organizational requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="btnText">Transmit Requirements</span> <i class="fas fa-paper-plane" id="btnIcon"></i>
+                    </button>
+                    
+                    <div id="formMessage" style="display: none; text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-weight: 600;"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer (Synced with Site) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-logo">Nexus<span>Hive</span></h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Premier HR advisory and statutory governance partner for high-growth enterprises across India.</p>
+                    <div class="footer-auth-badges">
+                        <img src="img/msme.png" alt="MSME Registered">
+                        <img src="img/startup.png" alt="Startup India">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#hr-strategy">HR Strategy</a></li>
+                        <li><a href="services.html#compliance">Labour Law</a></li>
+                        <li><a href="services.html#finance">Payroll Systems</a></li>
+                        <li><a href="services.html#posh">POSH Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Intelligence</h4>
+                    <ul>
+                        <li><a href="about.html">Our Philosophy</a></li>
+                        <li><a href="services.html#audits">Audit Readiness</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Engage</h4>
+                    <ul class="footer-links">
+                        <li>No 11 & 12, Ganesh Nagar Layout, Telecom</li>
+                        <li>Road, Virupakshapura, Bangalore- 560097</li>
+                        <li><a href="mailto:info@nexushive.com">info@nexushive.com</a></li>
+                        <li><a href="tel:+918088052874">+91 80880 52874</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. | MSME Registration: UDYAM-KR-03-0599045</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit;" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Unique WhatsApp Widget -->
+    <a href="https://wa.me/918088052874" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+        <span class="wa-text">Need Guidance? Chat Now</span>
+        <div class="wa-icon-box">
+            <i class="fab fa-whatsapp"></i>
+            <div class="wa-pulse"></div>
+        </div>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
+    <script>
+        // --- Form Submission to Google Apps Script ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwC4Jbk5YP-4kN6071e56FGi-r31eizJ-Tz6vK3lvM0aas5r9DpLoJWcTyNUosqsT8/exec'; // TODO: Replace this with your Web App URL
+        const form = document.forms['consultationForm'];
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        const formMessage = document.getElementById('formMessage');
+
+        if(form) {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                
+                // Indicate Loading State
+                btn.disabled = true;
+                btnText.textContent = 'Processing...';
+                btnIcon.className = 'fas fa-spinner fa-spin';
+                formMessage.style.display = 'none';
+
+                let formData = new FormData(form);
+
+                fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.text())
+                .then(textContent => {
+                    console.log("Response text:", textContent);
+                    // Check if response is actually the HTML login page
+                    if (textContent.includes("Sign in") || textContent.includes("Sign In")) {
+                        throw new Error("Script requires authentication. Make sure to deploy as 'Anyone'.");
+                    }
+                    
+                    // Try parsing JSON if possible to catch internal script errors
+                    try {
+                        let json = JSON.parse(textContent);
+                        if(json.result === 'error') throw new Error(json.error);
+                    } catch(e) {
+                        // ignore JSON parse error if it's plain text success
+                    }
+
+                    // Success State
+                    btnText.textContent = 'Submitted Successfully';
+                    btnIcon.className = 'fas fa-check-circle';
+                    btn.style.background = '#25D366'; // Success Green
+                    
+                    formMessage.style.display = 'block';
+                    formMessage.style.background = 'rgba(37, 211, 102, 0.1)';
+                    formMessage.style.color = '#1b9b4a';
+                    formMessage.textContent = 'Thank you! Your requirements have been received. Our team will contact you shortly.';
+                    
+                    form.reset();
+                    
+                    // Reset Button after 5 seconds
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btnText.textContent = 'Transmit Requirements';
+                        btnIcon.className = 'fas fa-paper-plane';
+                        btn.style.background = 'var(--contact-navy)';
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Error State
+                    console.error('Submission Error Details:', error);
+                    btn.disabled = false;
+                    btnText.textContent = 'Submission Failed - Try Again';
+                    btnIcon.className = 'fas fa-exclamation-circle';
+                    btn.style.background = '#e74c3c'; // Error Red
+                    
+                    formMessage.style.display = 'block';
+                    formMessage.style.background = 'rgba(231, 76, 60, 0.1)';
+                    formMessage.style.color = '#c0392b';
+                    formMessage.textContent = 'Error: ' + error.message;
+                });
+            });
+        }
+
+        // --- Hamburger Menu ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileClose = document.getElementById('mobileClose');
+
+        if (hamburger && mobileNav && mobileClose) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                mobileNav.classList.toggle('open');
+                document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+            });
+
+            mobileClose.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    mobileNav.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('mainHeader');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

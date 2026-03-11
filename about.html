@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | NexusHive Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── ABOUT PAGE MOBILE RESPONSIVENESS ── */
+
+        /* Founder section hero heading */
+        @media (max-width: 1024px) {
+            .about-founder-sec { padding: 90px 0 50px; }
+
+            .stats-grid-about {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .partners-grid-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+                max-width: 100% !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .about-founder-grid h2 {
+                font-size: 2rem !important;
+            }
+
+            /* Methodology Section */
+            .methodology-container {
+                padding: 0 1.5rem !important;
+            }
+
+            /* Partners section */
+            .partners-section {
+                padding: 60px 0 !important;
+            }
+            .partners-heading-block {
+                margin-bottom: 3rem !important;
+            }
+            .partners-heading-block .partners-big-n {
+                font-size: 3rem !important;
+            }
+
+            /* Partner logos max-width */
+            .partner-logo-simple img {
+                max-width: 110px !important;
+                height: auto !important;
+            }
+
+            /* Stats Section */
+            .stats-about-sec {
+                padding: 40px 0 !important;
+            }
+            .stats-about-sec h3 {
+                font-size: 2.2rem !important;
+            }
+
+            /* Benefit list on founder */
+            .benefit-list li {
+                justify-content: flex-start !important;
+                font-size: 0.95rem !important;
+            }
+            .benefit-list {
+                gap: 1rem !important;
+            }
+
+            /* Founder image */
+            .about-founder-grid { text-align: left !important; }
+            .founder-img-col {
+                margin-top: 0 !important;
+                order: 1;
+            }
+            .founder-text-col {
+                order: 2;
+            }
+            .founder-img-col > div:first-child {
+                border-radius: 20px !important;
+                aspect-ratio: 1/1.1 !important;
+            }
+
+            /* Founder name below image */
+            .founder-name-simple {
+                margin-top: 1.2rem !important;
+                text-align: center !important;
+            }
+
+            /* Description paragraph */
+            .founder-text-col p {
+                font-size: 1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            /* Section title scaling */
+            .section-head-centered { margin-bottom: 3rem; }
+            .section-title-large { font-size: 2.2rem !important; font-weight: 700; }
+            .section-title-large span { display: inline !important; }
+            .methodology-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .methodology-point {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+            .methodology-point i {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-grid-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            .partner-logo-simple img {
+                max-width: 90px !important;
+            }
+        }
+
+        /* Partner logos */
+        .partner-logo-simple {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .partner-logo-simple img {
+            filter: grayscale(1);
+            opacity: 0.4;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+        .partner-logo-simple:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        /* On mobile: show image first, then text */
+        @media (max-width: 1024px) {
+            .founder-text-col { order: 2; }
+            .founder-img-col  { order: 1; }
+        }
+
+        .stats-grid-about {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+        }
+
+        /* Methodology Grid Specifics */
+        .section-head-centered {
+            text-align: center;
+            margin-bottom: 7rem;
+        }
+        .section-title-large {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--color-navy);
+        }
+        .section-title-large span {
+            display: block;
+        }
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elite Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-flex">
+                <a href="index.html" class="logo">Nexus<span>Hive</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <div class="dropdown">
+                            <div class="mega-grid">
+                                <!-- Column 1: Strategy & Structure -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#hr-strategy">Strategy & Setup</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#hr-strategy">Org Architecture</a></li>
+                                        <li><a href="services.html#hr-strategy">HR Manuals</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#hr-consulting">HR Consulting</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#hr-consulting">Audit Readiness</a></li>
+                                        <li><a href="services.html#hr-consulting">Policy Vetting</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#audits">Specialized Audits</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#audits">Lab Law Audit</a></li>
+                                        <li><a href="services.html#audits">Forensic HR Audit</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#growth">Business Growth</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#growth">Scaling Advisory</a></li>
+                                        <li><a href="services.html#growth">Project Execution</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 2: Compliance & Finance -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#compliance">Statutory & Law</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#compliance">Labour Laws</a></li>
+                                        <li><a href="services.html#compliance">Workplace Adherence</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#posh">POSH & Ethics</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#posh">IC Formation</a></li>
+                                        <li><a href="services.html#posh">Sensitization</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#registration">Registrations</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#registration">PF/ESI/PT</a></li>
+                                        <li><a href="services.html#registration">Startup India/MSME</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#finance">Accounts & Finance</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
+                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 3: Talent & Innovation -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#staffing">Sourcing & Staffing</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#staffing">Executive Search</a></li>
+                                        <li><a href="services.html#staffing">Onboarding Protocol</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#facilitation">HR Facilitation</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#facilitation">Fractional CHRO</a></li>
+                                        <li><a href="services.html#facilitation">KRA/KPI/OKR Hub</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#training">Training & Tech</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#training">Skill Gap Diagnosis</a></li>
+                                        <li><a href="services.html#tech">SaaS Implementation</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="services.html#others">Other Solutions</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#others">Brand & Identity</a></li>
+                                        <li><a href="services.html#others">Corporate Offsites</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Hamburger (mobile only) -->
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Meet Our Founding Principal -->
+        <section class="about-founder-sec">
+            <div class="container">
+                <div class="about-founder-grid">
+                    <div class="reveal founder-text-col">
+                        <span class="tagline">MEET OUR FOUNDING PRINCIPAL</span>
+                        <h2 style="font-size: 3rem; margin: 1.5rem 0;">Expertise Rooted in <br><span class="startup-highlight">LAW & GOVERNANCE</span></h2>
+                        <p style="margin-bottom: 2.5rem; font-size: 1.1rem; line-height: 1.6;">NexusHive is led by a multi-disciplinary expert with a deep understanding of India's evolving legal and operational landscape. We bring a forensic approach to HR and compliance, ensuring your startup is built on a rock-solid foundation.</p>
+                        
+                        <ul class="benefit-list">
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-balance-scale" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>Qualified Lawyer & Member of Bar Council of India & Karnataka</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-certificate" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>ISO-certified POSH Practitioner</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-briefcase" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>15+ Years specialized HR & Legal experience across Healthcare, IT, Finance & Biotech</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-shield-alt" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>Expertise in Prevention of Sexual Harassment (POSH) compliance & training</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-graduation-cap" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>Diploma in Training & Development from ISTD, New Delhi</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-chalkboard-teacher" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>Conducted 60+ POSH trainings across multiple sectors</span>
+                            </li>
+                            <li style="display: flex; gap: 1rem; align-items: center; font-size: 1.05rem;">
+                                <i class="fas fa-check-double" style="color: var(--color-purple); font-size: 1.2rem;"></i>
+                                <span>Proven track record in resolving sensitive cases effectively</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reveal founder-img-col" style="position: relative; margin-top: 2rem;">
+                        <div style="width: 100%; aspect-ratio: 1/1.2; background: linear-gradient(135deg, #fdf2f8 0%, #eef2ff 100%); border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.06); border: 1px solid rgba(78, 47, 218, 0.05);">
+                            <img src="img/image.png" alt="Adv. Jaya Bhavya - Founder, NexusHive" style="width: 100%; height: 100%; object-fit: cover; object-position: center; mix-blend-mode: multiply;">
+                        </div>
+                        <!-- Founder Name -->
+                        <div class="founder-name-simple" style="margin-top: 1.5rem;">
+                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--color-navy); margin-bottom: 0.15rem;">Adv. Jaya Bhavya</h3>
+                            <p style="font-size: 0.9rem; color: var(--color-text-muted); font-weight: 500; margin: 0;">Founder, NexusHive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Impact Ticker -->
+        <section class="stats-about-sec" style="background: var(--grad-purple); padding: 80px 0; color: white;">
+            <div class="container">
+                <div class="stats-grid-about" style="display: grid; text-align: center;">
+                    <div>
+                        <h3 style="color: white; font-size: 3rem; margin-bottom: 0.5rem;"><span class="stat-num" data-val="15" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">0</span>+</h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Years Mastery</p>
+                    </div>
+                    <div>
+                        <h3 style="color: white; font-size: 3rem; margin-bottom: 0.5rem;"><span class="stat-num" data-val="60" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">0</span>+</h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">POSH Trainings</p>
+                    </div>
+                    <div>
+                        <h3 style="color: white; font-size: 3rem; margin-bottom: 0.5rem;"><span class="stat-num" data-val="7" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">0</span>+</h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Core Industries</p>
+                    </div>
+                    <div>
+                        <h3 style="color: white; font-size: 3rem; margin-bottom: 0.5rem;"><span style="color: #ffffff !important;">ISO</span></h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Certified Expertise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Methodology: Impact Layout -->
+        <section id="training-methodology" style="padding: 120px 0; background: #ffffff; position: relative; overflow: hidden;">
+            <div class="methodology-container" style="max-width: 1200px; margin: 0 auto;">
+                <!-- Header Above -->
+                <div class="reveal section-head-centered">
+                    <h2 class="section-title-large">Precision in <span class="startup-highlight">Training & Compliance</span></h2>
+                </div>
+
+                <!-- 2-Column Balanced Layout (Swapped) -->
+                <!-- Methodology Grid -->
+                <div class="methodology-grid">
+                    
+                    <!-- Left: Single High-Impact Image -->
+                    <div class="reveal">
+                        <div style="border-radius: 40px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.12); border: 1px solid rgba(0,0,0,0.03); position: relative;">
+                            <img src="whatwedocards/posh2.jpg" alt="POSH Training Session" style="width: 100%; height: auto; display: block; filter: contrast(1.05);">
+                        </div>
+                    </div>
+
+                    <!-- Right: Methodology Details -->
+                    <div class="reveal stagger-1">
+                        <!-- Small Title Above Points -->
+                        <div style="margin-bottom: 2.5rem;">
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 2.5px; opacity: 0.8;">Training Methodology</div>
+                            <div style="width: 40px; height: 3px; background: var(--color-purple); margin-top: 15px; border-radius: 10px; opacity: 0.3;"></div>
+                        </div>
+
+                        <div style="display: grid; gap: 2rem;">
+                            <!-- Point 1 -->
+                            <div class="methodology-point" style="display: flex; gap: 1.5rem; align-items: start;">
+                                <div style="width: 42px; height: 42px; background: rgba(78, 47, 218, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-chalkboard-teacher" style="color: var(--color-purple); font-size: 1.1rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem; color: var(--color-navy); margin-bottom: 0.4rem;">Instructor-led Training (ILT)</h4>
+                                    <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1rem;">Interactive classroom and virtual sessions led by industry veterans.</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 2 -->
+                            <div class="methodology-point" style="display: flex; gap: 1.5rem; align-items: start;">
+                                <div style="width: 42px; height: 42px; background: rgba(78, 47, 218, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-users-cog" style="color: var(--color-purple); font-size: 1.1rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem; color: var(--color-navy); margin-bottom: 0.4rem;">Case Studies & Role-Playing</h4>
+                                    <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1rem;">Real-life scenarios engineered for practical learning.</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 3 -->
+                            <div class="methodology-point" style="display: flex; gap: 1.5rem; align-items: start;">
+                                <div style="width: 42px; height: 42px; background: rgba(78, 47, 218, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-comments" style="color: var(--color-purple); font-size: 1.1rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem; color: var(--color-navy); margin-bottom: 0.4rem;">Workshops & Discussions</h4>
+                                    <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1rem;">Hands-on problem-solving exercises to foster team synergy.</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 4 -->
+                            <div class="methodology-point" style="display: flex; gap: 1.5rem; align-items: start;">
+                                <div style="width: 42px; height: 42px; background: rgba(78, 47, 218, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-gamepad" style="color: var(--color-purple); font-size: 1.1rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem; color: var(--color-navy); margin-bottom: 0.4rem;">Simulations & Gamification</h4>
+                                    <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1rem;">Engaging activities to apply conflict resolution techniques.</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 5 -->
+                            <div class="methodology-point" style="display: flex; gap: 1.5rem; align-items: start;">
+                                <div style="width: 42px; height: 42px; background: rgba(78, 47, 218, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-clipboard-check" style="color: var(--color-purple); font-size: 1.1rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem; color: var(--color-navy); margin-bottom: 0.4rem;">Post-Training Assessment</h4>
+                                    <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1rem;">Feedback surveys and quizzes to guarantee skill retention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <!-- Our Partners: Full-Screen Architectural Layout -->
+        <section class="partners-section" style="padding: 100px 0; background: #ffffff; position: relative;">
+            <div class="container">
+                <!-- Branding & Heading -->
+                <div class="partners-heading-block" style="text-align: center; margin-bottom: 6rem;">
+                    <!-- Company Logo in 2 Rows -->
+                    <div class="reveal">
+                        <div style="font-size: 5rem; font-weight: 900; background: var(--grad-purple); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Outfit', sans-serif; line-height: 1;">N</div>
+                        <div style="font-size: 0.9rem; font-weight: 800; color: var(--color-navy); margin-top: 8px; letter-spacing: 5px; text-transform: uppercase;">Nexus Solution</div>
+                    </div>
+                    
+                    <!-- Section Heading -->
+                    <div class="reveal stagger-1" style="margin-top: 3rem;">
+                        <h2 style="font-size: 3.5rem; font-weight: 300; letter-spacing: -0.02em; color: #1e293b;">Our Global Partners</h2>
+                        <div style="width: 60px; height: 3px; background: var(--color-purple); margin: 2rem auto 0; border-radius: 10px; opacity: 0.3;"></div>
+                    </div>
+                </div>
+
+                <!-- Symmetrical Logo Grid -->
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <!-- Row 1: 4 Logos -->
+                    <div class="partners-grid-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; align-items: center; justify-items: center; margin-bottom: 4rem;">
+                        <div class="reveal partner-logo-simple">
+                            <img src="img/Amphora.png" style="max-width: 150px; height: auto;" alt="Amphora">
+                        </div>
+                        <div class="reveal stagger-1 partner-logo-simple">
+                            <img src="img/Curl.tech.png" style="max-width: 140px; height: auto;" alt="Curl.tech">
+                        </div>
+                        <div class="reveal stagger-2 partner-logo-simple">
+                            <img src="img/tmp_53b5a71b-53c3-4a1b-8809-30b5762eb568.png" style="max-width: 150px; height: auto;" alt="Partner">
+                        </div>
+                        <div class="reveal stagger-3 partner-logo-simple">
+                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.01.50%20PM.jpeg" style="max-width: 120px; height: auto; border-radius: 10px;" alt="Partner">
+                        </div>
+                    </div>
+
+                    <!-- Row 2: 3 Logos (Centered) -->
+                    <div class="partners-grid-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; align-items: center; justify-items: center; max-width: 800px; margin: 0 auto;">
+                        <div class="reveal stagger-4 partner-logo-simple">
+                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.01.59%20PM.jpeg" style="max-width: 120px; height: auto; border-radius: 10px;" alt="Partner">
+                        </div>
+                        <div class="reveal stagger-5 partner-logo-simple">
+                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.02.11%20PM.jpeg" style="max-width: 120px; height: auto; border-radius: 10px;" alt="Partner">
+                        </div>
+                        <div class="reveal stagger-6 partner-logo-simple">
+                             <img src="img/Your%20Industrial%20Experience_20250210_080711_0000_page-0001.jpg.jpeg" style="max-width: 150px; height: auto; border-radius: 10px;" alt="Partner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Final Consulting-Grade CTA -->
+        <section class="final-cta reveal">
+            <div class="container">
+                <div class="cta-inner">
+                    <span class="tagline pill" style="margin: 0 auto 2rem; width: fit-content;">Engagement Protocol</span>
+                    <h2 class="cta-title">Ready for Structural Excellence?</h2>
+                    <p class="cta-lead">Discuss your organizational requirements with our senior advisory team and build your foundation for scale.</p>
+                    
+                    <div class="cta-btns-group">
+                        <a href="contact.html" class="btn-pill-primary">
+                            <span>Schedule Strategic Call</span>
+                            <div class="icon-circle">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+                        <a href="services.html" class="btn-pill-secondary">
+                            <span>View All Services</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-logo">Nexus<span>Hive</span></h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Premier HR advisory and statutory governance partner for high-growth enterprises across India.</p>
+                    <div class="footer-auth-badges">
+                        <img src="img/msme.png" alt="MSME Registered">
+                        <img src="img/startup.png" alt="Startup India">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#hr-strategy">HR Strategy</a></li>
+                        <li><a href="services.html#compliance">Labour Law</a></li>
+                        <li><a href="services.html#finance">Payroll Systems</a></li>
+                        <li><a href="services.html#posh">POSH Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Intelligence</h4>
+                    <ul>
+                        <li><a href="about.html">Our Philosophy</a></li>
+                        <li><a href="services.html#audits">Audit Readiness</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Engage</h4>
+                    <ul class="footer-links">
+                        <li>No 11 & 12, Ganesh Nagar Layout, Telecom</li>
+                        <li>Road, Virupakshapura, Bangalore- 560097</li>
+                        <li><a href="mailto:info@nexushive.com">info@nexushive.com</a></li>
+                        <li><a href="tel:+918088052874">+91 80880 52874</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. | MSME Registration: UDYAM-KR-03-0599045</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit;" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
+    <script>
+        // --- Hamburger Menu ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileClose = document.getElementById('mobileClose');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Close when a nav link is tapped
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

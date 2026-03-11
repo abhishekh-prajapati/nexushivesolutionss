@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | NexusHive Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Services Page Redesign --- */
+        :root {
+            --color-navy: #111827;
+            --color-purple: #4E2FDA;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* --- Hero Intro --- */
+        .service-intro {
+            padding: 180px 0 80px;
+            text-align: center;
+        }
+        .service-intro h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+        }
+        .service-intro p {
+            font-size: 1.3rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Service Section Block --- */
+        .service-block {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(78, 47, 218, 0.06);
+            scroll-margin-top: 100px;
+        }
+        .service-block:nth-of-type(even) {
+            background: rgba(233, 233, 255, 0.15);
+        }
+
+        /* --- Stacked Layout: Heading → Lead → Image → Sub-services --- */
+        .service-stack {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Section number pill */
+        .service-number {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--color-purple);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: rgba(78, 47, 218, 0.06);
+            border: 1px solid rgba(78, 47, 218, 0.12);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Main heading */
+        .service-stack h2 {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            line-height: 1.08;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Lead paragraph */
+        .service-stack .service-lead {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        /* Image */
+        .service-image {
+            width: 100%;
+            height: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 30px 80px rgba(78, 47, 218, 0.08);
+            border: 1px solid rgba(78, 47, 218, 0.06);
+        }
+        .service-image img {
+            width: 106%;
+            height: 106%;
+            object-fit: cover;
+            transform: translate(-3%, -3%);
+        }
+
+        /* Sub-services grid */
+        .sub-services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .sub-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(78, 47, 218, 0.12);
+        }
+        .sub-item:last-child {
+            border-bottom: none;
+        }
+
+        .sub-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 0.5rem;
+        }
+        .sub-item p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .service-intro { padding: 150px 0 60px; }
+            .service-intro h1 { font-size: 3.5rem; }
+            .service-block { padding: 70px 0; }
+            .service-stack h2 { font-size: 2.6rem; }
+        }
+
+        @media (max-width: 768px) {
+            .service-intro { padding: 120px 0 40px; }
+            .service-intro h1 { font-size: 2.5rem; }
+            .service-intro p { font-size: 1.05rem; }
+            .service-block { padding: 50px 0; }
+            .service-stack h2 { font-size: 2rem; }
+            .service-stack .service-lead { font-size: 1.05rem; margin-bottom: 2rem; }
+            .service-image { height: 280px; border-radius: 18px; margin-bottom: 2rem; }
+            .sub-services-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .sub-item { padding: 1.4rem; }
+            .sub-item h4 { font-size: 1.05rem; }
+            .sub-item p { font-size: 0.9rem; }
+            .service-number { font-size: 0.65rem; padding: 0.4rem 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .service-intro h1 { font-size: 2rem; }
+            .service-stack h2 { font-size: 1.75rem; }
+            .service-image { height: 220px; border-radius: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-flex">
+                <a href="index.html" class="logo">Nexus<span>Hive</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html" class="active">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <div class="dropdown">
+                            <div class="mega-grid">
+                                <!-- Column 1: Strategy & Structure -->
+                                <div class="mega-column">
+                                    <h4><a href="#hr-strategy">Strategy & Setup</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#hr-strategy">Org Architecture</a></li>
+                                        <li><a href="#hr-strategy">HR Manuals</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#hr-consulting">HR Consulting</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#hr-consulting">Audit Readiness</a></li>
+                                        <li><a href="#hr-consulting">Policy Vetting</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#audits">Specialized Audits</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#audits">Lab Law Audit</a></li>
+                                        <li><a href="#audits">Forensic HR Audit</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#growth">Business Growth</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#growth">Scaling Advisory</a></li>
+                                        <li><a href="#growth">Project Execution</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 2: Compliance & Finance -->
+                                <div class="mega-column">
+                                    <h4><a href="#compliance">Statutory & Law</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#compliance">Labour Laws</a></li>
+                                        <li><a href="#compliance">Workplace Adherence</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#posh">POSH & Ethics</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#posh">IC Formation</a></li>
+                                        <li><a href="#posh">Sensitization</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#registration">Registrations</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#registration">PF/ESI/PT</a></li>
+                                        <li><a href="#registration">Startup India/MSME</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#finance">Accounts & Finance</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#finance">End-to-End Payroll</a></li>
+                                        <li><a href="#finance">TDS & GST Flow</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Column 3: Talent & Innovation -->
+                                <div class="mega-column">
+                                    <h4><a href="#staffing">Sourcing & Staffing</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#staffing">Executive Search</a></li>
+                                        <li><a href="#staffing">Onboarding Protocol</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#facilitation">HR Facilitation</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#facilitation">Fractional CHRO</a></li>
+                                        <li><a href="#facilitation">KRA/KPI/OKR Hub</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#training">Training & Tech</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#training">Skill Gap Diagnosis</a></li>
+                                        <li><a href="#tech">SaaS Implementation</a></li>
+                                    </ul>
+                                    <h4 style="margin-top:15px;"><a href="#others">Other Solutions</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="#others">Brand & Identity</a></li>
+                                        <li><a href="#others">Corporate Offsites</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Hamburger (mobile only) -->
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section class="service-intro container reveal">
+            <h1>Specialized <span class="startup-highlight">Capabilities</span></h1>
+            <p>Precision forensic advisory, statutory governance, and operational facilitation for the modern enterprise.</p>
+        </section>
+
+        <!-- 01. HR set up & Strategy -->
+        <section id="hr-strategy" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">01 — Strategy & Setup</div>
+                    <h2>HR Set Up &<br>Strategy</h2>
+                    <p class="service-lead">Building high-fidelity organizational foundations that bridge leadership vision with operational excellence.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/hr setup and strategic.png" alt="HR Strategy">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Organizational Architecture</h4>
+                            <p>Defining precise hierarchies and communication flows that eliminate friction and foster synergy.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Governance Manuals</h4>
+                            <p>Drafting bespoke HR handbooks and guides that legally protect your brand while defining your unique culture.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Operational Standards</h4>
+                            <p>Setting clear internal guidelines for attendance, leave, and conduct across the entire firm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. Statutory & Labour Law -->
+        <section id="compliance" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">02 — Compliance</div>
+                    <h2>Statutory &<br>Labour Law</h2>
+                    <p class="service-lead">Absolute adherence to India's legal landscape, ensuring pristine commercial governance and risk mitigation.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/Statutory & Labour Law, Workplace Compliance.png" alt="Compliance">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Labour Law Compliance</h4>
+                            <p>Rigorous management of regional and central laws to mitigate long-term corporate liability.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Workplace Law Adherence</h4>
+                            <p>Ensuring site-level adherence to health, safety, and employee-rights regulations.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Statutory Frameworks</h4>
+                            <p>Managing the essential legal filings and compliance records required for enterprise transparency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. HR Consulting -->
+        <section id="hr-consulting" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">03 — Advisory</div>
+                    <h2>HR Consulting</h2>
+                    <p class="service-lead">Forensic advisory designed to prepare enterprises for high-stakes audits and institutional investment cycles.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/HR Consulting.png" alt="Consulting">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Audit Readiness (Fundraising)</h4>
+                            <p>Comprehensive pre-audit checks to ensure waterproof compliance for investor due diligence.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Policy Drafting & Vetting</h4>
+                            <p>Microscopic review of existing policies to close legal loopholes and modernise operations.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Employment Contracts</h4>
+                            <p>Drafting iron-clad employment letters and contracts that protect company interests and IP.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Governance Protocols</h4>
+                            <p>Designing modern attendance and leave policies that maximize enterprise productivity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. Registration -->
+        <section id="registration" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">04 — Registration</div>
+                    <h2>Registration</h2>
+                    <p class="service-lead">Accelerating organizational validation through technical speed in government and trade registrations.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/Registration.png" alt="Registration">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Statutory Benefit Enrolment</h4>
+                            <p>PF, ESI, and Professional Tax registrations at both state and central levels.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Startup India & MSME</h4>
+                            <p>Official recognition via Startup India and MSME to unlock critical tax benefits and incentives.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Trade Certifications</h4>
+                            <p>Fast-track processing of Udyam and Shop Establishment registrations required for operations.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Brand Protection</h4>
+                            <p>Securing your brand's unique identity through national trademark and IP filings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. HR Facilitation -->
+        <section id="facilitation" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">05 — Facilitation</div>
+                    <h2>HR Facilitation</h2>
+                    <p class="service-lead">Operational excellence that bridges the gap between leadership vision and team-level execution.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/HR Facilitation.png" alt="Facilitation">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Performance Hub (KRA/OKR)</h4>
+                            <p>Implementation of goal frameworks to drive measurable organizational results efficiently.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Fractional CHRO Services</h4>
+                            <p>Senior-level HR leadership provided on an executive advisory basis for growing startups.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Salary Structure & CSF</h4>
+                            <p>Designing market-competitive compensation models and Critical Success Factors.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Engagement Analytics</h4>
+                            <p>Data-driven satisfaction surveys and engagement activities to boost enterprise morale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. POSH Compliance -->
+        <section id="posh" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">06 — Ethics</div>
+                    <h2>POSH & Ethics</h2>
+                    <p class="service-lead">Safe, respectful, and legally sound environments for modern workforces via policy and investigation.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/posh.jpeg" alt="POSH" style="transform:none;">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>IC Framework & Member</h4>
+                            <p>Structuring unbiased Internal Committees with qualified external expert oversight.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Culture Sensitization</h4>
+                            <p>High-impact workshops designed to foster a culture of respect and zero-harassment.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Compliance Filings</h4>
+                            <p>Management of annual reports and maintenance of regulatory portals like She-Box.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Ethics Investigation</h4>
+                            <p>Forensic handling of workplace conduct grievances and regular ethical audits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. Sourcing & Staffing -->
+        <section id="staffing" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">07 — Talent</div>
+                    <h2>Sourcing &<br>Staffing</h2>
+                    <p class="service-lead">Cognitive talent mapping, identifying the elite workforce required for market dominance.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/Sourcing & staffing.png" alt="Staffing">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Executive Search</h4>
+                            <p>Discreetly identifying and securing C-suite talent and critical leadership roles.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Campus & Global Programs</h4>
+                            <p>Building future pipelines through strategic campus engagement and global hiring.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Operational Onboarding</h4>
+                            <p>Managing JD creation, onboarding protocols, and contract staff deputation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. Audits -->
+        <section id="audits" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">08 — Audits</div>
+                    <h2>Specialized Audits</h2>
+                    <p class="service-lead">Microscopic evaluation of operational hygiene to detect and remedy systemic risks.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/Audits.png" alt="Audits">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Labour Law Audit</h4>
+                            <p>Periodic forensic reviews of statutory records and condition logs to ensure total compliance.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Forensic HR Audit</h4>
+                            <p>Analysing process data and histories to uncover bottlenecks and operational inefficiencies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. Training & Skilling -->
+        <section id="training" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">09 — Training</div>
+                    <h2>Training & Skilling</h2>
+                    <p class="service-lead">Capability building focused on technical mastery and leadership emotional intelligence.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/training & skilling.png" alt="Training">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Skill Gap Diagnosis</h4>
+                            <p>Diagnosing deficiencies versus market demands and mapping a clear growth path.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Core & Soft Skills</h4>
+                            <p>Delivering high-impact training sessions ranging from core tech to leadership soft skills.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Team Synergy Building</h4>
+                            <p>Fostering synergy and advanced problem-solving through structured team workshops.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Accounts & Finance -->
+        <section id="finance" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">10 — Finance</div>
+                    <h2>Accounts &<br>Finance</h2>
+                    <p class="service-lead">Precision financial governance and high-complexity payroll systems managed with zero-error tolerance.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/accounts and finance.png" alt="Finance">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Full-Cycle Payroll</h4>
+                            <p>Zero-error processing of multi-tier employee compensation, benefits, and disbursements.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Labour Code Structuring</h4>
+                            <p>Engineering salary models to align with upcoming national Labour Code requirements.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Tax & Statutory Deductions</h4>
+                            <p>Managing PF, ESI, TDS, and GST flows to ensure timely regulatory remittances.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Technology & Software -->
+        <section id="tech" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">11 — Technology</div>
+                    <h2>Technology &<br>Software</h2>
+                    <p class="service-lead">Digitizing organizational workflows to create agile, remote-ready, and data-driven corporate cultures.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/technology and software.png" alt="Tech">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>IT Modernization</h4>
+                            <p>Upgrading legacy infrastructure and software applications for modern market velocity.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>SaaS Implementation</h4>
+                            <p>Selecting and deploying world-class technology stacks to automate enterprise people-management.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Process Automation</h4>
+                            <p>Automating manual processes for optimized speed and remote-ready efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Business Growth -->
+        <section id="growth" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">12 — Growth</div>
+                    <h2>Business Growth</h2>
+                    <p class="service-lead">Strategic support for companies scaling from startup origin to a market leader through structural interventions.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/business growth.png" alt="Growth">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Scaling Advisory</h4>
+                            <p>Direct counsel to founders on high-impact people decisions and structural realignment during rapid growth.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Expert Execution</h4>
+                            <p>Executing critical organizational projects that require deep structural and advisory facilitation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Other Services -->
+        <section id="others" class="service-block">
+            <div class="container">
+                <div class="service-stack reveal">
+                    <div class="service-number">13 — Extras</div>
+                    <h2>Other Services</h2>
+                    <p class="service-lead">Holistic corporate ecosystem support designed to build identity and manage operational logistics.</p>
+                    <div class="service-image">
+                        <img src="whatwedocards/other services.png" alt="Others">
+                    </div>
+                    <div class="sub-services-grid">
+                        <div class="sub-item">
+                            <h4>Corporate Identity</h4>
+                            <p>Crafting website and logo designs that command authority in your niche market.</p>
+                        </div>
+                        <div class="sub-item">
+                            <h4>Offsites & Logistics</h4>
+                            <p>End-to-end management for corporate retreats, engagement activities, and employee kits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Consulting-Grade CTA -->
+        <section class="final-cta reveal" style="background: white;">
+            <div class="container">
+                <div class="cta-inner">
+                    <span class="tagline pill" style="margin: 0 auto 2rem; width: fit-content;">Engagement Protocol</span>
+                    <h2 class="cta-title">Ready for Structural Excellence?</h2>
+                    <p class="cta-lead">Discuss your organizational requirements with our senior advisory team and build your foundation for scale.</p>
+                    
+                    <div class="cta-btns-group">
+                        <a href="contact.html" class="btn-pill-primary">
+                            <span>Schedule Strategic Call</span>
+                            <div class="icon-circle">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+                        <a href="services.html" class="btn-pill-secondary">
+                            <span>View All Services</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Professional Footer (Synced with Site) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-logo">Nexus<span>Hive</span></h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Premier HR advisory and statutory governance partner for high-growth enterprises across India.</p>
+                    <div class="footer-auth-badges">
+                        <img src="img/msme.png" alt="MSME Registered">
+                        <img src="img/startup.png" alt="Startup India">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#hr-strategy">HR Strategy</a></li>
+                        <li><a href="services.html#compliance">Labour Law</a></li>
+                        <li><a href="services.html#finance">Payroll Systems</a></li>
+                        <li><a href="services.html#posh">POSH Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Intelligence</h4>
+                    <ul>
+                        <li><a href="about.html">Our Philosophy</a></li>
+                        <li><a href="services.html#audits">Audit Readiness</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Engage</h4>
+                    <ul class="footer-links">
+                        <li>No 11 & 12, Ganesh Nagar Layout, Telecom</li>
+                        <li>Road, Virupakshapura, Bangalore- 560097</li>
+                        <li><a href="mailto:info@nexushive.com">info@nexushive.com</a></li>
+                        <li><a href="tel:+918088052874">+91 80880 52874</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. | MSME Registration: UDYAM-KR-03-0599045</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit;" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
+    <script>
+        // --- Hamburger Menu ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileClose = document.getElementById('mobileClose');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
