@@ -977,16 +977,16 @@ header.scrolled {
 }
 
 .logo-track img {
-    height: 45px; /* Standard height for executive tickers */
-    width: 130px;  /* Uniform width constraint */
+    height: 70px; /* Enhanced visibility height */
+    width: 170px;  /* Proportional uniform width constraint */
     object-fit: contain;
     mix-blend-mode: multiply;
-    filter: grayscale(1); /* Professional uniform look */
-    opacity: 0.6;
+    filter: grayscale(1); 
+    opacity: 0.7; /* Slightly increased baseline opacity */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     flex-shrink: 0;
     cursor: default;
-    margin: 0 30px;
+    margin: 0 40px; /* Increased spacing for better breathing room */
 }
 
 .logo-track img:hover {
