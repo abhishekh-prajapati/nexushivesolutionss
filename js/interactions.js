@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tCards = testimonialsSec.querySelectorAll('.t-card');
 
         if (tagEl) { const t = animClipH2(tagEl, 0); onceVisible(tagEl, t); }
-        if (h2El)  { const t = animChars(h2El, 0.2); onceVisible(h2El, t); }
+        if (h2El)  { const t = animClipH2(h2El, 0.15); onceVisible(h2El, t); }
         if (stars) { const t = animScaleBounce(stars, 0.5); onceVisible(stars, t, 0.2); }
 
         tCards.forEach((card, i) => {
