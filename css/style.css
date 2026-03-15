@@ -977,20 +977,22 @@ header.scrolled {
 }
 
 .logo-track img {
-    height: 75px; 
+    height: 45px; /* Standard height for executive tickers */
+    width: 130px;  /* Uniform width constraint */
     object-fit: contain;
     mix-blend-mode: multiply;
-    opacity: 0.9;
-    transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(1); /* Professional uniform look */
+    opacity: 0.6;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     flex-shrink: 0;
     cursor: default;
-    /* Added to push the blurrish edge backwards visually */
-    margin: 0 20px;
+    margin: 0 30px;
 }
 
 .logo-track img:hover {
     opacity: 1;
-    transform: scale(1.08);
+    filter: grayscale(0);
+    transform: translateY(-5px) scale(1.05);
 }
 
 @keyframes logoScroll {
