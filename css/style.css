@@ -989,6 +989,11 @@ header.scrolled {
     margin: 0 40px; /* Increased spacing for better breathing room */
 }
 
+/* Optical balance for horizontally-stretched logos */
+.logo-track img.logo-slim {
+    height: 55px;
+}
+
 .logo-track img:hover {
     opacity: 1;
     filter: grayscale(0);
