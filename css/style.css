@@ -1733,6 +1733,26 @@ footer::before {
     }
 }
 
+.centered-head {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 6rem;
+}
+
+.startup-heading {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .startup-heading {
+        font-size: 2.2rem !important;
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* --- RESPONSIVE --- */
 /* --- MOBILE --- */
 @media (max-width: 768px) {

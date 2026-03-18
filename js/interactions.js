@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** Char-by-char stagger (for tagline spans in sections) */
     function animChars(el, delay = 0) {
-        const parts = el.innerHTML.split(/<br\s*\/?>/i);
+        const parts = el.innerHTML.split(/<br\s*\/?>/i).map(p => p.trim());
         let charIndex = 0;
         el.innerHTML = parts.map(part => {
             return part.split('').map(c => {
@@ -458,9 +458,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ═══════════════════════════════════════════════════════
-       14. TESTIMONIAL QUOTE WORDS — word-by-word on scroll
+       14. TESTIMONIAL QUOTE WORDS (DISABLED for long text)
     ═══════════════════════════════════════════════════════ */
-    document.querySelectorAll('.t-card .quote').forEach(quote => {
+    /* document.querySelectorAll('.t-card.small .quote').forEach(quote => {
         const words = quote.textContent.trim().split(' ');
         quote.innerHTML = words.map((w, i) =>
             `<span class="word-wrap"><span class="word" style="transition-delay:${0.04*i}s">${w}</span></span>`
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
         onceVisible(quote, () => {
             quote.querySelectorAll('.word').forEach(w => w.classList.add('revealed'));
         }, 0.2);
-    });
+    }); */
 
     /* ═══════════════════════════════════════════════════════
        15. NAV — section-based active state
