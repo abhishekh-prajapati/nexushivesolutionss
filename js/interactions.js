@@ -12,38 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const EASE_OUT_BACK = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
 
     /* ═══════════════════════════════════════════════════════
-       2. SCROLL PROGRESS BAR
+       2. SCROLL PROGRESS BAR (REMOVED)
     ═══════════════════════════════════════════════════════ */
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.prepend(progressBar);
-    window.addEventListener('scroll', () => {
-        const st = document.documentElement.scrollTop;
-        const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        progressBar.style.width = `${(st / h) * 100}%`;
-    });
 
     /* ═══════════════════════════════════════════════════════
        3. HERO — SPLIT WORD REVEAL (immediate on load)
     ═══════════════════════════════════════════════════════ */
-    function splitWords(el, onScroll = false) {
-        const text = el.textContent.trim();
-        el.innerHTML = text.split(' ').map((w, i) =>
-            `<span class="word-wrap"><span class="word" style="transition-delay:${0.06 * i}s">${w}</span></span>`
-        ).join(' ');
-        if (!onScroll) {
-            setTimeout(() => el.querySelectorAll('.word').forEach(w => w.classList.add('revealed')), 250);
-        }
-        return el.querySelectorAll('.word');
-    }
-
-    // Hero H1 — immediate load
+    // Hero H1 — Standard Corporate Reveal
     const heroH1 = document.querySelector('.hero h1');
     if (heroH1) {
-        heroH1.style.cssText += `opacity: 0; transform: translateX(50px); transition: opacity 0.8s ease, transform 0.8s ${EASE_OUT_EXPO};`;
+        heroH1.style.cssText += `opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ${EASE_OUT_EXPO};`;
         setTimeout(() => {
             heroH1.style.opacity = '1';
-            heroH1.style.transform = 'translateX(0)';
+            heroH1.style.transform = 'translateY(0)';
         }, 100);
     }
 
@@ -75,75 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ═══════════════════════════════════════════════════════
-       5. HERO — PARTICLES + PARALLAX
+       5. HERO — PARALLAX (REMOVED)
     ═══════════════════════════════════════════════════════ */
     const heroSec = document.querySelector('.hero');
     if (heroSec) {
-        // Particle canvas
-        const canvas = document.createElement('canvas');
-        canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.45;';
-        heroSec.appendChild(canvas);
-        const ctx = canvas.getContext('2d');
-        let W, H;
-        const resize = () => { W = canvas.width = heroSec.offsetWidth; H = canvas.height = heroSec.offsetHeight; };
-        resize(); window.addEventListener('resize', resize);
-        const pts = Array.from({length:28}, () => ({
-            x: Math.random()*800, y: Math.random()*800,
-            r: Math.random()*2.5+0.8, dx:(Math.random()-0.5)*0.35, dy:(Math.random()-0.5)*0.35,
-            o: Math.random()*0.45+0.15
-        }));
-        (function draw() {
-            ctx.clearRect(0,0,W,H);
-            pts.forEach(p => {
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-                ctx.fillStyle = `rgba(79,70,229,${p.o})`; ctx.fill();
-                p.x+=p.dx; p.y+=p.dy;
-                if(p.x<0||p.x>W) p.dx*=-1; if(p.y<0||p.y>H) p.dy*=-1;
-            }); requestAnimationFrame(draw);
-        })();
-        // Parallax
-        window.addEventListener('scroll', () => {
-            heroSec.style.setProperty('--parallax-y', `${window.scrollY*0.3}px`);
-        });
+        // Parallax removed per user request
     }
 
     /* ═══════════════════════════════════════════════════════
-       6. MAGNETIC BUTTONS
+       6. MAGNETIC BUTTONS (REMOVED)
     ═══════════════════════════════════════════════════════ */
-    document.querySelectorAll('.btn-cta, .btn-get-started').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-            const r = btn.getBoundingClientRect();
-            btn.style.transform = `translate(${(e.clientX-r.left-r.width/2)*0.18}px,${(e.clientY-r.top-r.height/2)*0.18}px)`;
-        });
-        btn.addEventListener('mouseleave', () => btn.style.transform = '');
-    });
 
     /* ═══════════════════════════════════════════════════════
-       7. 3D CARD TILT — instant tracking, reduced intensity
+       7. 3D CARD TILT (REMOVED FOR CORPORATE STABILITY)
     ═══════════════════════════════════════════════════════ */
-    document.querySelectorAll('.startup-card').forEach(card => {
-        // Remove CSS transition on transform so tilt follows mouse instantly
-        card.style.transition = 'box-shadow 0.3s ease, opacity 0.7s ease';
-
-        card.addEventListener('mousemove', e => {
-            const r = card.getBoundingClientRect();
-            const x = e.clientX - r.left, y = e.clientY - r.top;
-            const rX = -(y - r.height/2) / 28;  // reduced from /16
-            const rY =  (x - r.width/2)  / 28;
-            card.style.transform = `perspective(900px) rotateX(${rX}deg) rotateY(${rY}deg) translateY(-5px)`;
-            let shine = card.querySelector('.card-shine');
-            if (!shine) {
-                shine = document.createElement('div');
-                shine.className = 'card-shine';
-                card.appendChild(shine);
-            }
-            shine.style.left = `${(x / r.width)  * 100}%`;
-            shine.style.top  = `${(y / r.height) * 100}%`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
 
     /* ═══════════════════════════════════════════════════════
        8. SECTION TEXT ANIMATIONS — CORE ENGINE
@@ -175,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return part.split('').map(c => {
                 if (c === ' ') return '&nbsp;';
                 if (c === '\n' || c === '\t') return '';
-                const html = `<span class="char" style="display:inline-block;opacity:0;transform:translateY(15px) rotate(5deg);transition:opacity 0.4s ${(delay + charIndex*0.025).toFixed(3)}s ease,transform 0.5s ${(delay + charIndex*0.025).toFixed(3)}s ${EASE_OUT_BACK}">${c}</span>`;
+                const html = `<span class="char" style="display:inline-block;opacity:0;transform:translateY(15px);transition:opacity 0.4s ${(delay + charIndex*0.025).toFixed(3)}s ease,transform 0.5s ${(delay + charIndex*0.025).toFixed(3)}s ${EASE_OUT_EXPO}">${c}</span>`;
                 charIndex++;
                 return html;
             }).join('');
@@ -190,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /** Blur-fade-up (for paragraphs) */
     function animBlurPara(el, delay = 0) {
         el.style.cssText += `
-            opacity:0; filter:blur(5px); transform:translateY(18px);
-            transition: opacity 0.9s ${delay}s ease,
-                        filter 0.9s ${delay}s ease,
-                        transform 0.9s ${delay}s ${EASE_OUT_EXPO};
+            opacity:0; filter:blur(10px); transform:translateY(30px);
+            transition: opacity 1.2s ${delay}s ease,
+                        filter 1.2s ${delay}s ease,
+                        transform 1.2s ${delay}s ${EASE_OUT_EXPO};
         `;
         return () => { el.style.opacity='1'; el.style.filter='blur(0)'; el.style.transform='translateY(0)'; };
     }
@@ -221,9 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /** Scale-up bounce (for cards / icons) */
     function animScaleBounce(el, delay = 0) {
         el.style.cssText += `
-            opacity:0; transform:scale(0.8) translateY(20px);
-            transition: opacity 0.7s ${delay}s ease,
-                        transform 0.7s ${delay}s ${EASE_OUT_BACK};
+            opacity:0; transform:scale(0.92) translateY(30px);
+            transition: opacity 0.8s ${delay}s ease,
+                        transform 0.8s ${delay}s ${EASE_OUT_EXPO};
         `;
         return () => { el.style.opacity='1'; el.style.transform='scale(1) translateY(0)'; };
     }

@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-family: var(--font-main) !important;
             background-color: #ffffff;
             background-image: var(--grad-mesh);
             background-attachment: fixed;
@@ -101,7 +101,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-heading);
         }
 
         .detail-body p, .detail-body a {
@@ -187,7 +187,7 @@
             padding: 22px;
             border-radius: 16px;
             border: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-heading);
             font-size: 1.15rem;
             font-weight: 700;
             cursor: pointer;
@@ -268,76 +268,52 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="has-dropdown">
-                        <a href="services.html">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <a href="services.html">Services</a>
                         <div class="dropdown">
                             <div class="mega-grid">
-                                <!-- Column 1: Strategy & Structure -->
+                                <!-- Column 1: HR Strategy & Operations -->
                                 <div class="mega-column">
-                                    <h4><a href="services.html#hr-strategy">Strategy & Setup</a></h4>
+                                    <h4><a href="services.html#hr-strategy">HR Strategy & Operations</a></h4>
                                     <ul class="sub-drop">
                                         <li><a href="services.html#hr-strategy">Org Architecture</a></li>
-                                        <li><a href="services.html#hr-strategy">HR Manuals</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#hr-consulting">HR Consulting</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#hr-consulting">Audit Readiness</a></li>
-                                        <li><a href="services.html#hr-consulting">Policy Vetting</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#audits">Specialized Audits</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#audits">Lab Law Audit</a></li>
-                                        <li><a href="services.html#audits">Forensic HR Audit</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#growth">Business Growth</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#growth">Scaling Advisory</a></li>
-                                        <li><a href="services.html#growth">Project Execution</a></li>
+                                        <li><a href="services.html#hr-strategy">HR Manuals & Policies</a></li>
+                                        <li><a href="services.html#hr-strategy">Audit Readiness</a></li>
                                     </ul>
                                 </div>
-                                <!-- Column 2: Compliance & Finance -->
+                                <!-- Column 2: Statutory, Labour Law & POSH -->
                                 <div class="mega-column">
-                                    <h4><a href="services.html#compliance">Statutory & Law</a></h4>
+                                    <h4><a href="services.html#compliance">Statutory, Labour Law & POSH</a></h4>
                                     <ul class="sub-drop">
-                                        <li><a href="services.html#compliance">Labour Laws</a></li>
-                                        <li><a href="services.html#compliance">Workplace Adherence</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#posh">POSH & Ethics</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#posh">IC Formation</a></li>
-                                        <li><a href="services.html#posh">Sensitization</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#registration">Registrations</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#registration">PF/ESI/PT</a></li>
-                                        <li><a href="services.html#registration">Startup India/MSME</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#finance">Accounts & Finance</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
-                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
+                                        <li><a href="services.html#compliance">Labour Law Compliance</a></li>
+                                        <li><a href="services.html#posh">POSH & Ethics (IC)</a></li>
+                                        <li><a href="services.html#registration">PF/ESI/PT Registrations</a></li>
                                     </ul>
                                 </div>
-                                <!-- Column 3: Talent & Innovation -->
+                                <!-- Column 3: Talent Sourcing & Staffing -->
                                 <div class="mega-column">
-                                    <h4><a href="services.html#staffing">Sourcing & Staffing</a></h4>
+                                    <h4><a href="services.html#staffing">Talent Sourcing & Staffing</a></h4>
                                     <ul class="sub-drop">
                                         <li><a href="services.html#staffing">Executive Search</a></li>
                                         <li><a href="services.html#staffing">Onboarding Protocol</a></li>
+                                        <li><a href="services.html#staffing">Sourcing Strategy</a></li>
                                     </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#facilitation">HR Facilitation</a></h4>
+                                </div>
+                                <!-- Column 4: Finance, Tech & Growth -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#finance">Finance, Tech & Growth</a></h4>
                                     <ul class="sub-drop">
-                                        <li><a href="services.html#facilitation">Fractional CHRO</a></li>
-                                        <li><a href="services.html#facilitation">KRA/KPI/OKR Hub</a></li>
+                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
+                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
+                                        <li><a href="services.html#training">Training & Tech Hub</a></li>
                                     </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#training">Training & Tech</a></h4>
+                                </div>
+                                <!-- Column 5: Business Support -->
+                                <div class="mega-column">
+                                    <h4><a href="services.html#others">Business Support</a></h4>
                                     <ul class="sub-drop">
-                                        <li><a href="services.html#training">Skill Gap Diagnosis</a></li>
-                                        <li><a href="services.html#tech">SaaS Implementation</a></li>
-                                    </ul>
-                                    <h4 style="margin-top:15px;"><a href="services.html#others">Other Solutions</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#others">Brand & Identity</a></li>
-                                        <li><a href="services.html#others">Corporate Offsites</a></li>
+                                        <li><a href="services.html#others">Brand Identity</a></li>
+                                        <li><a href="services.html#others">Corporate Events</a></li>
+                                        <li><a href="services.html#others">Marketing Strategy</a></li>
                                     </ul>
                                 </div>
                             </div>

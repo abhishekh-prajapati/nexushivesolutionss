@@ -4,15 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const updateHeader = () => {
         if (window.scrollY > 50) {
-            header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
-            header.style.height = '70px';
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = 'none';
-            header.style.height = '80px';
-            header.style.background = '#ffffff';
-            header.style.backdropFilter = 'none';
+            header.classList.remove('scrolled');
         }
     };
     window.addEventListener('scroll', updateHeader);
