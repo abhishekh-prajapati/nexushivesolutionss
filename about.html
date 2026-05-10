@@ -1,670 +1,1907 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Who We Are | NexusHive Solutions</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        /* ── ABOUT PAGE MOBILE RESPONSIVENESS ── */
+      /* â”€â”€ ABOUT PAGE MOBILE RESPONSIVENESS â”€â”€ */
 
-        /* Founder section hero heading */
-        @media (max-width: 1024px) {
-            .about-founder-sec { padding: 90px 0 50px; }
-
-            .stats-grid-about {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem !important;
-            }
-
-            .partners-grid-row {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem !important;
-                max-width: 100% !important;
-                margin-bottom: 2rem !important;
-            }
-
-            .about-founder-grid h2 {
-                font-size: 2rem !important;
-            }
-
-            /* Methodology Section */
-            .methodology-container {
-                padding: 0 1.5rem !important;
-            }
-
-            /* Partners section */
-            .partners-section {
-                padding: 60px 0 !important;
-            }
-            .partners-heading-block {
-                margin-bottom: 3rem !important;
-            }
-            .partners-heading-block .partners-big-n {
-                font-size: 3rem !important;
-            }
-
-            /* Partner logos max-width */
-            .partner-logo-simple img {
-                max-width: 110px !important;
-                height: auto !important;
-            }
-
-            /* Stats Section */
-            .stats-about-sec {
-                padding: 40px 0 !important;
-            }
-            .stats-about-sec h3 {
-                font-size: 2.2rem !important;
-            }
-
-            /* Benefit list on founder */
-            .benefit-list li {
-                justify-content: flex-start !important;
-                font-size: 0.95rem !important;
-            }
-            .benefit-list {
-                gap: 1rem !important;
-            }
-
-            /* Founder image */
-            .about-founder-grid { text-align: left !important; }
-            .founder-img-col {
-                margin-top: 0 !important;
-                order: 1;
-            }
-            .founder-text-col {
-                order: 2;
-            }
-            .founder-img-col > div:first-child {
-                border-radius: 20px !important;
-                aspect-ratio: 1/1.1 !important;
-            }
-
-            /* Founder name below image */
-            .founder-name-simple {
-                margin-top: 1.2rem !important;
-                text-align: center !important;
-            }
-
-            /* Description paragraph */
-            .founder-text-col p {
-                font-size: 1rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            /* Section title scaling */
-            .section-head-centered { margin-bottom: 3rem; }
-            .section-title-large { font-size: 2.2rem !important; font-weight: 700; }
-            .section-title-large span { display: inline !important; }
-            .methodology-grid {
-                grid-template-columns: 1fr !important;
-                gap: 3rem !important;
-            }
-        }
-        @media (max-width: 480px) {
-            .methodology-point {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 1rem !important;
-            }
-            .methodology-point i {
-                font-size: 1.5rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .partners-grid-row {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem !important;
-            }
-            .partner-logo-simple img {
-                max-width: 90px !important;
-            }
-        }
-
-        /* Partner logos */
-        .partner-logo-simple {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .partner-logo-simple img {
-            filter: grayscale(1);
-            opacity: 0.4;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        }
-        .partner-logo-simple:hover img {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.08);
-        }
-
-        /* On mobile: show image first, then text */
-        @media (max-width: 1024px) {
-            .founder-text-col { order: 2; }
-            .founder-img-col  { order: 1; }
+      /* Founder section hero heading */
+      @media (max-width: 1024px) {
+        .about-founder-sec {
+          padding: 90px 0 50px;
         }
 
         .stats-grid-about {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4rem;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 2rem !important;
         }
 
-        /* Methodology Grid Specifics */
-        .section-head-centered {
-            text-align: center;
-            margin-bottom: 7rem;
+        .partners-grid-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 2rem !important;
+          max-width: 100% !important;
+          margin-bottom: 2rem !important;
         }
-        body {
-            font-family: var(--font-main) !important;
+
+        .about-founder-grid h2 {
+          font-size: 2rem !important;
+        }
+
+        /* Methodology Section */
+        .methodology-container {
+          padding: 0 1.5rem !important;
+        }
+
+        /* Partners section */
+        .partners-section {
+          padding: 60px 0 !important;
+        }
+        .partners-heading-block {
+          margin-bottom: 3rem !important;
+        }
+        .partners-heading-block .partners-big-n {
+          font-size: 3rem !important;
+        }
+
+        /* Partner logos max-width */
+        .partner-logo-simple img {
+          max-width: 110px !important;
+          height: auto !important;
+        }
+
+        /* Stats Section */
+        .stats-about-sec {
+          padding: 40px 0 !important;
+        }
+        .stats-about-sec h3 {
+          font-size: 2.2rem !important;
+        }
+
+        /* Benefit list on founder */
+        .benefit-list li {
+          justify-content: flex-start !important;
+          font-size: 0.95rem !important;
+        }
+        .benefit-list {
+          gap: 1rem !important;
+        }
+
+        /* Founder image */
+        .about-founder-grid {
+          text-align: left !important;
+        }
+        .founder-img-col {
+          margin-top: 0 !important;
+          order: 1;
+        }
+        .founder-text-col {
+          order: 2;
+        }
+        .founder-img-col > div:first-child {
+          border-radius: 20px !important;
+          aspect-ratio: 1/1.1 !important;
+        }
+
+        /* Founder name below image */
+        .founder-name-simple {
+          margin-top: 1.2rem !important;
+          text-align: center !important;
+        }
+
+        /* Description paragraph */
+        .founder-text-col p {
+          font-size: 1rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+
+        /* Section title scaling */
+        .section-head-centered {
+          margin-bottom: 3rem;
         }
         .section-title-large {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            color: var(--color-navy);
+          font-size: 2.2rem !important;
+          font-weight: 700;
         }
         .section-title-large span {
-            display: inline-block;
+          display: inline !important;
         }
         .methodology-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
+          grid-template-columns: 1fr !important;
+          gap: 3rem !important;
         }
-    </style>
-</head>
-<body>
+      }
+      @media (max-width: 480px) {
+        .methodology-point {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 1rem !important;
+        }
+        .methodology-point i {
+          font-size: 1.5rem !important;
+        }
+      }
 
+      @media (max-width: 480px) {
+        .partners-grid-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.5rem !important;
+        }
+        .partner-logo-simple img {
+          max-width: 90px !important;
+        }
+      }
+
+      /* Partner logos */
+      .partner-logo-simple {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .partner-logo-simple img {
+        filter: grayscale(1);
+        opacity: 0.4;
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        cursor: pointer;
+      }
+      .partner-logo-simple:hover img {
+        filter: grayscale(0);
+        opacity: 1;
+        transform: scale(1.08);
+      }
+
+      /* On mobile: show image first, then text */
+      @media (max-width: 1024px) {
+        .founder-text-col {
+          order: 2;
+        }
+        .founder-img-col {
+          order: 1;
+        }
+      }
+
+      .stats-grid-about {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+      }
+
+      /* Methodology Grid Specifics */
+      .section-head-centered {
+        text-align: center;
+        margin-bottom: 7rem;
+      }
+      body {
+        font-family: var(--font-main) !important;
+      }
+      .section-title-large {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--color-navy);
+      }
+      .section-title-large span {
+        display: inline-block;
+      }
+      .methodology-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
     <!-- Elite Header -->
     <header id="mainHeader">
-        <div class="container">
-            <div class="header-flex">
-                <a href="index.html" class="logo">Nexus<span>Hive</span></a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">Who We Are</a></li>
-                    <li class="has-dropdown">
-                        <a href="services.html">Services</a>
-                        <div class="dropdown">
-                            <div class="mega-grid">
-                                <!-- Column 1: HR Strategy & Operations -->
-                                <div class="mega-column">
-                                    <h4><a href="services.html#hr-strategy">HR Strategy & Operations</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#hr-strategy">Org Architecture</a></li>
-                                        <li><a href="services.html#hr-strategy">HR Manuals & Policies</a></li>
-                                        <li><a href="services.html#hr-strategy">Audit Readiness</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Column 2: Statutory, Labour Law & POSH -->
-                                <div class="mega-column">
-                                    <h4><a href="services.html#compliance">Statutory, Labour Law & POSH</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#compliance">Labour Law Compliance</a></li>
-                                        <li><a href="services.html#posh">POSH & Ethics (IC)</a></li>
-                                        <li><a href="services.html#registration">PF/ESI/PT Registrations</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Column 3: Talent Sourcing & Staffing -->
-                                <div class="mega-column">
-                                    <h4><a href="services.html#staffing">Talent Sourcing & Staffing</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#staffing">Executive Search</a></li>
-                                        <li><a href="services.html#staffing">Onboarding Protocol</a></li>
-                                        <li><a href="services.html#staffing">Sourcing Strategy</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Column 4: Finance, Tech & Growth -->
-                                <div class="mega-column">
-                                    <h4><a href="services.html#finance">Finance, Tech & Growth</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
-                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
-                                        <li><a href="services.html#training">Training & Tech Hub</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Column 5: Business Support -->
-                                <div class="mega-column">
-                                    <h4><a href="services.html#others">Business Support</a></h4>
-                                    <ul class="sub-drop">
-                                        <li><a href="services.html#others">Brand Identity</a></li>
-                                        <li><a href="services.html#others">Corporate Events</a></li>
-                                        <li><a href="services.html#others">Marketing Strategy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+      <div class="container">
+        <div class="header-flex">
+          <a href="index.html" class="logo">Nexus<span>Hive</span></a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="has-dropdown">
+              <a href="about.html" class="active"
+                >Who We Are <i class="fas fa-chevron-down dropdown-icon"></i
+              ></a>
+              <div class="dropdown">
+                <div class="mega-grid">
+                  <div class="mega-column">
+                    <h4>
+                      <a href="about.html#building-better-workplaces"
+                        >About Us</a
+                      >
+                    </h4>
+                  </div>
+                  <div class="mega-column">
+                    <h4><a href="about.html#founder">Founder Profile</a></h4>
+                  </div>
+                  <div class="mega-column">
+                    <h4>
+                      <a href="about.html#certifications"
+                        >Certifications &amp; Registrations</a
+                      >
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="has-dropdown">
+              <a href="services.html"
+                >Services <i class="fas fa-chevron-down dropdown-icon"></i
+              ></a>
+              <div class="dropdown">
+                <div class="mega-grid">
+                  <!-- Column 1: HR Strategy & Operations -->
+                  <div class="mega-column">
+                    <h4>
+                      <a href="services.html#hr-strategy"
+                        >HR Strategy & Operations</a
+                      >
+                    </h4>
+                    <ul class="sub-drop">
+                      <li>
+                        <a href="services.html#hr-strategy">Org Architecture</a>
+                      </li>
+                      <li>
+                        <a href="services.html#hr-strategy"
+                          >HR Manuals & Policies</a
+                        >
+                      </li>
+                      <li>
+                        <a href="services.html#hr-strategy">Audit Readiness</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Column 2: Statutory, Labour Law & POSH -->
+                  <div class="mega-column">
+                    <h4>
+                      <a href="services.html#compliance"
+                        >Statutory, Labour Law & POSH</a
+                      >
+                    </h4>
+                    <ul class="sub-drop">
+                      <li>
+                        <a href="services.html#compliance"
+                          >Labour Law Compliance</a
+                        >
+                      </li>
+                      <li>
+                        <a href="services.html#posh">POSH & Ethics (IC)</a>
+                      </li>
+                      <li>
+                        <a href="services.html#registration"
+                          >PF/ESI/PT Registrations</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Column 3: Talent Sourcing & Staffing -->
+                  <div class="mega-column">
+                    <h4>
+                      <a href="services.html#staffing"
+                        >Talent Sourcing & Staffing</a
+                      >
+                    </h4>
+                    <ul class="sub-drop">
+                      <li>
+                        <a href="services.html#staffing">Executive Search</a>
+                      </li>
+                      <li>
+                        <a href="services.html#staffing">Onboarding Protocol</a>
+                      </li>
+                      <li>
+                        <a href="services.html#staffing">Sourcing Strategy</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Column 4: Finance, Tech & Growth -->
+                  <div class="mega-column">
+                    <h4>
+                      <a href="services.html#finance">Finance, Tech & Growth</a>
+                    </h4>
+                    <ul class="sub-drop">
+                      <li>
+                        <a href="services.html#finance">End-to-End Payroll</a>
+                      </li>
+                      <li>
+                        <a href="services.html#finance">TDS & GST Flow</a>
+                      </li>
+                      <li>
+                        <a href="services.html#training">Training & Tech Hub</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Column 5: Business Support -->
+                  <div class="mega-column">
+                    <h4><a href="services.html#others">Business Support</a></h4>
+                    <ul class="sub-drop">
+                      <li><a href="services.html#others">Brand Identity</a></li>
+                      <li>
+                        <a href="services.html#others">Corporate Events</a>
+                      </li>
+                      <li>
+                        <a href="services.html#others">Marketing Strategy</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
 
-                <!-- Hamburger (mobile only) -->
-                <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
+          <!-- Hamburger (mobile only) -->
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
         </div>
+      </div>
     </header>
 
     <!-- Mobile Nav Overlay -->
     <nav class="mobile-nav" id="mobileNav">
-        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">Who We Are</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+      <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+        &times;
+      </button>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">Who We Are</a>
+      <a href="services.html">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <main style="background-color: #fcfcfd; background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px); background-size: 40px 40px; position: relative;">
-        <!-- Premium Executive Mission Section -->
-        <section class="executive-section" style="padding: 140px 0; position: relative; overflow: hidden;">
-            <!-- Subtle background accent -->
-            <div style="position: absolute; top: -10%; left: -5%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(78, 47, 218, 0.03) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
-            
-            <div class="container" style="position: relative; z-index: 1;">
-                <!-- Editorial Header Split -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 6rem;">
-                    <div class="reveal">
-                        <div style="font-size: 0.9rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1.5rem;">The NexusHive Standard</div>
-                        <h2 style="font-size: 5rem; font-weight: 700; color: var(--color-navy); line-height: 1.05; letter-spacing: -0.04em;">Building Better <br><span style="color: var(--color-purple);">Workplaces.</span></h2>
-                    </div>
-                    <div class="reveal stagger-1" style="padding-bottom: 1rem;">
-                        <p style="font-size: 1.35rem; color: var(--color-text-muted); line-height: 1.6; max-width: 500px;">
-                            Founded to empower high-growth startups with institutional-grade infrastructure. We act as your single, unified partner for all strategic and operational backbone needs.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Premium Bento Box Grid -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                    <!-- Card 1 -->
-                    <div class="reveal stagger-1" style="background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 24px; padding: 3rem; transition: transform 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 50px rgba(78, 47, 218, 0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.02)';">
-                        <div style="width: 50px; height: 50px; background: rgba(78, 47, 218, 0.05); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                            <span style="font-size: 0.9rem; font-weight: 800; color: var(--color-purple); letter-spacing: 1px;">01</span>
-                        </div>
-                        <h3 style="font-size: 1.6rem; color: var(--color-navy); margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.02em;">Audit & Investor Ready</h3>
-                        <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1.05rem;">Institutional-grade compliance frameworks designed to stand up to the most rigorous due diligence and global audit standards.</p>
-                    </div>
-                    
-                    <!-- Card 2 -->
-                    <div class="reveal stagger-2" style="background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 24px; padding: 3rem; transition: transform 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 50px rgba(78, 47, 218, 0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.02)';">
-                        <div style="width: 50px; height: 50px; background: rgba(78, 47, 218, 0.05); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                            <span style="font-size: 0.9rem; font-weight: 800; color: var(--color-purple); letter-spacing: 1px;">02</span>
-                        </div>
-                        <h3 style="font-size: 1.6rem; color: var(--color-navy); margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.02em;">Scalability Mindset</h3>
-                        <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1.05rem;">Systems that evolve with you. We build operational infrastructure that supports 10 employees today and 10,000+ tomorrow.</p>
-                    </div>
-                    
-                    <!-- Card 3 -->
-                    <div class="reveal stagger-3" style="background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 24px; padding: 3rem; transition: transform 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 50px rgba(78, 47, 218, 0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.02)';">
-                        <div style="width: 50px; height: 50px; background: rgba(78, 47, 218, 0.05); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                            <span style="font-size: 0.9rem; font-weight: 800; color: var(--color-purple); letter-spacing: 1px;">03</span>
-                        </div>
-                        <h3 style="font-size: 1.6rem; color: var(--color-navy); margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.02em;">Zero Vendor Fatigue</h3>
-                        <p style="color: var(--color-text-muted); line-height: 1.6; font-size: 1.05rem;">Eliminate the headache of managing multiple providers. One partner, one contract, and absolute accountability for your backbone.</p>
-                    </div>
-                </div>
+    <main
+      style="
+        background-color: #fcfcfd;
+        background-image: radial-gradient(
+          rgba(15, 23, 42, 0.06) 1px,
+          transparent 1px
+        );
+        background-size: 40px 40px;
+        position: relative;
+      "
+    >
+      <!-- Premium Executive Mission Section -->
+      <section
+        id="building-better-workplaces"
+        class="executive-section"
+        style="padding: 140px 0; position: relative; overflow: hidden"
+      >
+        <!-- Subtle background accent -->
+        <div
+          style="
+            position: absolute;
+            top: -10%;
+            left: -5%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(78, 47, 218, 0.03) 0%,
+              transparent 70%
+            );
+            border-radius: 50%;
+            z-index: 0;
+          "
+        ></div>
+
+        <div class="container" style="position: relative; z-index: 1">
+          <!-- Editorial Header Split -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 4rem;
+              align-items: end;
+              margin-bottom: 6rem;
+            "
+          >
+            <div class="reveal">
+              <div
+                style="
+                  font-size: 0.9rem;
+                  font-weight: 800;
+                  color: var(--color-purple);
+                  text-transform: uppercase;
+                  letter-spacing: 3px;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                The NexusHive Standard
+              </div>
+              <h2
+                style="
+                  font-size: 5rem;
+                  font-weight: 700;
+                  color: var(--color-navy);
+                  line-height: 1.05;
+                  letter-spacing: -0.04em;
+                "
+              >
+                Building Better <br /><span style="color: var(--color-purple)"
+                  >Workplaces.</span
+                >
+              </h2>
             </div>
-        </section>
-
-        <!-- EXACT McKinsey-Style Partner Profile Section -->
-        <section class="partner-hero" style="padding: 80px 0 0 0; position: relative; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,0.05);">
-            <div class="container">
-                <div class="partner-hero-flex" style="display: flex; align-items: flex-end; gap: 5rem;">
-                    <div class="partner-portrait reveal" style="flex: 0 0 450px; margin-bottom: -4px;">
-                        <img src="img/image.png" alt="Adv. Jaya Bhavya" style="width: 100%; display: block; filter: contrast(1.02);">
-                    </div>
-                    <div class="partner-meta reveal stagger-1" style="padding-bottom: 80px; flex: 1;">
-                        <h1 style="font-size: 4.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; letter-spacing: -0.04em; line-height: 1;">Adv. Jaya Bhavya</h1>
-                        <p style="font-size: 1.25rem; color: #64748b; margin-bottom: 2.5rem; font-weight: 500;">Founding Partner, <span style="color: var(--color-purple);">Bangalore</span></p>
-                        
-                        <p style="font-size: 1.4rem; color: #1e293b; line-height: 1.5; max-width: 700px; margin-bottom: 3rem; font-weight: 400;">
-                            Qualified Advocate & ISO-certified POSH Practitioner with 15+ years of cross-industry experience in Law, HR, and Compliance.
-                        </p>
-                        
-                        <div style="display: flex; gap: 1.5rem; align-items: center;">
-                            <a href="contact.html" style="width: 40px; height: 40px; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                                <i class="fas fa-envelope" style="font-size: 0.9rem;"></i>
-                            </a>
-                            <span style="font-size: 0.9rem; font-weight: 600; color: #0f172a;">Contact</span>
-                            
-                            <a href="#" style="width: 40px; height: 40px; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                                <i class="fab fa-linkedin-in" style="font-size: 0.9rem;"></i>
-                            </a>
-                            <span style="font-size: 0.9rem; font-weight: 600; color: #0f172a;">LinkedIn</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="reveal stagger-1" style="padding-bottom: 1rem">
+              <p
+                style="
+                  font-size: 1.35rem;
+                  color: var(--color-text-muted);
+                  line-height: 1.6;
+                  max-width: 500px;
+                "
+              >
+                Founded to empower high-growth startups with institutional-grade
+                infrastructure. We act as your single, unified partner for all
+                strategic and operational backbone needs.
+              </p>
             </div>
-        </section>
+          </div>
 
-        <!-- Detailed About Section -->
-        <section class="partner-details" style="padding: 100px 0;">
-            <div class="container">
-                <div class="details-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 8rem;">
-                    <div class="details-left reveal">
-                        <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; border-top: 2px solid #0f172a; padding-top: 1.5rem; margin-bottom: 2.5rem; color: #0f172a; text-transform: uppercase;">ABOUT JAYA</h3>
-                        
-                        <div style="font-size: 1.25rem; line-height: 1.85; color: #334155; font-weight: 400;">
-                            <p style="margin-bottom: 2rem;">
-                                Jaya is a founding partner at the firm's Bangalore office. Since launching NexusHive, she has pioneered a multi-disciplinary approach to startup infrastructure, merging legal precision with operational excellence. Her leadership has been instrumental in helping ventures navigate the complexities of India's regulatory landscape with institutional-grade stability.
-                            </p>
-                            <p style="margin-bottom: 2rem;">
-                                As a Qualified Advocate and ISO-certified POSH Practitioner, Jaya specializes in building "Audit-Ready" systems. She has conducted over 60+ POSH trainings across multiple sectors, ensuring that workplaces are not only compliant but also safe and progressive environments for growth.
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 4rem;">
-                            <h4 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; border-top: 1px solid #e2e8f0; padding-top: 1.5rem; margin-bottom: 2rem; color: #0f172a; text-transform: uppercase;">KEY ACCOLADES</h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
-                                    <i class="fas fa-balance-scale" style="color: var(--color-purple); margin-top: 0.25rem;"></i>
-                                    <span>Member of Bar Council of India & Karnataka</span>
-                                </li>
-                                <li style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
-                                    <i class="fas fa-chalkboard-teacher" style="color: var(--color-purple); margin-top: 0.25rem;"></i>
-                                    <span>60+ POSH trainings conducted across high-growth sectors</span>
-                                </li>
-                                <li style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
-                                    <i class="fas fa-graduation-cap" style="color: var(--color-purple); margin-top: 0.25rem;"></i>
-                                    <span>Diploma in Training & Development from ISTD, New Delhi</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="details-right reveal stagger-1">
-                        <a href="contact.html" class="btn-cta" style="width: 100%; display: flex; justify-content: center; align-items: center; background: #2563eb; padding: 1.25rem; font-weight: 700; border-radius: 4px; margin-bottom: 4rem;">
-                            <i class="fas fa-envelope" style="margin-right: 0.75rem;"></i> Get in touch
-                        </a>
-                        
-                        <div style="border-top: 1px solid #e2e8f0; padding-top: 2.5rem;">
-                            <h4 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 2rem; color: #0f172a; text-transform: uppercase;">EXPERTISE</h4>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="margin-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1.25rem;">
-                                    <a href="services.html#compliance" style="color: var(--color-purple); text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center;">
-                                        <i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 1rem; opacity: 0.5;"></i> Legal Operations
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1.25rem;">
-                                    <a href="services.html#hr-strategy" style="color: var(--color-purple); text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center;">
-                                        <i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 1rem; opacity: 0.5;"></i> HR Governance
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1.25rem;">
-                                    <a href="services.html#posh" style="color: var(--color-purple); text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center;">
-                                        <i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 1rem; opacity: 0.5;"></i> POSH Compliance
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1.25rem;">
-                                    <a href="services.html#hr-strategy" style="color: var(--color-purple); text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center;">
-                                        <i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 1rem; opacity: 0.5;"></i> Strategic Scaling
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certificates & Registrations Section - Minimal Horizontal Design -->
-        <section id="certifications" style="padding: 100px 0; position: relative; background: #ffffff;">
-            <div class="container" style="max-width: 1200px; margin: 0 auto;">
-                
-                <!-- Editorial Section Header -->
-                <div class="reveal" style="text-align: center; margin-bottom: 5rem;">
-                    <h2 style="font-family: 'Playfair Display', 'Times New Roman', Times, serif; font-size: 3rem; font-weight: 400; color: #0f172a; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem;">Certificates &amp; Registrations</h2>
-                    <p style="font-size: 1.15rem; color: #64748b; max-width: 500px; margin: 0 auto; line-height: 1.6; font-weight: 400;">Backed by globally recognised qualifications and statutory registrations.</p>
-                </div>
-
-                <!-- Horizontal Logos/Certificates (No Card Containers) -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem 2rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 4rem 0;">
-                    
-                    <!-- Item 1: Bar Council -->
-                    <div class="reveal stagger-1" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/bar%20member%20of%20kolkata.jpg" alt="Bar Council Badge" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Legal Registration</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">Bar Council of India &amp; Karnataka</h3>
-                    </div>
-
-                    <!-- Item 2: ISO 9001 -->
-                    <div class="reveal stagger-2" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/iso%20certified%209001%20to%202015.jpg" alt="ISO 9001 Badge" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Quality Management</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">ISO 9001:2015 Lead Auditor</h3>
-                    </div>
-
-                    <!-- Item 3: POSH -->
-                    <div class="reveal stagger-3" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/ISO%20certified%20posh.jpg" alt="POSH ISO Badge" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Workplace Safety</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">ISO Certificated POSH Practitioner</h3>
-                    </div>
-
-                    <!-- Item 4: EDP HRM -->
-                    <div class="reveal stagger-4" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/XLRI.jpg" alt="EDP HRM Badge" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Executive Education</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">EDP HRM — SHRM &amp; XLRI</h3>
-                    </div>
-                    
-                    <!-- Item 5: Startup India -->
-                    <div class="reveal stagger-5" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/startup.png" alt="Startup India Badge" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Govt. Initiative</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">Startup India Recognized</h3>
-                    </div>
-
-                    <!-- Item 6: MSME -->
-                    <div class="reveal stagger-6" style="flex: 0 1 calc(25% - 1.5rem); min-width: 220px; text-align: center;">
-                        <div style="height: 100px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <img src="img/msme.png" alt="MSME Badge" style="max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply;">
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Enterprise</div>
-                        <h3 style="font-size: 1.1rem; font-weight: 500; color: #0f172a; line-height: 1.4;">MSME Registered</h3>
-                    </div>
-
-                </div>
-
-                <!-- GSTIN - Elegant Typographic Presentation -->
-                <div class="reveal" style="margin-top: 4rem; text-align: center;">
-                    <div style="display: inline-flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px;">GSTIN Registration</span>
-                        <span style="width: 4px; height: 4px; border-radius: 50%; background: #cbd5e1;"></span>
-                        <span style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #0f172a; letter-spacing: 1px;">29AAXFN7873P1ZQ</span>
-                        <span style="width: 4px; height: 4px; border-radius: 50%; background: #cbd5e1;"></span>
-                        <span style="font-size: 0.8rem; color: #64748b;">Govt. of India</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Our Partners: Full-Screen Architectural Layout -->
-        <section class="partners-section" style="padding: 100px 0; position: relative;">
-            <div class="container">
-                <!-- Branding & Heading -->
-                <div class="partners-heading-block" style="text-align: center; margin-bottom: 6rem;">
-                    <!-- Company Logo in 2 Rows -->
-                    <div class="reveal">
-                        <div style="font-size: 5rem; font-weight: 900; background: var(--grad-purple); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1;">N</div>
-                        <div style="font-size: 0.9rem; font-weight: 800; color: var(--color-navy); margin-top: 8px; letter-spacing: 5px; text-transform: uppercase;">Nexus Solution</div>
-                    </div>
-                    
-                    <!-- Section Heading -->
-                    <div class="reveal stagger-1" style="margin-top: 3rem;">
-                        <h2 style="font-size: 3.5rem; font-weight: 300; letter-spacing: -0.02em; color: #1e293b;">Our Global Partners</h2>
-                        <div style="width: 60px; height: 3px; background: var(--color-purple); margin: 2rem auto 0; border-radius: 10px; opacity: 0.3;"></div>
-                    </div>
-                </div>
-
-                <!-- Symmetrical Logo Grid -->
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <!-- Row 1: 4 Logos -->
-                    <div class="partners-grid-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; align-items: center; justify-items: center; margin-bottom: 4rem;">
-                        <div class="reveal partner-logo-simple">
-                            <img src="img/Amphora.png" style="height: 55px; width: 170px; object-fit: contain;" alt="Amphora">
-                        </div>
-                        <div class="reveal stagger-1 partner-logo-simple">
-                            <img src="img/Curl.tech.png" style="height: 55px; width: 170px; object-fit: contain;" alt="Curl.tech">
-                        </div>
-                        <div class="reveal stagger-2 partner-logo-simple">
-                            <img src="img/tmp_53b5a71b-53c3-4a1b-8809-30b5762eb568.png" style="height: 70px; width: 170px; object-fit: contain;" alt="Partner">
-                        </div>
-                        <div class="reveal stagger-3 partner-logo-simple">
-                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.01.50%20PM.jpeg" style="height: 70px; width: 160px; object-fit: contain; border-radius: 10px;" alt="Partner">
-                        </div>
-                    </div>
-
-                    <!-- Row 2: 3 Logos (Centered) -->
-                    <div class="partners-grid-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; align-items: center; justify-items: center; max-width: 800px; margin: 0 auto;">
-                        <div class="reveal stagger-4 partner-logo-simple">
-                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.01.59%20PM.jpeg" style="height: 70px; width: 160px; object-fit: contain; border-radius: 10px;" alt="Partner">
-                        </div>
-                        <div class="reveal stagger-5 partner-logo-simple">
-                            <img src="img/WhatsApp%20Image%202026-03-02%20at%206.02.11%20PM.jpeg" style="height: 70px; width: 160px; object-fit: contain; border-radius: 10px;" alt="Partner">
-                        </div>
-                        <div class="reveal stagger-6 partner-logo-simple">
-                             <img src="img/Your%20Industrial%20Experience_20250210_080711_0000_page-0001.jpg.jpeg" style="height: 70px; width: 170px; object-fit: contain; border-radius: 10px;" alt="Partner">
-                        </div>
-                    </div>
-                </div>
+          <!-- Premium Bento Box Grid -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 2rem;
+            "
+          >
+            <!-- Card 1 -->
+            <div
+              class="reveal stagger-1"
+              style="
+                background: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 24px;
+                padding: 3rem;
+                transition:
+                  transform 0.4s ease,
+                  box-shadow 0.4s ease;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
+              "
+              onmouseout="
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: rgba(78, 47, 218, 0.05);
+                  border-radius: 14px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 2rem;
+                "
+              >
+                <span
+                  style="
+                    font-size: 0.9rem;
+                    font-weight: 800;
+                    color: var(--color-purple);
+                    letter-spacing: 1px;
+                  "
+                  >01</span
+                >
+              </div>
+              <h3
+                style="
+                  font-size: 1.6rem;
+                  color: var(--color-navy);
+                  margin-bottom: 1rem;
+                  font-weight: 700;
+                  letter-spacing: -0.02em;
+                "
+              >
+                Audit & Investor Ready
+              </h3>
+              <p
+                style="
+                  color: var(--color-text-muted);
+                  line-height: 1.6;
+                  font-size: 1.05rem;
+                "
+              >
+                Institutional-grade compliance frameworks designed to stand up
+                to the most rigorous due diligence and global audit standards.
+              </p>
             </div>
 
-        </section>
+            <!-- Card 2 -->
+            <div
+              class="reveal stagger-2"
+              style="
+                background: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 24px;
+                padding: 3rem;
+                transition:
+                  transform 0.4s ease,
+                  box-shadow 0.4s ease;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
+              "
+              onmouseout="
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: rgba(78, 47, 218, 0.05);
+                  border-radius: 14px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 2rem;
+                "
+              >
+                <span
+                  style="
+                    font-size: 0.9rem;
+                    font-weight: 800;
+                    color: var(--color-purple);
+                    letter-spacing: 1px;
+                  "
+                  >02</span
+                >
+              </div>
+              <h3
+                style="
+                  font-size: 1.6rem;
+                  color: var(--color-navy);
+                  margin-bottom: 1rem;
+                  font-weight: 700;
+                  letter-spacing: -0.02em;
+                "
+              >
+                Scalability Mindset
+              </h3>
+              <p
+                style="
+                  color: var(--color-text-muted);
+                  line-height: 1.6;
+                  font-size: 1.05rem;
+                "
+              >
+                Systems that evolve with you. We build operational
+                infrastructure that supports 10 employees today and 10,000+
+                tomorrow.
+              </p>
+            </div>
 
-        <!-- Final Consulting-Grade CTA -->
-        <section class="final-cta reveal">
-            <div class="container">
-                <div class="cta-inner">
-                    <span class="tagline pill" style="margin: 0 auto 2rem; width: fit-content;">Engagement Protocol</span>
-                    <h2 class="cta-title">Ready for Structural Excellence?</h2>
-                    <p class="cta-lead">Discuss your organizational requirements with our senior advisory team and build your foundation for scale.</p>
-                    
-                    <div class="cta-btns-group">
-                        <a href="contact.html" class="btn-pill-primary">
-                            <span>Schedule Strategic Call</span>
-                            <div class="icon-circle">
-                                <i class="fas fa-arrow-up-right-from-square"></i>
-                            </div>
-                        </a>
-                        <a href="services.html" class="btn-pill-secondary">
-                            <span>View All Services</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+            <!-- Card 3 -->
+            <div
+              class="reveal stagger-3"
+              style="
+                background: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 24px;
+                padding: 3rem;
+                transition:
+                  transform 0.4s ease,
+                  box-shadow 0.4s ease;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
+              "
+              onmouseout="
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: rgba(78, 47, 218, 0.05);
+                  border-radius: 14px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 2rem;
+                "
+              >
+                <span
+                  style="
+                    font-size: 0.9rem;
+                    font-weight: 800;
+                    color: var(--color-purple);
+                    letter-spacing: 1px;
+                  "
+                  >03</span
+                >
+              </div>
+              <h3
+                style="
+                  font-size: 1.6rem;
+                  color: var(--color-navy);
+                  margin-bottom: 1rem;
+                  font-weight: 700;
+                  letter-spacing: -0.02em;
+                "
+              >
+                Zero Vendor Fatigue
+              </h3>
+              <p
+                style="
+                  color: var(--color-text-muted);
+                  line-height: 1.6;
+                  font-size: 1.05rem;
+                "
+              >
+                Eliminate the headache of managing multiple providers. One
+                partner, one contract, and absolute accountability for your
+                backbone.
+              </p>
             </div>
-        </section>
-    </main>
-
-    <!-- Professional Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3 class="footer-logo">Nexus<span>Hive</span></h3>
-                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Premier HR advisory and statutory governance partner for high-growth enterprises across India.</p>
-                    <div class="footer-auth-badges">
-                        <img src="img/msme.png" alt="MSME Registered">
-                        <img src="img/startup.png" alt="Startup India">
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="services.html#hr-strategy">HR Strategy</a></li>
-                        <li><a href="services.html#compliance">Labour Law</a></li>
-                        <li><a href="services.html#finance">Payroll Systems</a></li>
-                        <li><a href="services.html#posh">POSH Compliance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Intelligence</h4>
-                    <ul>
-                        <li><a href="about.html">Our Philosophy</a></li>
-                        <li><a href="services.html#audits">Audit Readiness</a></li>
-                        <li><a href="services.html">All Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Engage</h4>
-                    <ul class="footer-links">
-                        <li>No 11 & 12, Ganesh Nagar Layout, Telecom</li>
-                        <li>Road, Virupakshapura, Bangalore- 560097</li>
-                        <li><a href="mailto:info@nexushive.com">info@nexushive.com</a></li>
-                        <li><a href="tel:+918088052874">+91 80880 52874</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. <span style="opacity: 0.6; margin: 0 10px;">|</span> GSTIN: 29AAXFN7873P1ZQ</p>
-                <div style="display: flex; gap: 2rem;">
-                    <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit;" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- EXACT McKinsey-Style Partner Profile Section -->
+      <section
+        id="founder"
+        class="partner-hero"
+        style="
+          padding: 80px 0 0 0;
+          position: relative;
+          overflow: hidden;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        "
+      >
+        <div class="container">
+          <div
+            class="partner-hero-flex"
+            style="display: flex; align-items: flex-end; gap: 5rem"
+          >
+            <div
+              class="partner-portrait reveal"
+              style="flex: 0 0 450px; margin-bottom: -4px"
+            >
+              <img
+                src="img/image.png"
+                alt="Adv. Jaya Bhavya"
+                style="width: 100%; display: block; filter: contrast(1.02)"
+              />
+            </div>
+            <div
+              class="partner-meta reveal stagger-1"
+              style="padding-bottom: 80px; flex: 1"
+            >
+              <h1
+                style="
+                  font-size: 4.5rem;
+                  font-weight: 700;
+                  color: #0f172a;
+                  margin-bottom: 0.5rem;
+                  letter-spacing: -0.04em;
+                  line-height: 1;
+                "
+              >
+                Adv. Jaya Bhavya
+              </h1>
+              <p
+                style="
+                  font-size: 1.25rem;
+                  color: #64748b;
+                  margin-bottom: 2.5rem;
+                  font-weight: 500;
+                "
+              >
+                Founding Partner,
+                <span style="color: var(--color-purple)">Bangalore</span>
+              </p>
+
+              <p
+                style="
+                  font-size: 1.4rem;
+                  color: #1e293b;
+                  line-height: 1.5;
+                  max-width: 700px;
+                  margin-bottom: 3rem;
+                  font-weight: 400;
+                "
+              >
+                Qualified Advocate & ISO-certified POSH Practitioner with 15+
+                years of cross-industry experience in Law, HR, and Compliance.
+              </p>
+
+              <div style="display: flex; gap: 1.5rem; align-items: center">
+                <a
+                  href="#contact"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    background: #000;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    transition: var(--transition);
+                  "
+                  onmouseover="this.style.transform = 'scale(1.1)'"
+                  onmouseout="this.style.transform = 'scale(1)'"
+                >
+                  <i class="fas fa-envelope" style="font-size: 0.9rem"></i>
+                </a>
+                <span
+                  style="font-size: 0.9rem; font-weight: 600; color: #0f172a"
+                  >Contact</span
+                >
+
+                <a
+                  href="#"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    background: #000;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    transition: var(--transition);
+                  "
+                  onmouseover="this.style.transform = 'scale(1.1)'"
+                  onmouseout="this.style.transform = 'scale(1)'"
+                >
+                  <i class="fab fa-linkedin-in" style="font-size: 0.9rem"></i>
+                </a>
+                <span
+                  style="font-size: 0.9rem; font-weight: 600; color: #0f172a"
+                  >LinkedIn</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed About Section -->
+      <section class="partner-details" style="padding: 100px 0">
+        <div class="container">
+          <div
+            class="details-grid"
+            style="display: grid; grid-template-columns: 2fr 1fr; gap: 8rem"
+          >
+            <div class="details-left reveal">
+              <h3
+                style="
+                  font-size: 0.85rem;
+                  font-weight: 800;
+                  letter-spacing: 1.5px;
+                  border-top: 2px solid #0f172a;
+                  padding-top: 1.5rem;
+                  margin-bottom: 2.5rem;
+                  color: #0f172a;
+                  text-transform: uppercase;
+                "
+              >
+                ABOUT JAYA
+              </h3>
+
+              <div
+                style="
+                  font-size: 1.25rem;
+                  line-height: 1.85;
+                  color: #334155;
+                  font-weight: 400;
+                "
+              >
+                <p style="margin-bottom: 2rem">
+                  Jaya is a founding partner at the firm's Bangalore office.
+                  Since launching NexusHive, she has pioneered a
+                  multi-disciplinary approach to startup infrastructure, merging
+                  legal precision with operational excellence. Her leadership
+                  has been instrumental in helping ventures navigate the
+                  complexities of India's regulatory landscape with
+                  institutional-grade stability.
+                </p>
+                <p style="margin-bottom: 2rem">
+                  As a Qualified Advocate and ISO-certified POSH Practitioner,
+                  Jaya specializes in building "Audit-Ready" systems. She has
+                  conducted over 60+ POSH trainings across multiple sectors,
+                  ensuring that workplaces are not only compliant but also safe
+                  and progressive environments for growth.
+                </p>
+              </div>
+
+              <div style="margin-top: 4rem">
+                <h4
+                  style="
+                    font-size: 0.85rem;
+                    font-weight: 800;
+                    letter-spacing: 1.5px;
+                    border-top: 1px solid #e2e8f0;
+                    padding-top: 1.5rem;
+                    margin-bottom: 2rem;
+                    color: #0f172a;
+                    text-transform: uppercase;
+                  "
+                >
+                  KEY ACCOLADES
+                </h4>
+                <ul style="list-style: none; padding: 0">
+                  <li
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    <i
+                      class="fas fa-balance-scale"
+                      style="color: var(--color-purple); margin-top: 0.25rem"
+                    ></i>
+                    <span>Member of Bar Council of India & Karnataka</span>
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    <i
+                      class="fas fa-chalkboard-teacher"
+                      style="color: var(--color-purple); margin-top: 0.25rem"
+                    ></i>
+                    <span
+                      >60+ POSH trainings conducted across high-growth
+                      sectors</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    <i
+                      class="fas fa-graduation-cap"
+                      style="color: var(--color-purple); margin-top: 0.25rem"
+                    ></i>
+                    <span
+                      >Diploma in Training & Development from ISTD, New
+                      Delhi</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="details-right reveal stagger-1">
+              <a
+                href="#contact"
+                class="mc-submit"
+                style="
+                  margin-bottom: 4rem;
+                  text-decoration: none;
+                "
+              >
+                <i class="fas fa-envelope"></i>
+                Get in touch
+              </a>
+
+              <div style="border-top: 1px solid #e2e8f0; padding-top: 2.5rem">
+                <h4
+                  style="
+                    font-size: 0.85rem;
+                    font-weight: 800;
+                    letter-spacing: 1.5px;
+                    margin-bottom: 2rem;
+                    color: #0f172a;
+                    text-transform: uppercase;
+                  "
+                >
+                  EXPERTISE
+                </h4>
+                <ul style="list-style: none; padding: 0; margin: 0">
+                  <li
+                    style="
+                      margin-bottom: 1.25rem;
+                      border-bottom: 1px solid #f1f5f9;
+                      padding-bottom: 1.25rem;
+                    "
+                  >
+                    <a
+                      href="services.html#compliance"
+                      style="
+                        color: var(--color-purple);
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <i
+                        class="fas fa-chevron-right"
+                        style="
+                          font-size: 0.7rem;
+                          margin-right: 1rem;
+                          opacity: 0.5;
+                        "
+                      ></i>
+                      Legal Operations
+                    </a>
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: 1.25rem;
+                      border-bottom: 1px solid #f1f5f9;
+                      padding-bottom: 1.25rem;
+                    "
+                  >
+                    <a
+                      href="services.html#hr-strategy"
+                      style="
+                        color: var(--color-purple);
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <i
+                        class="fas fa-chevron-right"
+                        style="
+                          font-size: 0.7rem;
+                          margin-right: 1rem;
+                          opacity: 0.5;
+                        "
+                      ></i>
+                      HR Governance
+                    </a>
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: 1.25rem;
+                      border-bottom: 1px solid #f1f5f9;
+                      padding-bottom: 1.25rem;
+                    "
+                  >
+                    <a
+                      href="services.html#posh"
+                      style="
+                        color: var(--color-purple);
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <i
+                        class="fas fa-chevron-right"
+                        style="
+                          font-size: 0.7rem;
+                          margin-right: 1rem;
+                          opacity: 0.5;
+                        "
+                      ></i>
+                      POSH Compliance
+                    </a>
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: 1.25rem;
+                      border-bottom: 1px solid #f1f5f9;
+                      padding-bottom: 1.25rem;
+                    "
+                  >
+                    <a
+                      href="services.html#hr-strategy"
+                      style="
+                        color: var(--color-purple);
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <i
+                        class="fas fa-chevron-right"
+                        style="
+                          font-size: 0.7rem;
+                          margin-right: 1rem;
+                          opacity: 0.5;
+                        "
+                      ></i>
+                      Strategic Scaling
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates & Registrations Section - Minimal Horizontal Design -->
+      <section
+        id="certifications"
+        style="padding: 100px 0; position: relative; background: #ffffff"
+      >
+        <div class="container" style="max-width: 1200px; margin: 0 auto">
+          <!-- Editorial Section Header -->
+          <div class="reveal" style="text-align: center; margin-bottom: 5rem">
+            <h2
+              style="
+                font-family:
+                  &quot;Playfair Display&quot;, &quot;Times New Roman&quot;,
+                  Times, serif;
+                font-size: 3rem;
+                font-weight: 400;
+                color: #0f172a;
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+                margin-bottom: 1rem;
+              "
+            >
+              Certificates &amp; Registrations
+            </h2>
+            <p
+              style="
+                font-size: 1.15rem;
+                color: #64748b;
+                max-width: 500px;
+                margin: 0 auto;
+                line-height: 1.6;
+                font-weight: 400;
+              "
+            >
+              Backed by globally recognised qualifications and statutory
+              registrations.
+            </p>
+          </div>
+
+          <!-- Horizontal Logos/Certificates (No Card Containers) -->
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 4rem 2rem;
+              border-top: 1px solid #e2e8f0;
+              border-bottom: 1px solid #e2e8f0;
+              padding: 4rem 0;
+            "
+          >
+            <!-- Item 1: Bar Council -->
+            <div
+              class="reveal stagger-1"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/bar%20member%20of%20kolkata.jpg"
+                  alt="Bar Council Badge"
+                  style="max-width: 100%; max-height: 100%; object-fit: contain"
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Legal Registration
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                Bar Council of India &amp; Karnataka
+              </h3>
+            </div>
+
+            <!-- Item 2: ISO 9001 -->
+            <div
+              class="reveal stagger-2"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/iso%20certified%209001%20to%202015.jpg"
+                  alt="ISO 9001 Badge"
+                  style="max-width: 100%; max-height: 100%; object-fit: contain"
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Quality Management
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                ISO 9001:2015 Lead Auditor
+              </h3>
+            </div>
+
+            <!-- Item 3: POSH -->
+            <div
+              class="reveal stagger-3"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/ISO%20certified%20posh.jpg"
+                  alt="POSH ISO Badge"
+                  style="max-width: 100%; max-height: 100%; object-fit: contain"
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Workplace Safety
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                ISO Certificated POSH Practitioner
+              </h3>
+            </div>
+
+            <!-- Item 4: EDP HRM -->
+            <div
+              class="reveal stagger-4"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/XLRI.jpg"
+                  alt="EDP HRM Badge"
+                  style="max-width: 100%; max-height: 100%; object-fit: contain"
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Executive Education
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                EDP HRM â€” SHRM &amp; XLRI
+              </h3>
+            </div>
+
+            <!-- Item 5: Startup India -->
+            <div
+              class="reveal stagger-5"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/startup.png"
+                  alt="Startup India Badge"
+                  style="max-width: 100%; max-height: 100%; object-fit: contain"
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Govt. Initiative
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                Startup India Recognized
+              </h3>
+            </div>
+
+            <!-- Item 6: MSME -->
+            <div
+              class="reveal stagger-6"
+              style="
+                flex: 0 1 calc(25% - 1.5rem);
+                min-width: 220px;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  height: 100px;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="img/msme.png"
+                  alt="MSME Badge"
+                  style="
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    mix-blend-mode: multiply;
+                  "
+                />
+              </div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #94a3b8;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Enterprise
+              </div>
+              <h3
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  color: #0f172a;
+                  line-height: 1.4;
+                "
+              >
+                MSME Registered
+              </h3>
+            </div>
+          </div>
+
+          <!-- GSTIN - Elegant Typographic Presentation -->
+          <div class="reveal" style="margin-top: 4rem; text-align: center">
+            <div
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1.25rem;
+                flex-wrap: wrap;
+              "
+            >
+              <span
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: #64748b;
+                  text-transform: uppercase;
+                  letter-spacing: 1.5px;
+                "
+                >GSTIN Registration</span
+              >
+              <span
+                style="
+                  width: 4px;
+                  height: 4px;
+                  border-radius: 50%;
+                  background: #cbd5e1;
+                "
+              ></span>
+              <span
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 1.15rem;
+                  color: #0f172a;
+                  letter-spacing: 1px;
+                "
+                >29AAXFN7873P1ZQ</span
+              >
+              <span
+                style="
+                  width: 4px;
+                  height: 4px;
+                  border-radius: 50%;
+                  background: #cbd5e1;
+                "
+              ></span>
+              <span style="font-size: 0.8rem; color: #64748b"
+                >Govt. of India</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Partners: Full-Screen Architectural Layout -->
+      <section
+        class="partners-section"
+        style="padding: 100px 0; position: relative"
+      >
+        <div class="container">
+          <!-- Branding & Heading -->
+          <div
+            class="partners-heading-block"
+            style="text-align: center; margin-bottom: 6rem"
+          >
+            <!-- Company Logo in 2 Rows -->
+            <div class="reveal">
+              <div
+                style="
+                  font-size: 5rem;
+                  font-weight: 900;
+                  background: var(--grad-purple);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  line-height: 1;
+                "
+              >
+                N
+              </div>
+              <div
+                style="
+                  font-size: 0.9rem;
+                  font-weight: 800;
+                  color: var(--color-navy);
+                  margin-top: 8px;
+                  letter-spacing: 5px;
+                  text-transform: uppercase;
+                "
+              >
+                Nexus Solution
+              </div>
+            </div>
+
+            <!-- Section Heading -->
+            <div class="reveal stagger-1" style="margin-top: 3rem">
+              <h2
+                style="
+                  font-size: 3.5rem;
+                  font-weight: 300;
+                  letter-spacing: -0.02em;
+                  color: #1e293b;
+                "
+              >
+                Our Global Partners
+              </h2>
+              <div
+                style="
+                  width: 60px;
+                  height: 3px;
+                  background: var(--color-purple);
+                  margin: 2rem auto 0;
+                  border-radius: 10px;
+                  opacity: 0.3;
+                "
+              ></div>
+            </div>
+          </div>
+
+          <!-- Symmetrical Logo Grid -->
+          <div style="max-width: 1100px; margin: 0 auto">
+            <!-- Row 1: 4 Logos -->
+            <div
+              class="partners-grid-row"
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 4rem;
+                align-items: center;
+                justify-items: center;
+                margin-bottom: 4rem;
+              "
+            >
+              <div class="reveal partner-logo-simple">
+                <img
+                  src="img/Amphora.png"
+                  style="height: 55px; width: 170px; object-fit: contain"
+                  alt="Amphora"
+                />
+              </div>
+              <div class="reveal stagger-1 partner-logo-simple">
+                <img
+                  src="img/Curl.tech.png"
+                  style="height: 55px; width: 170px; object-fit: contain"
+                  alt="Curl.tech"
+                />
+              </div>
+              <div class="reveal stagger-2 partner-logo-simple">
+                <img
+                  src="img/tmp_53b5a71b-53c3-4a1b-8809-30b5762eb568.png"
+                  style="height: 70px; width: 170px; object-fit: contain"
+                  alt="Partner"
+                />
+              </div>
+              <div class="reveal stagger-3 partner-logo-simple">
+                <img
+                  src="img/WhatsApp%20Image%202026-03-02%20at%206.01.50%20PM.jpeg"
+                  style="
+                    height: 70px;
+                    width: 160px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                  "
+                  alt="Partner"
+                />
+              </div>
+            </div>
+
+            <!-- Row 2: 3 Logos (Centered) -->
+            <div
+              class="partners-grid-row"
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4rem;
+                align-items: center;
+                justify-items: center;
+                max-width: 800px;
+                margin: 0 auto;
+              "
+            >
+              <div class="reveal stagger-4 partner-logo-simple">
+                <img
+                  src="img/WhatsApp%20Image%202026-03-02%20at%206.01.59%20PM.jpeg"
+                  style="
+                    height: 70px;
+                    width: 160px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                  "
+                  alt="Partner"
+                />
+              </div>
+              <div class="reveal stagger-5 partner-logo-simple">
+                <img
+                  src="img/WhatsApp%20Image%202026-03-02%20at%206.02.11%20PM.jpeg"
+                  style="
+                    height: 70px;
+                    width: 160px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                  "
+                  alt="Partner"
+                />
+              </div>
+              <div class="reveal stagger-6 partner-logo-simple">
+                <img
+                  src="img/Your%20Industrial%20Experience_20250210_080711_0000_page-0001.jpg.jpeg"
+                  style="
+                    height: 70px;
+                    width: 170px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                  "
+                  alt="Partner"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Consulting-Grade CTA -->
+      <section class="final-cta reveal">
+        <div class="container">
+          <div class="cta-inner">
+            <span
+              class="tagline pill"
+              style="margin: 0 auto 2rem; width: fit-content"
+              >Engagement Protocol</span
+            >
+            <h2 class="cta-title">Ready for Structural Excellence?</h2>
+            <p class="cta-lead">
+              Discuss your organizational requirements with our senior advisory
+              team and build your foundation for scale.
+            </p>
+
+            <div class="cta-btns-group">
+              <a href="#contact" class="btn-pill-primary">
+                <span>Schedule Strategic Call</span>
+                <div class="icon-circle">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a href="services.html" class="btn-pill-secondary">
+                <span>View All Services</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer with Embedded Contact -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h3 class="footer-logo">Nexus<span>Hive</span></h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem">
+              Premier HR advisory and statutory governance partner for
+              high-growth enterprises across India.
+            </p>
+            <div class="footer-auth-badges">
+              <img src="img/msme.png" alt="MSME Registered" />
+              <img src="img/startup.png" alt="Startup India" />
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="services.html#hr-strategy">HR Strategy</a></li>
+              <li><a href="services.html#compliance">Labour Law</a></li>
+              <li><a href="services.html#finance">Payroll Systems</a></li>
+              <li><a href="services.html#posh">POSH Compliance</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Intelligence</h4>
+            <ul>
+              <li><a href="about.html">Our Philosophy</a></li>
+              <li><a href="services.html#audits">Audit Readiness</a></li>
+              <li><a href="services.html">All Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Engage</h4>
+            <ul>
+              <li>No 11 &amp; 12, Ganesh Nagar Layout,</li>
+              <li>Telecom Road, Virupakshapura, Bangalore- 560097</li>
+              <li>
+                <a href="mailto:info@nexushive.com">info@nexushive.com</a>
+              </li>
+              <li><a href="tel:+918088052874">+91 80880 52874</a></li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modern Premium Contact Section -->
+        <div class="modern-contact-band">
+          <div class="modern-contact-container">
+            <div class="mc-grid">
+              <!-- Left: Typography & Info -->
+              <div class="mc-info-col">
+                <div class="mc-header">
+                  <span class="mc-badge">Get in Touch</span>
+                  <h2>Let's build something<br /><span>remarkable.</span></h2>
+                  <p>
+                    Our advisory team partners with forward-thinking
+                    enterprises. Reach out to discuss your structural strategy.
+                  </p>
+                </div>
+
+                <div class="mc-contact-cards">
+                  <a href="mailto:info@nexushive.com" class="mc-card">
+                    <div class="mc-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                      <h5>Email Us</h5>
+                      <span>info@nexushive.com</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://wa.me/918088052874"
+                    target="_blank"
+                    class="mc-card mc-wa-card"
+                  >
+                    <div class="mc-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                      <h5>WhatsApp</h5>
+                      <span>Chat Instantly</span>
+                    </div>
+                  </a>
+                  <a href="tel:+918088052874" class="mc-card">
+                    <div class="mc-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                      <h5>Call Us</h5>
+                      <span>+91 80880 52874</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: Modern Form with Floating Labels -->
+              <div class="mc-form-col">
+                <form id="globalContactForm" class="mc-form">
+                  <div class="mc-row">
+                    <div class="mc-field">
+                      <input
+                        type="text"
+                        id="mc-name"
+                        name="name"
+                        required
+                        placeholder=" "
+                      />
+                      <label for="mc-name">Full name</label>
+                    </div>
+                    <div class="mc-field">
+                      <input
+                        type="email"
+                        id="mc-email"
+                        name="email"
+                        required
+                        placeholder=" "
+                      />
+                      <label for="mc-email">Email address</label>
+                    </div>
+                  </div>
+
+                  <div class="mc-row">
+                    <div class="mc-field">
+                      <input
+                        type="tel"
+                        id="mc-phone"
+                        name="phone"
+                        required
+                        placeholder=" "
+                      />
+                      <label for="mc-phone">Phone number</label>
+                    </div>
+                    <div class="mc-field mc-custom-select">
+                      <div class="mc-select-trigger" tabindex="0">
+                        <span class="mc-select-value"></span>
+                      </div>
+                      <label class="mc-select-label">Service Area</label>
+                      <i class="fas fa-chevron-down mc-caret"></i>
+                      <div class="mc-options">
+                        <div class="mc-option" data-value="HR Strategy">
+                          HR Setup &amp; Strategy
+                        </div>
+                        <div class="mc-option" data-value="Labour Law">
+                          Statutory &amp; Labour Law
+                        </div>
+                        <div class="mc-option" data-value="POSH">
+                          POSH Compliance
+                        </div>
+                        <div class="mc-option" data-value="Payroll">
+                          Payroll &amp; Finance
+                        </div>
+                        <div class="mc-option" data-value="Registration">
+                          Registration (PF/ESI/PT)
+                        </div>
+                        <div class="mc-option" data-value="Staffing">
+                          Sourcing &amp; Staffing
+                        </div>
+                        <div class="mc-option" data-value="Training">
+                          Training &amp; Skilling
+                        </div>
+                        <div class="mc-option" data-value="Other">
+                          Other Services
+                        </div>
+                      </div>
+                      <input
+                        type="hidden"
+                        name="intent"
+                        class="mc-hidden-input"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mc-field mc-textarea-field">
+                    <textarea
+                      id="mc-message"
+                      name="message"
+                      required
+                      placeholder=" "
+                    ></textarea>
+                    <label for="mc-message">How can we help?</label>
+                  </div>
+
+                  <button type="submit" id="globalSubmitBtn" class="mc-submit">
+                    <span id="globalBtnText">Send Request</span>
+                    <i class="fas fa-paper-plane" id="globalBtnIcon"></i>
+                  </button>
+                  <div
+                    id="globalFormMessage"
+                    class="mc-message"
+                    style="display: none"
+                  ></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 NexusHive Solutions LLP. All Rights Reserved.
+            <span style="opacity: 0.6; margin: 0 10px">|</span> GSTIN:
+            29AAXFN7873P1ZQ
+          </p>
+          <div style="display: flex; gap: 2rem">
+            <a
+              href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true"
+              style="color: inherit"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/interactions.js"></script>
     <script>
-        // --- Hamburger Menu ---
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileClose = document.getElementById('mobileClose');
+      // --- Hamburger Menu ---
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobileNav");
+      const mobileClose = document.getElementById("mobileClose");
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-        });
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        mobileNav.classList.toggle("open");
+        document.body.style.overflow = mobileNav.classList.contains("open")
+          ? "hidden"
+          : "";
+      });
 
-        mobileClose.addEventListener('click', () => {
-            hamburger.classList.remove('open');
-            mobileNav.classList.remove('open');
-            document.body.style.overflow = '';
-        });
+      mobileClose.addEventListener("click", () => {
+        hamburger.classList.remove("open");
+        mobileNav.classList.remove("open");
+        document.body.style.overflow = "";
+      });
 
-        // Close when a nav link is tapped
-        mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('open');
-                mobileNav.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+      // Close when a nav link is tapped
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          mobileNav.classList.remove("open");
+          document.body.style.overflow = "";
         });
+      });
 
-        // --- Header Scroll Effect ---
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+      // --- Header Scroll Effect ---
+      const header = document.getElementById("mainHeader");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
