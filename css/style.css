@@ -42,10 +42,7 @@
 
 /* --- HIGHLIGHT STYLES --- */
 .startup-highlight {
-    background: linear-gradient(120deg, var(--color-purple), #0ea5e9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-purple);
     position: relative;
     display: inline-block;
 }
@@ -995,7 +992,7 @@ img {
     height: 70px; /* Enhanced visibility height */
     width: 170px;  /* Proportional uniform width constraint */
     object-fit: contain;
-    mix-blend-mode: multiply;
+    mix-blend-mode: multiply !important;
     filter: grayscale(1); 
     opacity: 0.7; /* Slightly increased baseline opacity */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -1106,7 +1103,7 @@ footer::before {
     height: 45px;
     object-fit: contain;
     opacity: 0.95;
-    mix-blend-mode: multiply; /* Removes white background in light backgrounds */
+    mix-blend-mode: multiply !important; /* Removes white background in light backgrounds */
     transition: var(--transition);
 }
 
@@ -1831,17 +1828,7 @@ footer::before {
     }
     
     .hero-image-mobile {
-        display: block;
-        margin-top: 2.5rem;
-        width: 100%;
-        max-width: 450px;
-        overflow: hidden;
-        border-radius: 4px !important;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-    }
-    .hero-image-mobile img {
-        width: 100%;
-        display: block;
+        display: none !important;
     }
 
     .hero-title { 
@@ -2615,3 +2602,13 @@ footer::before {
     padding-left: 24px !important;
 }
 .simple-drop-list a::after { display: none !important; }
+
+/* Logo Transparency Fix */
+.logo-track img, .logo-wall img, .footer-auth-badges img, .t-card img {
+    mix-blend-mode: multiply !important;
+}
+
+/* Contact Section Scroll Target Fix */
+.modern-contact-band {
+    scroll-margin-top: 70px;
+}

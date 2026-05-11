@@ -10,12 +10,97 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      /* â”€â”€ ABOUT PAGE MOBILE RESPONSIVENESS â”€â”€ */
+      /* ── ABOUT PAGE MOBILE RESPONSIVENESS ── */
 
-      /* Founder section hero heading */
+      /* Executive Section Split Header */
+      .executive-header-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 6rem;
+      }
+
+      /* Bento Card Grid */
+      .bento-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      /* Partner Hero Flex (Founder Profile) */
+      .partner-hero-flex-layout {
+        display: flex;
+        align-items: flex-end;
+        gap: 5rem;
+      }
+
+      /* Details Grid (About Jaya) */
+      .details-grid-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 8rem;
+      }
+
+      /* Certifications Layout */
+      .certs-layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4rem 2rem;
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 4rem 0;
+      }
+
       @media (max-width: 1024px) {
         .about-founder-sec {
           padding: 90px 0 50px;
+        }
+
+        .executive-header-split {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          margin-bottom: 4rem;
+          text-align: center;
+        }
+        .executive-header-split h2 {
+          font-size: 3.5rem !important;
+        }
+        .executive-header-split p {
+          max-width: 100% !important;
+          margin: 0 auto;
+        }
+
+        .bento-card-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .partner-hero-flex-layout {
+          flex-direction: column;
+          align-items: center;
+          gap: 3rem;
+          text-align: center;
+        }
+        .partner-portrait {
+          flex: 0 0 auto !important;
+          max-width: 100%;
+          width: 100%;
+        }
+        .partner-meta {
+          padding-bottom: 40px !important;
+        }
+        .partner-meta h1 {
+          font-size: 3rem !important;
+        }
+        .partner-meta .contact-links {
+          justify-content: center;
+        }
+
+        .details-grid-layout {
+          grid-template-columns: 1fr;
+          gap: 4rem;
         }
 
         .stats-grid-about {
@@ -23,100 +108,24 @@
           gap: 2rem !important;
         }
 
-        .partners-grid-row {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 2rem !important;
-          max-width: 100% !important;
-          margin-bottom: 2rem !important;
-        }
-
-        .about-founder-grid h2 {
-          font-size: 2rem !important;
-        }
-
-        /* Methodology Section */
-        .methodology-container {
-          padding: 0 1.5rem !important;
-        }
-
-        /* Partners section */
-        .partners-section {
-          padding: 60px 0 !important;
-        }
-        .partners-heading-block {
-          margin-bottom: 3rem !important;
-        }
-        .partners-heading-block .partners-big-n {
-          font-size: 3rem !important;
-        }
-
-        /* Partner logos max-width */
-        .partner-logo-simple img {
-          max-width: 110px !important;
-          height: auto !important;
-        }
-
-        /* Stats Section */
-        .stats-about-sec {
-          padding: 40px 0 !important;
-        }
-        .stats-about-sec h3 {
-          font-size: 2.2rem !important;
-        }
-
-        /* Benefit list on founder */
-        .benefit-list li {
-          justify-content: flex-start !important;
-          font-size: 0.95rem !important;
-        }
-        .benefit-list {
-          gap: 1rem !important;
-        }
-
-        /* Founder image */
-        .about-founder-grid {
-          text-align: left !important;
-        }
-        .founder-img-col {
-          margin-top: 0 !important;
-          order: 1;
-        }
-        .founder-text-col {
-          order: 2;
-        }
-        .founder-img-col > div:first-child {
-          border-radius: 20px !important;
-          aspect-ratio: 1/1.1 !important;
-        }
-
-        /* Founder name below image */
-        .founder-name-simple {
-          margin-top: 1.2rem !important;
-          text-align: center !important;
-        }
-
-        /* Description paragraph */
-        .founder-text-col p {
-          font-size: 1rem !important;
-          margin-bottom: 1.5rem !important;
-        }
-
-        /* Section title scaling */
-        .section-head-centered {
-          margin-bottom: 3rem;
-        }
-        .section-title-large {
-          font-size: 2.2rem !important;
-          font-weight: 700;
-        }
-        .section-title-large span {
-          display: inline !important;
-        }
         .methodology-grid {
           grid-template-columns: 1fr !important;
           gap: 3rem !important;
         }
       }
+
+      @media (max-width: 768px) {
+        .certs-item {
+          flex: 0 1 100% !important;
+          border-bottom: 1px solid #f1f5f9;
+          padding-bottom: 3rem;
+        }
+        .certs-item:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+
       @media (max-width: 480px) {
         .methodology-point {
           flex-direction: column !important;
@@ -126,9 +135,6 @@
         .methodology-point i {
           font-size: 1.5rem !important;
         }
-      }
-
-      @media (max-width: 480px) {
         .partners-grid-row {
           grid-template-columns: repeat(2, 1fr) !important;
           gap: 1.5rem !important;
@@ -154,16 +160,6 @@
         filter: grayscale(0);
         opacity: 1;
         transform: scale(1.08);
-      }
-
-      /* On mobile: show image first, then text */
-      @media (max-width: 1024px) {
-        .founder-text-col {
-          order: 2;
-        }
-        .founder-img-col {
-          order: 1;
-        }
       }
 
       .stats-grid-about {
@@ -334,6 +330,7 @@
                 </div>
               </div>
             </li>
+            <li><a href="resources.html">Resources & Knowledge Hub</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
 
@@ -355,6 +352,7 @@
       <a href="index.html">Home</a>
       <a href="about.html" class="active">Who We Are</a>
       <a href="services.html">Services</a>
+      <a href="resources.html">Resources & Knowledge Hub</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -395,16 +393,8 @@
 
         <div class="container" style="position: relative; z-index: 1">
           <!-- Editorial Header Split -->
-          <div
-            style="
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              gap: 4rem;
-              align-items: end;
-              margin-bottom: 6rem;
-            "
-          >
-            <div class="reveal">
+          <div class="executive-header-split reveal">
+            <div>
               <div
                 style="
                   font-size: 0.9rem;
@@ -448,13 +438,7 @@
           </div>
 
           <!-- Premium Bento Box Grid -->
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 2rem;
-            "
-          >
+          <div class="bento-card-grid">
             <!-- Card 1 -->
             <div
               class="reveal stagger-1"
@@ -673,10 +657,7 @@
         "
       >
         <div class="container">
-          <div
-            class="partner-hero-flex"
-            style="display: flex; align-items: flex-end; gap: 5rem"
-          >
+          <div class="partner-hero-flex-layout">
             <div
               class="partner-portrait reveal"
               style="flex: 0 0 450px; margin-bottom: -4px"
@@ -687,10 +668,7 @@
                 style="width: 100%; display: block; filter: contrast(1.02)"
               />
             </div>
-            <div
-              class="partner-meta reveal stagger-1"
-              style="padding-bottom: 80px; flex: 1"
-            >
+            <div class="partner-meta reveal stagger-1" style="flex: 1">
               <h1
                 style="
                   font-size: 4.5rem;
@@ -729,7 +707,7 @@
                 years of cross-industry experience in Law, HR, and Compliance.
               </p>
 
-              <div style="display: flex; gap: 1.5rem; align-items: center">
+              <div class="contact-links" style="display: flex; gap: 1.5rem; align-items: center">
                 <a
                   href="#contact"
                   style="
@@ -784,10 +762,7 @@
       <!-- Detailed About Section -->
       <section class="partner-details" style="padding: 100px 0">
         <div class="container">
-          <div
-            class="details-grid"
-            style="display: grid; grid-template-columns: 2fr 1fr; gap: 8rem"
-          >
+          <div class="details-grid-layout">
             <div class="details-left reveal">
               <h3
                 style="
@@ -1086,27 +1061,9 @@
             </p>
           </div>
 
-          <!-- Horizontal Logos/Certificates (No Card Containers) -->
-          <div
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-              gap: 4rem 2rem;
-              border-top: 1px solid #e2e8f0;
-              border-bottom: 1px solid #e2e8f0;
-              padding: 4rem 0;
-            "
-          >
+          <!-- Horizontal Logos/Certificates (No Card Container          <div class="certs-layout">
             <!-- Item 1: Bar Council -->
-            <div
-              class="reveal stagger-1"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-1 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1147,14 +1104,7 @@
             </div>
 
             <!-- Item 2: ISO 9001 -->
-            <div
-              class="reveal stagger-2"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-2 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1195,14 +1145,7 @@
             </div>
 
             <!-- Item 3: POSH -->
-            <div
-              class="reveal stagger-3"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-3 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1243,14 +1186,7 @@
             </div>
 
             <!-- Item 4: EDP HRM -->
-            <div
-              class="reveal stagger-4"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-4 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1286,19 +1222,12 @@
                   line-height: 1.4;
                 "
               >
-                EDP HRM â€” SHRM &amp; XLRI
+                EDP HRM — SHRM &amp; XLRI
               </h3>
             </div>
 
             <!-- Item 5: Startup India -->
-            <div
-              class="reveal stagger-5"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-5 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1339,14 +1268,7 @@
             </div>
 
             <!-- Item 6: MSME -->
-            <div
-              class="reveal stagger-6"
-              style="
-                flex: 0 1 calc(25% - 1.5rem);
-                min-width: 220px;
-                text-align: center;
-              "
-            >
+            <div class="reveal stagger-6 certs-item" style="min-width: 220px; text-align: center;">
               <div
                 style="
                   height: 100px;
@@ -1363,7 +1285,7 @@
                     max-width: 100%;
                     max-height: 100%;
                     object-fit: contain;
-                    mix-blend-mode: multiply;
+                    mix-blend-mode: multiply !important;
                   "
                 />
               </div>
@@ -1390,7 +1312,7 @@
                 MSME Registered
               </h3>
             </div>
-          </div>
+          </div>       </div>
 
           <!-- GSTIN - Elegant Typographic Presentation -->
           <div class="reveal" style="margin-top: 4rem; text-align: center">
@@ -1548,7 +1470,7 @@
               </div>
               <div class="reveal stagger-3 partner-logo-simple">
                 <img
-                  src="img/WhatsApp%20Image%202026-03-02%20at%206.01.50%20PM.jpeg"
+                  src="img/WhatsApp Image 2026-03-02 at 6.01.50 PM.png"
                   style="
                     height: 70px;
                     width: 160px;
@@ -1575,7 +1497,7 @@
             >
               <div class="reveal stagger-4 partner-logo-simple">
                 <img
-                  src="img/WhatsApp%20Image%202026-03-02%20at%206.01.59%20PM.jpeg"
+                  src="img/WhatsApp Image 2026-03-02 at 6.01.59 PM.png"
                   style="
                     height: 70px;
                     width: 160px;
@@ -1587,7 +1509,7 @@
               </div>
               <div class="reveal stagger-5 partner-logo-simple">
                 <img
-                  src="img/WhatsApp%20Image%202026-03-02%20at%206.02.11%20PM.jpeg"
+                  src="img/WhatsApp Image 2026-03-02 at 6.02.11 PM.png"
                   style="
                     height: 70px;
                     width: 160px;
@@ -1646,7 +1568,7 @@
       </section>
     </main>
     <!-- Footer with Embedded Contact -->
-    <footer id="contact">
+    <footer>
       <div class="container">
         <div class="footer-grid">
           <div>
@@ -1674,6 +1596,7 @@
             <ul>
               <li><a href="about.html">Our Philosophy</a></li>
               <li><a href="services.html#audits">Audit Readiness</a></li>
+              <li><a href="resources.html">Knowledge Hub</a></li>
               <li><a href="services.html">All Services</a></li>
             </ul>
           </div>
@@ -1697,8 +1620,9 @@
           </div>
         </div>
 
+
         <!-- Modern Premium Contact Section -->
-        <div class="modern-contact-band">
+        <div class="modern-contact-band" id="contact">
           <div class="modern-contact-container">
             <div class="mc-grid">
               <!-- Left: Typography & Info -->
@@ -1845,18 +1769,9 @@
         </div>
 
         <div class="footer-bottom">
-          <p>
-            &copy; 2026 NexusHive Solutions LLP. All Rights Reserved.
-            <span style="opacity: 0.6; margin: 0 10px">|</span> GSTIN:
-            29AAXFN7873P1ZQ
-          </p>
+          <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. <span style="opacity: 0.6; margin: 0 10px;">|</span> GSTIN: 29AAXFN7873P1ZQ</p>
           <div style="display: flex; gap: 2rem">
-            <a
-              href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true"
-              style="color: inherit"
-              target="_blank"
-              ><i class="fab fa-linkedin"></i
-            ></a>
+            <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
       </div>

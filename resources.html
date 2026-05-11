@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Knowledge Hub | NexusHive Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Resources Hub Custom Styles --- */
+        .resources-hero {
+            padding: 180px 0 80px;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, #f8fbff);
+        }
+        .resources-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .resources-hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .hub-section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(78, 47, 218, 0.06);
+        }
+        .hub-section:nth-of-type(even) {
+            background: #f8fbff;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+        .section-intro .tagline {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-purple);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 1rem;
+        }
+        .section-intro h2 {
+            font-size: 2.8rem;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Compliance Calendar Card */
+        .calendar-card {
+            background: white;
+            padding: 3rem;
+            border: 1px solid rgba(78, 47, 218, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            box-shadow: 0 20px 50px rgba(78, 47, 218, 0.04);
+        }
+        .calendar-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-navy);
+        }
+        .calendar-content p {
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .btn-external {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--color-purple);
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-external:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 47, 218, 0.2);
+        }
+
+        /* Bento Grid for Tips & Guides */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .bento-item {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid rgba(78, 47, 218, 0.08);
+            transition: all 0.3s ease;
+        }
+        .bento-item:hover {
+            border-color: var(--color-purple);
+            transform: translateY(-5px);
+        }
+        .bento-item i {
+            font-size: 2rem;
+            color: var(--color-purple);
+            margin-bottom: 1.5rem;
+        }
+        .bento-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-navy);
+        }
+        .bento-item p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Glossary Section */
+        .glossary-list {
+            column-count: 2;
+            column-gap: 4rem;
+        }
+        .glossary-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(78, 47, 218, 0.06);
+        }
+        .glossary-item dt {
+            font-weight: 700;
+            color: var(--color-navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .glossary-item dd {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-left: 0;
+        }
+
+        /* Success Wall */
+        .logo-wall {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+        .logo-wall img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            mix-blend-mode: multiply !important;
+            transition: all 0.3s ease;
+        }
+        .logo-wall img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .glossary-list { column-count: 1; }
+            .logo-wall { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .resources-hero h1 { font-size: 2.8rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .calendar-card { flex-direction: column; text-align: center; }
+            .logo-wall { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elite Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-flex">
+                <a href="index.html" class="logo">Nexus<span>Hive</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="about.html">Who We Are <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <div class="dropdown">
+                            <div class="mega-grid">
+                                <div class="mega-column">
+                                    <h4><a href="about.html#building-better-workplaces">About Us</a></h4>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="about.html#founder">Founder Profile</a></h4>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="about.html#certifications">Certifications &amp; Registrations</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <div class="dropdown">
+                            <div class="mega-grid">
+                                <div class="mega-column">
+                                    <h4><a href="services.html#hr-strategy">HR Strategy & Operations</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#hr-strategy">Org Architecture</a></li>
+                                        <li><a href="services.html#hr-strategy">HR Manuals & Policies</a></li>
+                                        <li><a href="services.html#hr-strategy">Audit Readiness</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="services.html#compliance">Statutory, Labour Law & POSH</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#compliance">Labour Law Compliance</a></li>
+                                        <li><a href="services.html#posh">POSH & Ethics (IC)</a></li>
+                                        <li><a href="services.html#registration">PF/ESI/PT Registrations</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="services.html#staffing">Talent Sourcing & Staffing</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#staffing">Executive Search</a></li>
+                                        <li><a href="services.html#staffing">Onboarding Protocol</a></li>
+                                        <li><a href="services.html#staffing">Sourcing Strategy</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="services.html#finance">Finance, Tech & Growth</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#finance">End-to-End Payroll</a></li>
+                                        <li><a href="services.html#finance">TDS & GST Flow</a></li>
+                                        <li><a href="services.html#training">Training & Tech Hub</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-column">
+                                    <h4><a href="services.html#others">Business Support</a></h4>
+                                    <ul class="sub-drop">
+                                        <li><a href="services.html#others">Brand Identity</a></li>
+                                        <li><a href="services.html#others">Corporate Events</a></li>
+                                        <li><a href="services.html#others">Marketing Strategy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="resources.html" class="active">Resources & Knowledge Hub</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">Who We Are</a>
+        <a href="services.html">Services</a>
+        <a href="resources.html" class="active">Resources & Knowledge Hub</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="resources-hero">
+            <div class="container">
+                <div class="reveal">
+                    <h1>Resources & <span class="startup-highlight">Knowledge Hub</span></h1>
+                    <p>Empowering founders and HR leaders with the technical intelligence, compliance guardrails, and strategic toolkits required to build investor-ready enterprises.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Calendar -->
+        <section class="hub-section">
+            <div class="container">
+                <div class="calendar-card reveal">
+                    <div class="calendar-content">
+                        <span class="tagline">Stay Compliant</span>
+                        <h3>Statutory Compliance Calendar</h3>
+                        <p>Track monthly and quarterly statutory due dates for GST, PF, ESI, Professional Tax, and more. Our live-updated calendar ensures you never miss a critical filing deadline.</p>
+                        <a href="https://docs.google.com/spreadsheets/d/19e4BPw0JOJ7uFI84vm4-cRqy3gLKGCDfhr3GT-j8gnI/edit?gid=0#gid=0" target="_blank" class="btn-external">
+                            View Compliance Sheet <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="calendar-visual">
+                        <div style="font-size: 5rem; color: var(--color-purple); opacity: 0.2;">
+                            <i class="far fa-calendar-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips for New Founders -->
+        <section class="hub-section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="tagline">FOUNDER'S INTELLIGENCE</span>
+                    <h2>Expert Tips for New Founders</h2>
+                    <p>Critical operational nuances often overlooked during the rapid scaling phase.</p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item reveal stagger-1">
+                        <i class="fas fa-clock"></i>
+                        <h4>The 2-Day Buffer Rule</h4>
+                        <p>Always aim to file at least 2 days before the deadline. Government portals (GSTN/PF) often face heavy traffic and downtime on due dates.</p>
+                    </div>
+                    <div class="bento-item reveal stagger-2">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Penalty Warning</h4>
+                        <p>Late PF/ESI payments attract 12% interest plus damages up to 25%. These are non-deductible expenses in your taxes—affecting your bottom line directly.</p>
+                    </div>
+                    <div class="bento-item reveal stagger-3">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>State Nuances</h4>
+                        <p>Professional Tax and LWF dates shift depending on where your office is registered. Maharashtra, Karnataka, and Tamil Nadu have distinct statutory timelines.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Startup Guides -->
+        <section class="hub-section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="tagline">TECHNICAL GUIDES</span>
+                    <h2>Essential Startup Toolkits</h2>
+                    <p>Step-by-step frameworks for structural and legal governance.</p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item reveal stagger-1">
+                        <i class="fas fa-id-card"></i>
+                        <h4>Company Registration</h4>
+                        <p>Choosing between LLP, Private Limited, or OPC. Understanding the MoA, AoA, and Director identification (DIN) process.</p>
+                    </div>
+                    <div class="bento-item reveal stagger-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Implementing POSH</h4>
+                        <p>How to constitute an Internal Committee (IC), draft your POSH policy, and conduct mandatory employee sensitization.</p>
+                    </div>
+                    <div class="bento-item reveal stagger-3">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h4>GST & Indirect Tax</h4>
+                        <p>Basics of GST registration, HSN coding, and the importance of timely Input Tax Credit (ITC) reconciliation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glossary -->
+        <section class="hub-section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="tagline">TERMINOLOGY</span>
+                    <h2>The Founder's Glossary</h2>
+                    <p>Decoding the complex language of HR, Law, and Compliance.</p>
+                </div>
+                <dl class="glossary-list reveal">
+                    <div class="glossary-item">
+                        <dt>CTC (Cost to Company)</dt>
+                        <dd>The total salary package including all benefits, bonuses, and statutory contributions from the employer's side.</dd>
+                    </div>
+                    <div class="glossary-item">
+                        <dt>Statutory Audit</dt>
+                        <dd>A legally required review of the accuracy of a company's financial statements and records.</dd>
+                    </div>
+                    <div class="glossary-item">
+                        <dt>Internal Committee (IC)</dt>
+                        <dd>The mandatory body required under the POSH Act to handle complaints of sexual harassment in the workplace.</dd>
+                    </div>
+                    <div class="glossary-item">
+                        <dt>ESI (Employee State Insurance)</dt>
+                        <dd>A self-financing social security and health insurance scheme for Indian workers.</dd>
+                    </div>
+                    <div class="glossary-item">
+                        <dt>Professional Tax (PT)</dt>
+                        <dd>A tax levied by various state governments on salaried individuals and professionals.</dd>
+                    </div>
+                    <div class="glossary-item">
+                        <dt>LWF (Labour Welfare Fund)</dt>
+                        <dd>A state-managed fund for providing social security and improving working conditions for laborers.</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Success Wall -->
+        <section class="hub-section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="tagline">OUR ECOSYSTEM</span>
+                    <h2>Why Leading Startups Choose Us</h2>
+                    <p>Our success is measured by the structural integrity of the enterprises we help build.</p>
+                </div>
+                <div class="logo-wall reveal">
+                    <img src="img/Amphora.png" alt="Amphora">
+                    <img src="img/Curl.tech.png" alt="Curl.tech">
+                    <img src="img/tmp_53b5a71b-53c3-4a1b-8809-30b5762eb568.png" alt="Ecosystem Partner">
+                    <img src="img/WhatsApp Image 2026-03-02 at 6.01.50 PM.png" alt="Trusted Partner">
+                    <img src="img/WhatsApp Image 2026-03-02 at 6.01.59 PM.png" alt="Trusted Partner">
+                    <img src="img/WhatsApp Image 2026-03-02 at 6.02.11 PM.png" alt="TripFactory">
+                    <img src="img/practicco.png" alt="Practico">
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Consulting-Grade CTA -->
+        <section class="final-cta reveal" style="background: white;">
+            <div class="container">
+                <div class="cta-inner">
+                    <span class="tagline pill" style="margin: 0 auto 2rem; width: fit-content;">Engagement Protocol</span>
+                    <h2 class="cta-title">Ready for Structural Excellence?</h2>
+                    <p class="cta-lead">Discuss your organizational requirements with our senior advisory team and build your foundation for scale.</p>
+                    
+                    <div class="cta-btns-group">
+                        <a href="#contact" class="btn-pill-primary">
+                            <span>Schedule Strategic Call</span>
+                            <div class="icon-circle">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+                        <a href="services.html" class="btn-pill-secondary">
+                            <span>View All Services</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h3 class="footer-logo">Nexus<span>Hive</span></h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem">
+              Premier HR advisory and statutory governance partner for high-growth enterprises across India.
+            </p>
+            <div class="footer-auth-badges">
+              <img src="img/msme.png" alt="MSME Registered" />
+              <img src="img/startup.png" alt="Startup India" />
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="services.html#hr-strategy">HR Strategy</a></li>
+              <li><a href="services.html#compliance">Labour Law</a></li>
+              <li><a href="services.html#finance">Payroll Systems</a></li>
+              <li><a href="services.html#posh">POSH Compliance</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Intelligence</h4>
+            <ul>
+              <li><a href="about.html">Our Philosophy</a></li>
+              <li><a href="services.html#audits">Audit Readiness</a></li>
+              <li><a href="resources.html">Knowledge Hub</a></li>
+              <li><a href="services.html">All Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Engage</h4>
+            <ul>
+              <li>No 11 &amp; 12, Ganesh Nagar Layout,</li>
+              <li>Telecom Road, Virupakshapura, Bangalore- 560097</li>
+              <li><a href="mailto:info@nexushive.com">info@nexushive.com</a></li>
+              <li><a href="tel:+918088052874">+91 80880 52874</a></li>
+              <li><a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" target="_blank">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modern Premium Contact Section -->
+        <div class="modern-contact-band" id="contact">
+          <div class="modern-contact-container">
+            <div class="mc-grid">
+
+              <!-- Left: Typography & Info -->
+              <div class="mc-info-col">
+                <div class="mc-header">
+                  <span class="mc-badge">Get in Touch</span>
+                  <h2>Let's build something<br><span>remarkable.</span></h2>
+                  <p>Our advisory team partners with forward-thinking enterprises. Reach out to discuss your structural strategy.</p>
+                </div>
+                <div class="mc-contact-cards">
+                  <a href="mailto:info@nexushive.com" class="mc-card">
+                    <div class="mc-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                      <h5>Email Us</h5>
+                      <span>info@nexushive.com</span>
+                    </div>
+                  </a>
+                  <a href="https://wa.me/918088052874" target="_blank" class="mc-card mc-wa-card">
+                    <div class="mc-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                      <h5>WhatsApp</h5>
+                      <span>Chat Instantly</span>
+                    </div>
+                  </a>
+                  <a href="tel:+918088052874" class="mc-card">
+                    <div class="mc-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                      <h5>Call Us</h5>
+                      <span>+91 80880 52874</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: Modern Form with Floating Labels -->
+              <div class="mc-form-col">
+                <form id="globalContactForm" class="mc-form">
+                  <div class="mc-row">
+                    <div class="mc-field">
+                      <input type="text" id="mc-name" name="name" required placeholder=" ">
+                      <label for="mc-name">Full name</label>
+                    </div>
+                    <div class="mc-field">
+                      <input type="email" id="mc-email" name="email" required placeholder=" ">
+                      <label for="mc-email">Email address</label>
+                    </div>
+                  </div>
+                  <div class="mc-row">
+                    <div class="mc-field">
+                      <input type="tel" id="mc-phone" name="phone" required placeholder=" ">
+                      <label for="mc-phone">Phone number</label>
+                    </div>
+                    <div class="mc-field mc-custom-select">
+                      <div class="mc-select-trigger" tabindex="0">
+                        <span class="mc-select-value"></span>
+                      </div>
+                      <label class="mc-select-label">Service Area</label>
+                      <i class="fas fa-chevron-down mc-caret"></i>
+                      <div class="mc-options">
+                        <div class="mc-option" data-value="HR Strategy">HR Setup &amp; Strategy</div>
+                        <div class="mc-option" data-value="Labour Law">Statutory &amp; Labour Law</div>
+                        <div class="mc-option" data-value="POSH">POSH Compliance</div>
+                        <div class="mc-option" data-value="Payroll">Payroll &amp; Finance</div>
+                        <div class="mc-option" data-value="Registration">Registration (PF/ESI/PT)</div>
+                        <div class="mc-option" data-value="Staffing">Sourcing &amp; Staffing</div>
+                        <div class="mc-option" data-value="Training">Training &amp; Skilling</div>
+                        <div class="mc-option" data-value="Other">Other Services</div>
+                      </div>
+                      <input type="hidden" name="intent" class="mc-hidden-input" required>
+                    </div>
+                  </div>
+                  <div class="mc-field mc-textarea-field">
+                    <textarea id="mc-message" name="message" required placeholder=" "></textarea>
+                    <label for="mc-message">How can we help?</label>
+                  </div>
+                  <button type="submit" id="globalSubmitBtn" class="mc-submit">
+                    <span id="globalBtnText">Send Request</span>
+                    <i class="fas fa-paper-plane" id="globalBtnIcon"></i>
+                  </button>
+                  <div id="globalFormMessage" class="mc-message" style="display:none;"></div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 NexusHive Solutions LLP. All Rights Reserved. <span style="opacity: 0.6; margin: 0 10px;">|</span> GSTIN: 29AAXFN7873P1ZQ</p>
+          <div style="display: flex; gap: 2rem">
+            <a href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true" style="color: inherit" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
+    <script>
+        // --- Hamburger Menu ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileClose = document.getElementById('mobileClose');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
