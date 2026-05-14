@@ -529,7 +529,7 @@ img {
 
 .tagline {
     font-weight: 600;
-    color: #64748b; /* Muted slate for professional look */
+    color: #475569; /* Darker slate for better contrast */
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.15em; /* Tracked like the image */
@@ -1232,7 +1232,7 @@ footer::before {
 }
 
 .wa-icon-box {
-    font-size: 32px;
+    font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2720,7 +2720,7 @@ footer::before {
 
 /* Footer Social Icon Enhancement */
 .footer-bottom i {
-    font-size: 1.4rem !important;
+    font-size: 28px !important; /* Matches WhatsApp icon size */
     transition: all 0.3s ease !important;
 }
 .footer-bottom a:hover i {
