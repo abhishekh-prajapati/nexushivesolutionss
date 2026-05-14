@@ -2717,3 +2717,13 @@ footer::before {
         font-size: 2.2rem;
     }
 }
+
+/* Footer Social Icon Enhancement */
+.footer-bottom i {
+    font-size: 1.4rem !important;
+    transition: all 0.3s ease !important;
+}
+.footer-bottom a:hover i {
+    color: #4E2FDA !important;
+    transform: scale(1.2) !important;
+}
