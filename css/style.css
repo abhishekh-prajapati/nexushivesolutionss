@@ -1204,7 +1204,7 @@ footer::before {
 .wa-float {
     position: fixed;
     bottom: 32px;
-    right: 32px;
+    right: 72px;
     width: 50px;
     height: 50px;
     background: #25D366;
@@ -1895,7 +1895,7 @@ footer::before {
 
     /* Theme switcher */
     .theme-switcher { bottom: 110px; right: 16px; }
-    .wa-float { bottom: 20px; right: 16px; }
+    .wa-float { bottom: 20px; right: 26px; }
     .wa-text { display: none; }
 
     /* Mobile Nav Modernization */
@@ -2726,4 +2726,10 @@ footer::before {
 .footer-bottom a:hover i {
     color: #4E2FDA !important;
     transform: scale(1.2) !important;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -10px; /* Aligns with WhatsApp widget */
 }
