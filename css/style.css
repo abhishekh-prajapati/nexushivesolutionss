@@ -1200,25 +1200,30 @@ footer::before {
 }
 
 /* Interactive Pill Section (Moved up / Redefined) */
-/* .tagline styles updated at line 173 */
-
-/* --- UNIQUE WHATSAPP FLOATING WIDGET --- */
+/* .tagline styles updated at line 173 *//* --- UNIQUE WHATSAPP FLOATING WIDGET --- */
 .wa-float {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 64px; /* Increased size */
+    bottom: 32px;
+    right: 32px;
+    width: 64px;
     height: 64px;
     background: #25D366;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50% !important; /* Strictly circular */
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    border-radius: 50% !important;
+    box-shadow: 0 12px 36px rgba(37, 211, 102, 0.45);
     z-index: 9999;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    animation: waEntrance 0.8s 1s forwards;
+}
+
+@keyframes waEntrance {
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .wa-float:hover {
@@ -1227,18 +1232,40 @@ footer::before {
 }
 
 .wa-icon-box {
-    font-size: 32px; /* Larger icon */
+    font-size: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
     position: relative;
-    width: 100%;
-    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.wa-float:hover .wa-icon-box {
+    transform: scale(1.1) rotate(10deg);
 }
 
 .wa-text {
-    display: none !important; /* Removed text to keep it circular */
+    position: absolute;
+    right: 80px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px !important;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-navy);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
+
+.wa-float:hover .wa-text {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .wa-pulse {
@@ -1256,40 +1283,8 @@ footer::before {
 }
 
 @keyframes waPulse {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.4); opacity: 0; }
-}
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--color-navy);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255,255,255,0.4);
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.4s ease;
-    pointer-events: none; /* Hidden text should not capture mouse events */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.wa-float:hover .wa-text {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto; /* Allow clicking when visible */
-}
-
-.wa-float:hover .wa-icon-box {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-}
-
-@keyframes waPulse {
-    0% { width: 60px; height: 60px; opacity: 0.6; }
-    100% { width: 100px; height: 100px; opacity: 0; }
-}
-
-@keyframes waEntrance {
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
 }
 
 @media (max-width: 768px) {
@@ -2611,4 +2606,114 @@ footer::before {
 /* Contact Section Scroll Target Fix */
 .modern-contact-band {
     scroll-margin-top: 70px;
+}
+
+/* --- CERTIFICATES & REGISTRATIONS (Image-Based Redesign) --- */
+.certs-section {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.certs-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.certs-header h2 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.certs-header p {
+    font-size: 1.15rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cert-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-icon-box {
+    height: 100px;
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-icon-box {
+    transform: translateY(-8px);
+}
+
+.cert-icon-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cert-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.75rem;
+}
+
+.cert-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.4;
+    max-width: 200px;
+}
+
+/* Specific layout for bottom row centering */
+@media (min-width: 1025px) {
+    .certs-grid-row-bottom {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        gap: 8rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    .certs-grid-row-bottom {
+        display: contents;
+    }
+}
+
+@media (max-width: 600px) {
+    .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .certs-header h2 {
+        font-size: 2.2rem;
+    }
 }
