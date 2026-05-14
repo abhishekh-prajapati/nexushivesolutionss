@@ -485,7 +485,7 @@ img {
 }
 
 .hero-title {
-    font-size: 3.2rem;
+    font-size: 2.95rem; /* Reduced by 4px from 3.2rem */
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 2rem;
@@ -508,12 +508,12 @@ img {
 }
 
 @media (max-width: 991px) {
-    .hero h1 { font-size: 3rem; }
+    .hero h1 { font-size: 2.75rem; } /* Reduced by 4px from 3rem */
     .hero { height: auto; min-height: 100vh; padding: 120px 0 80px; }
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem !important; }
+    .hero h1 { font-size: 1.95rem !important; } /* Reduced by 4px from 2.2rem */
     .hero p { font-size: 1.1rem !important; margin-bottom: 2rem; }
     .hero-flex { padding-top: 40px; }
 }
