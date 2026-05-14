@@ -485,14 +485,14 @@ img {
 }
 
 .hero-title {
-    font-size: 2.95rem; /* Reduced by 4px from 3.2rem */
+    font-size: 2.2rem; /* Desktop hero heading */
     font-weight: 800;
-    line-height: 0.9; /* Reduced by ~10px from 1.1 */
+    line-height: 1.1;
     margin-bottom: 2rem;
     color: #0f172a;
 }
 .hero-lead {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     line-height: 1.7;
     margin-bottom: 3rem;
     color: #1e293b;
@@ -508,12 +508,12 @@ img {
 }
 
 @media (max-width: 991px) {
-    .hero h1 { font-size: 2.75rem; } /* Reduced by 4px from 3rem */
+    .hero h1, .hero-title { font-size: 2.8rem !important; }
     .hero { height: auto; min-height: 100vh; padding: 120px 0 80px; }
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 1.95rem !important; } /* Reduced by 4px from 2.2rem */
+    .hero h1, .hero-title { font-size: 2.2rem !important; }
     .hero p { font-size: 1.1rem !important; margin-bottom: 2rem; }
     .hero-flex { padding-top: 40px; }
 }
@@ -1827,7 +1827,7 @@ footer::before {
     }
 
     .hero-title { 
-        font-size: 2.2rem !important; 
+        font-size: 2.2rem !important;
         line-height: 1.2;
     }
     .hero-content .tagline.pill {
@@ -1938,7 +1938,7 @@ footer::before {
 }
 
 @media (max-width: 430px) {
-    h1, .hero-title { font-size: 1.8rem !important; }
+    h1, .hero-title { font-size: 1.7rem !important; }
     h2, .section-title, .section-title-large { font-size: 1.6rem !important; }
     .container { padding: 0 1rem; }
 }
