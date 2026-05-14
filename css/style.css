@@ -487,7 +487,7 @@ img {
 .hero-title {
     font-size: 2.95rem; /* Reduced by 4px from 3.2rem */
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 0.9; /* Reduced by ~10px from 1.1 */
     margin-bottom: 2rem;
     color: #0f172a;
 }
