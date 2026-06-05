@@ -384,6 +384,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ═══════════════════════════════════════════════════════
+       13b. EVENT CARDS — text inside slides up on card entry
+    ═══════════════════════════════════════════════════════ */
+    document.querySelectorAll('.event-card').forEach(card => {
+        const h3 = card.querySelector('h3');
+        const p  = card.querySelector('p');
+        const link = card.querySelector('.learn-more');
+        if (h3) h3.style.cssText += 'opacity:0;transform:translateX(50px);transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s '+EASE_OUT_EXPO+';';
+        if (p)  p.style.cssText  += 'opacity:0;transform:translateY(12px);transition:opacity 0.5s 0.2s ease,transform 0.5s 0.2s '+EASE_OUT_EXPO+';';
+        if (link) link.style.cssText += 'opacity:0;transform:translateY(8px);transition:opacity 0.4s 0.3s ease,transform 0.4s 0.3s ease;';
+
+        onceVisible(card, () => {
+            if (h3) { h3.style.opacity='1'; h3.style.transform='translateY(0)'; }
+            if (p)  { p.style.opacity='1';  p.style.transform='translateY(0)'; }
+            if (link) { link.style.opacity='1';  link.style.transform='translateY(0)'; }
+        }, 0.2);
+    });
+
+    /* ═══════════════════════════════════════════════════════
        14. TESTIMONIAL QUOTE WORDS (DISABLED for long text)
     ═══════════════════════════════════════════════════════ */
     /* document.querySelectorAll('.t-card.small .quote').forEach(quote => {

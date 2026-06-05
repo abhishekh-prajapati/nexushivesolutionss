@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('dragstart', (e) => e.preventDefault());
     });
 });
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwC4Jbk5YP-4kN6071e56FGi-r31eizJ-Tz6vK3lvM0aas5r9DpLoJWcTyNUosqsT8/exec';
     const form = document.getElementById('globalContactForm');
