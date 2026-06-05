@@ -2934,28 +2934,6 @@ footer::before {
     padding: 1.5rem 0;
 }
 
-/* Soft gradient masks on left/right edges for fading effect */
-.events-ticker-container::before,
-.events-ticker-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.events-ticker-container::before {
-    left: 0;
-    background: linear-gradient(to right, #ffffff 0%, transparent 100%);
-}
-
-.events-ticker-container::after {
-    right: 0;
-    background: linear-gradient(to left, #ffffff 0%, transparent 100%);
-}
-
 .events-ticker-track {
     display: flex;
     gap: 32px;
@@ -2978,9 +2956,9 @@ footer::before {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 4px;
     text-decoration: none;
-    width: 400px;
-    min-width: 400px;
-    height: 480px;
+    width: 350px;
+    min-width: 350px;
+    height: 400px;
     box-sizing: border-box;
     overflow: hidden;
     transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
@@ -3174,14 +3152,10 @@ footer::before {
 }
 
 @media (max-width: 768px) {
-    .events-ticker-container::before,
-    .events-ticker-container::after {
-        width: 50px;
-    }
     .event-card {
-        width: 320px;
-        min-width: 320px;
-        height: 420px;
+        width: 300px;
+        min-width: 300px;
+        height: 340px;
     }
     .event-card-content {
         padding: 20px;
