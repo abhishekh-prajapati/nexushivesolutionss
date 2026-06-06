@@ -169,6 +169,54 @@
         gap: 6rem;
         align-items: center;
       }
+      /* --- Why Partner With Us — Responsive --- */
+      .why-partner-section {
+        padding: 100px 0;
+      }
+      .why-partner-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+      .why-partner-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: 1024px) {
+        .why-partner-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .why-partner-section {
+          padding: 60px 0;
+        }
+        .why-partner-header {
+          margin-bottom: 3rem;
+        }
+        .why-partner-header p {
+          font-size: 1rem !important;
+        }
+        .why-partner-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+          margin-bottom: 2.5rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .why-partner-section {
+          padding: 48px 0;
+        }
+        .why-partner-grid {
+          gap: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -255,11 +303,11 @@
                       </li>
                     </ul>
                   </div>
-                  <!-- Column 3: Talent Sourcing & Staffing -->
+                  <!-- Column 3: Technology & Digital Assets (IT Hardware & Software) -->
                   <div class="mega-column">
                     <h4>
                       <a href="services.html#staffing"
-                        >Talent Sourcing & Staffing</a
+                        >Technology &amp; Digital Assets (IT Hardware &amp; Software)</a
                       >
                     </h4>
                     <ul class="sub-drop">
@@ -418,7 +466,7 @@
               style="
                 background: #ffffff;
                 border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 24px;
+                border-radius: 4px;
                 padding: 3rem;
                 transition:
                   transform 0.4s ease,
@@ -439,7 +487,7 @@
                   width: 50px;
                   height: 50px;
                   background: rgba(78, 47, 218, 0.05);
-                  border-radius: 14px;
+                  border-radius: 4px;
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -485,7 +533,7 @@
               style="
                 background: #ffffff;
                 border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 24px;
+                border-radius: 4px;
                 padding: 3rem;
                 transition:
                   transform 0.4s ease,
@@ -506,7 +554,7 @@
                   width: 50px;
                   height: 50px;
                   background: rgba(78, 47, 218, 0.05);
-                  border-radius: 14px;
+                  border-radius: 4px;
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -553,7 +601,7 @@
               style="
                 background: #ffffff;
                 border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 24px;
+                border-radius: 4px;
                 padding: 3rem;
                 transition:
                   transform 0.4s ease,
@@ -574,7 +622,7 @@
                   width: 50px;
                   height: 50px;
                   background: rgba(78, 47, 218, 0.05);
-                  border-radius: 14px;
+                  border-radius: 4px;
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -993,7 +1041,95 @@
         </div>
       </section>
 
-      <!-- Certificates & Registrations: Image-Based Layout -->
+      <!-- Why Partner With Us? -->
+      <section class="why-partner-section" style="background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%); border-top: 1px solid rgba(78,47,218,0.07); border-bottom: 1px solid rgba(78,47,218,0.07);">
+        <div class="container">
+
+          <!-- Header -->
+          <div class="why-partner-header reveal">
+            <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;">The NexusHive Advantage</div>
+            <h2 style="color: var(--color-navy); margin-bottom: 1.25rem; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em;">Why Partner With Us?</h2>
+            <p style="font-size: 1.2rem; color: var(--color-text-muted); line-height: 1.7; margin: 0;">Why juggle multiple vendors when you can have <strong style="color: var(--color-navy);">one partner</strong>? The <em>NexusHive</em> model is built around your entire growth journey — from Day 1 to Scale.</p>
+          </div>
+
+          <!-- Value Proposition Cards -->
+          <div class="why-partner-grid">
+
+            <!-- Phase 1 -->
+            <div class="reveal stagger-1" style="background: #ffffff; border: 1px solid rgba(78,47,218,0.1); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.04);"
+              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.12)';"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.04)';">
+              <!-- Background accent -->
+              <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(78,47,218,0.05); border-radius: 50%;"></div>
+              <!-- Phase badge -->
+              <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(78,47,218,0.08); border: 1px solid rgba(78,47,218,0.15); border-radius: 4px; padding: 0.35rem 1rem; margin-bottom: 1.5rem;">
+                <span style="font-size: 0.7rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 2px;">Phase 1</span>
+              </div>
+              <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(78,47,218,0.12), rgba(78,47,218,0.06)); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <i class="fas fa-rocket" style="font-size: 1.4rem; color: var(--color-purple);"></i>
+              </div>
+              <h3 style="font-size: 1.4rem; color: var(--color-navy); font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">Setup</h3>
+              <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">We lay the foundation — from legal registration and IT infrastructure to robust HR policies that stand up to any audit.</p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> Legal &amp; Compliance</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> IT Hardware &amp; Software</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> HR Policies &amp; Documentation</li>
+              </ul>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="reveal stagger-2" style="background: linear-gradient(135deg, var(--color-purple), #7c3aed); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.2);"
+              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.35)';"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.2)';">
+              <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+              <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+              <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; padding: 0.35rem 1rem; margin-bottom: 1.5rem;">
+                <span style="font-size: 0.7rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 2px;">Phase 2</span>
+              </div>
+              <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.15); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <i class="fas fa-layer-group" style="font-size: 1.4rem; color: #fff;"></i>
+              </div>
+              <h3 style="font-size: 1.4rem; color: #fff; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">Build</h3>
+              <p style="font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.5rem;">We grow your team and brand — sourcing the right talent, crafting your identity, and putting your finances on a strong footing.</p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Talent Sourcing &amp; Staffing</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Branding &amp; Identity</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Finance &amp; Accounting</li>
+              </ul>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="reveal stagger-3" style="background: #ffffff; border: 1px solid rgba(78,47,218,0.1); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.04);"
+              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.12)';"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.04)';">
+              <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(78,47,218,0.05); border-radius: 50%;"></div>
+              <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(78,47,218,0.08); border: 1px solid rgba(78,47,218,0.15); border-radius: 4px; padding: 0.35rem 1rem; margin-bottom: 1.5rem;">
+                <span style="font-size: 0.7rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 2px;">Phase 3</span>
+              </div>
+              <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(78,47,218,0.12), rgba(78,47,218,0.06)); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <i class="fas fa-chart-line" style="font-size: 1.4rem; color: var(--color-purple);"></i>
+              </div>
+              <h3 style="font-size: 1.4rem; color: var(--color-navy); font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">Engage &amp; Scale</h3>
+              <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">We accelerate your momentum — turning your workforce into brand advocates and driving strategic growth at every level.</p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> Corporate Events</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> Corporate Gifting</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: #475569;"><i class="fas fa-check-circle" style="color: var(--color-purple); font-size: 0.85rem; flex-shrink: 0;"></i> Growth Advisory</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom CTA strip -->
+          <div class="reveal" style="text-align: center;">
+            <a href="#contact" class="btn-cta" style="display: inline-flex; align-items: center; gap: 0.75rem;">
+              Start Your Journey <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
       <section class="certs-section" id="certifications">
         <div class="container">
           <div class="certs-header reveal">
@@ -1050,16 +1186,16 @@
               <div class="cert-title">ISO Certified POSH Practitioner</div>
             </div>
 
-            <div class="cert-card reveal stagger-5">
-              <div class="cert-icon-box">
-                <img src="img/XLRI.jpg" alt="Executive Education" />
-              </div>
-              <div class="cert-category">Executive Education</div>
-              <div class="cert-title">EDP HRM — SHRM &amp; XLRI</div>
-            </div>
 
             <!-- Row 2 Centered -->
             <div class="certs-grid-row-bottom">
+              <div class="cert-card reveal stagger-5">
+                <div class="cert-icon-box">
+                  <img src="img/XLRI.jpg" alt="Executive Education" />
+                </div>
+                <div class="cert-category">Executive Education</div>
+                <div class="cert-title">EDP HRM — SHRM &amp; XLRI</div>
+              </div>
               <div class="cert-card reveal stagger-6">
                 <div class="cert-icon-box">
                   <img src="img/startup.png" alt="Govt. Initiative" />
@@ -1189,7 +1325,7 @@
                   height: 3px;
                   background: var(--color-purple);
                   margin: 2rem auto 0;
-                  border-radius: 10px;
+                  border-radius: 4px;
                   opacity: 0.3;
                 "
               ></div>
@@ -1238,7 +1374,7 @@
                     height: 70px;
                     width: 160px;
                     object-fit: contain;
-                    border-radius: 10px;
+                    border-radius: 4px;
                   "
                   alt="Partner"
                 />
@@ -1265,7 +1401,7 @@
                     height: 70px;
                     width: 160px;
                     object-fit: contain;
-                    border-radius: 10px;
+                    border-radius: 4px;
                   "
                   alt="Partner"
                 />
@@ -1277,7 +1413,7 @@
                     height: 70px;
                     width: 160px;
                     object-fit: contain;
-                    border-radius: 10px;
+                    border-radius: 4px;
                   "
                   alt="Partner"
                 />
@@ -1289,7 +1425,7 @@
                     height: 70px;
                     width: 170px;
                     object-fit: contain;
-                    border-radius: 10px;
+                    border-radius: 4px;
                   "
                   alt="Partner"
                 />
