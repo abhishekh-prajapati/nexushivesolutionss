@@ -20,6 +20,24 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
       }
+      .bento-card {
+        background: #ffffff;
+        border: 1px solid rgba(78, 47, 218, 0.08);
+        border-radius: 12px;
+        padding: 3rem;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+      }
+      .bento-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(78, 47, 218, 0.08);
+        border-color: var(--color-purple);
+      }
+      @media (max-width: 768px) {
+        .bento-card {
+          padding: 2rem;
+        }
+      }
 
       /* Partner Hero Flex (Founder Profile) */
       .partner-hero-flex-layout {
@@ -215,6 +233,35 @@
         }
         .why-partner-grid {
           gap: 1rem;
+        }
+      }
+      .why-partner-card {
+        border-radius: 12px;
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .why-partner-card.light {
+        background: #ffffff;
+        border: 1px solid rgba(78,47,218,0.1);
+        box-shadow: 0 8px 30px rgba(78,47,218,0.04);
+      }
+      .why-partner-card.light:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 60px rgba(78,47,218,0.12);
+      }
+      .why-partner-card.dark {
+        background: linear-gradient(135deg, var(--color-purple), #7c3aed);
+        box-shadow: 0 8px 30px rgba(78,47,218,0.2);
+      }
+      .why-partner-card.dark:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 60px rgba(78,47,218,0.35);
+      }
+      @media (max-width: 768px) {
+        .why-partner-card {
+          padding: 1.5rem;
         }
       }
     </style>
@@ -461,27 +508,7 @@
           <!-- Premium Bento Box Grid -->
           <div class="bento-card-grid">
             <!-- Card 1 -->
-            <div
-              class="reveal stagger-1"
-              style="
-                background: #ffffff;
-                border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 4px;
-                padding: 3rem;
-                transition:
-                  transform 0.4s ease,
-                  box-shadow 0.4s ease;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
-              "
-              onmouseover="
-                this.style.transform = 'translateY(-8px)';
-                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
-              "
-              onmouseout="
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
-              "
-            >
+            <div class="bento-card reveal stagger-1">
               <div
                 style="
                   width: 50px;
@@ -528,27 +555,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div
-              class="reveal stagger-2"
-              style="
-                background: #ffffff;
-                border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 4px;
-                padding: 3rem;
-                transition:
-                  transform 0.4s ease,
-                  box-shadow 0.4s ease;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
-              "
-              onmouseover="
-                this.style.transform = 'translateY(-8px)';
-                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
-              "
-              onmouseout="
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
-              "
-            >
+            <div class="bento-card reveal stagger-2">
               <div
                 style="
                   width: 50px;
@@ -596,27 +603,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div
-              class="reveal stagger-3"
-              style="
-                background: #ffffff;
-                border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 4px;
-                padding: 3rem;
-                transition:
-                  transform 0.4s ease,
-                  box-shadow 0.4s ease;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
-              "
-              onmouseover="
-                this.style.transform = 'translateY(-8px)';
-                this.style.boxShadow = '0 20px 50px rgba(78, 47, 218, 0.08)';
-              "
-              onmouseout="
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.02)';
-              "
-            >
+            <div class="bento-card reveal stagger-3">
               <div
                 style="
                   width: 50px;
@@ -1056,9 +1043,7 @@
           <div class="why-partner-grid">
 
             <!-- Phase 1 -->
-            <div class="reveal stagger-1" style="background: #ffffff; border: 1px solid rgba(78,47,218,0.1); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.04);"
-              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.12)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.04)';">
+            <div class="reveal stagger-1 why-partner-card light">
               <!-- Background accent -->
               <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(78,47,218,0.05); border-radius: 50%;"></div>
               <!-- Phase badge -->
@@ -1078,9 +1063,7 @@
             </div>
 
             <!-- Phase 2 -->
-            <div class="reveal stagger-2" style="background: linear-gradient(135deg, var(--color-purple), #7c3aed); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.2);"
-              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.35)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.2)';">
+            <div class="reveal stagger-2 why-partner-card dark">
               <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
               <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
               <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; padding: 0.35rem 1rem; margin-bottom: 1.5rem;">
@@ -1092,16 +1075,14 @@
               <h3 style="font-size: 1.4rem; color: #fff; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">Build</h3>
               <p style="font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.5rem;">We grow your team and brand — sourcing the right talent, crafting your identity, and putting your finances on a strong footing.</p>
               <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Talent Sourcing &amp; Staffing</li>
+                <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Technology &amp; Digital Assets (IT Hardware &amp; Software)</li>
                 <li style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Branding &amp; Identity</li>
                 <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);"><i class="fas fa-check-circle" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; flex-shrink: 0;"></i> Finance &amp; Accounting</li>
               </ul>
             </div>
 
             <!-- Phase 3 -->
-            <div class="reveal stagger-3" style="background: #ffffff; border: 1px solid rgba(78,47,218,0.1); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 30px rgba(78,47,218,0.04);"
-              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 24px 60px rgba(78,47,218,0.12)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(78,47,218,0.04)';">
+            <div class="reveal stagger-3 why-partner-card light">
               <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(78,47,218,0.05); border-radius: 50%;"></div>
               <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(78,47,218,0.08); border: 1px solid rgba(78,47,218,0.15); border-radius: 4px; padding: 0.35rem 1rem; margin-bottom: 1.5rem;">
                 <span style="font-size: 0.7rem; font-weight: 800; color: var(--color-purple); text-transform: uppercase; letter-spacing: 2px;">Phase 3</span>
@@ -1191,25 +1172,29 @@
             <div class="certs-grid-row-bottom">
               <div class="cert-card reveal stagger-5">
                 <div class="cert-icon-box">
-                  <img src="img/XLRI.jpg" alt="Executive Education" />
-                </div>
-                <div class="cert-category">Executive Education</div>
-                <div class="cert-title">EDP HRM — SHRM &amp; XLRI</div>
-              </div>
-              <div class="cert-card reveal stagger-6">
-                <div class="cert-icon-box">
                   <img src="img/startup.png" alt="Govt. Initiative" />
                 </div>
                 <div class="cert-category">Govt. Initiative</div>
                 <div class="cert-title">Startup India Recognized</div>
               </div>
 
-              <div class="cert-card reveal stagger-7">
+              <div class="cert-card reveal stagger-6">
                 <div class="cert-icon-box">
                   <img src="img/msme.png" alt="Enterprise" />
                 </div>
                 <div class="cert-category">Enterprise</div>
                 <div class="cert-title">MSME Registered</div>
+              </div>
+            </div>
+
+            <!-- Row 3 Centered -->
+            <div class="certs-grid-row-single">
+              <div class="cert-card reveal stagger-7">
+                <div class="cert-icon-box">
+                  <img src="img/XLRI.jpg" alt="Executive Education" />
+                </div>
+                <div class="cert-category">Executive Education</div>
+                <div class="cert-title">EDP HRM — SHRM &amp; XLRI</div>
               </div>
             </div>
           </div>
@@ -1617,8 +1602,8 @@
                         <div class="mc-option" data-value="Registration">
                           Registration (PF/ESI/PT)
                         </div>
-                        <div class="mc-option" data-value="Staffing">
-                          Sourcing &amp; Staffing
+                         <div class="mc-option" data-value="Staffing">
+                          Technology &amp; Digital Assets (IT Hardware &amp; Software)
                         </div>
                         <div class="mc-option" data-value="Training">
                           Training &amp; Skilling
