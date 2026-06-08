@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusHive | CMS Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-bg-dark: #f8fafc; /* Slate 50 */
+            --color-panel: #ffffff; /* Pure white */
+            --color-panel-light: #f1f5f9; /* Slate 100 */
+            --color-purple: #4f46e5; /* Indigo 600 */
+            --color-purple-hover: #4338ca; /* Indigo 700 */
+            --color-teal: #0d9488; /* Teal 600 */
+            --color-text: #0f172a; /* Slate 900 */
+            --color-text-muted: #64748b; /* Slate 500 */
+            --color-border: #e2e8f0; /* Slate 200 */
+            --color-error: #ef4444; /* Red 500 */
+            --color-success: #10b981; /* Emerald 500 */
+            
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 8px;
+            --spacing-grid: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Header Styling */
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            flex-shrink: 0;
+        }
+
+        .admin-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        .admin-logo span {
+            color: var(--color-purple);
+        }
+
+        .server-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: var(--color-error);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .server-status-pill.connected {
+            background: #f0fdf4;
+            border-color: #dcfce7;
+            color: var(--color-teal);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        /* Main Workspace layout */
+        .admin-workspace {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .admin-sidebar {
+            width: 260px;
+            background-color: #ffffff;
+            border-right: 1px solid var(--color-border);
+            padding: 2rem 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--color-text-muted);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            color: var(--color-text);
+            background: #f1f5f9;
+        }
+
+        .nav-btn.active {
+            color: var(--color-purple);
+            background: #eef2ff; /* Indigo 50 */
+        }
+
+        .nav-btn i {
+            width: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Content panel layout */
+        .admin-content {
+            flex: 1;
+            padding: 3rem;
+            overflow-y: auto;
+            background-color: var(--color-bg-dark);
+            position: relative;
+        }
+
+        .tab-section {
+            display: none;
+            animation: fadeIn 150ms ease-out;
+        }
+
+        .tab-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            margin-bottom: 2.25rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .section-description {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Clean SaaS Card */
+        .edit-card {
+            background-color: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        /* Form elements grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-full-row {
+            grid-column: span 2;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            padding: 0.65rem 0.85rem;
+            outline: none;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: var(--color-purple);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.25rem;
+            padding-right: 2.5rem;
+        }
+
+        /* Checkbox slider styling */
+        .form-checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background-color: #cbd5e1;
+            border: 1px solid transparent;
+            transition: .3s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--color-purple);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* List Items Manager Layout */
+        .list-manager-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .list-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+
+        .list-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+
+        .list-item-card {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeIn 150ms ease-out;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+        }
+
+        .list-item-controls {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Premium Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            outline: none;
+            min-height: 38px;
+        }
+
+        .btn-primary {
+            background: var(--color-purple);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--color-purple-hover);
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            border-color: var(--color-border);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .btn-secondary:focus {
+            box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+        }
+
+        .btn-danger {
+            background: #fef2f2;
+            border-color: #fee2e2;
+            color: var(--color-error);
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            background: var(--color-error);
+            border-color: var(--color-error);
+            color: white;
+        }
+
+        .btn-danger:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-icon-only {
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            min-height: 34px;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Action Buttons Fixed Bar */
+        .admin-action-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid var(--color-border);
+            padding: 1.25rem 3rem;
+            position: sticky;
+            bottom: 0;
+            z-index: 100;
+        }
+
+        /* Status Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            background-color: #ffffff;
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-purple);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            padding: 1rem 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 9999;
+            transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 250ms;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .toast.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success { border-left-color: var(--color-success); }
+        .toast.error { border-left-color: var(--color-error); }
+
+        /* Loader Overlay */
+        .loader-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(2px);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .loader-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(79, 70, 229, 0.1);
+            border-top-color: var(--color-purple);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Mode notification */
+        .mode-notice {
+            background: #eff6ff; /* Blue 50 */
+            border: 1px solid #bfdbfe; /* Blue 200 */
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mode-notice i {
+            font-size: 1.3rem;
+            color: #2563eb;
+        }
+
+        .mode-notice p {
+            font-size: 0.9rem;
+            color: #1e3a8a;
+            line-height: 1.5;
+        }
+
+        .mode-notice strong {
+            color: #1e3a8a;
+        }
+
+        /* Image Preview Component */
+        .image-upload-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 0.85rem;
+            transition: var(--transition);
+        }
+        .image-upload-wrapper:focus-within {
+            border-color: var(--color-purple);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        .image-preview-box {
+            width: 72px;
+            height: 72px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #e2e8f0;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .image-preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-preview-box i {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+        }
+        .image-upload-controls {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .image-upload-input {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            width: 100%;
+            cursor: pointer;
+        }
+        .image-upload-input::file-selector-button {
+            background: var(--color-purple);
+            border: none;
+            color: white;
+            padding: 0.4rem 0.85rem;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-right: 0.75rem;
+            transition: var(--transition);
+        }
+        .image-upload-input::file-selector-button:hover {
+            background: var(--color-purple-hover);
+        }
+        .image-upload-path {
+            font-family: monospace;
+            font-size: 0.72rem;
+            color: var(--color-text-muted);
+            word-break: break-all;
+        }
+
+        .sidebar-dev-note {
+            position: sticky;
+            bottom: 0;
+            margin-top: auto;
+            padding: 1.5rem 1rem 0.5rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+            z-index: 10;
+        }
+
+        @media (max-width: 900px) {
+            .admin-workspace { flex-direction: column; }
+            .admin-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--color-border); padding: 1rem; flex-direction: row; overflow-x: auto; }
+            .nav-btn { white-space: nowrap; padding: 0.6rem 1rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-full-row { grid-column: span 1; }
+            .sidebar-dev-note { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay" style="position: fixed; inset: 0; background: #f8fafc; display: flex; align-items: center; justify-content: center; z-index: 99999; font-family: 'Inter', sans-serif;">
+        <div class="edit-card" style="width: 380px; padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 0;">
+            <div>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Nexus<span>Hive</span> Admin</h2>
+                <p style="color: #64748b; font-size: 0.9rem;">Please enter password to access CMS Portal.</p>
+            </div>
+            <form id="login-form" onsubmit="handleLogin(event)" style="display: flex; flex-direction: column; gap: 1.25rem; text-align: left; width: 100%;">
+                <div class="form-group">
+                    <label class="form-label" for="admin-password">Password</label>
+                    <input type="password" id="admin-password" class="form-input" required autofocus placeholder="••••••••" style="margin-top: 0.25rem;">
+                </div>
+                <div id="login-error" style="color: var(--color-error); font-size: 0.82rem; font-weight: 600; display: none; text-align: center;">Incorrect password. Please try again.</div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; height: 44px; min-height: 44px;">Unlock Portal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header bar -->
+    <header class="admin-header">
+        <a href="index.html" class="admin-logo" target="_blank">Nexus<span>Hive</span> Admin</a>
+    </header>
+
+    <!-- Main Workspace wrapper -->
+    <div class="admin-workspace">
+        
+        <!-- Navigation Sidebar -->
+        <nav class="admin-sidebar">
+            <button class="nav-btn active" onclick="switchTab('hero')">
+                <i class="fas fa-home"></i> Home Hero
+            </button>
+            <button class="nav-btn" onclick="switchTab('services')">
+                <i class="fas fa-handshake"></i> Services
+            </button>
+            <button class="nav-btn" onclick="switchTab('events')">
+                <i class="fas fa-calendar-alt"></i> Events Ticker
+            </button>
+            <button class="nav-btn" onclick="switchTab('testimonials')">
+                <i class="fas fa-comment-dots"></i> Testimonials
+            </button>
+            <button class="nav-btn" onclick="switchTab('about')">
+                <i class="fas fa-user-tie"></i> About &amp; Founder
+            </button>
+            
+            <div class="sidebar-dev-note">
+                <p><i class="fas fa-info-circle" style="color: var(--color-purple); margin-right: 0.4rem; font-size: 0.95rem;"></i> For advanced modifications (such as editing document downloads, terminology terms, bento layouts, or code styles), please contact your developer.</p>
+            </div>
+        </nav>
+
+        <!-- Main Edit Panel -->
+        <main class="admin-content">
+            <div class="loader-overlay" id="globalLoader">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Offline warning notice -->
+            <div class="mode-notice" id="offlineNotice" style="display: none;">
+                <i class="fas fa-cloud-download-alt"></i>
+                <p>
+                    <strong>Running in Statically Offline Mode.</strong> Changes will not be saved automatically to server files. 
+                    You can still edit content fields normally and use the <strong>Download JSON Config</strong> button at the bottom 
+                    to save the file, then copy it into your project's <code>data/</code> folder.
+                </p>
+            </div>
+
+            <!-- TAB 1: HERO -->
+            <section id="tab-hero" class="tab-section active">
+                <div class="section-header">
+                    <h2 class="section-title">Home Hero Configuration</h2>
+                    <p class="section-description">Manage titles, headlines, and call-to-actions on the home page hero slide.</p>
+                </div>
+                <div class="edit-card">
+                    <form id="form-hero">
+                        <div class="form-grid">
+                            <div class="form-group form-full-row">
+                                <label class="form-label" for="hero-title">Headline Text</label>
+                                <textarea id="hero-title" class="form-textarea" required></textarea>
+                            </div>
+                            <div class="form-group form-full-row">
+                                <label class="form-label" for="hero-lead">Sub-lead Paragraph</label>
+                                <textarea id="hero-lead" class="form-textarea" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="hero-primaryText">Primary CTA Text</label>
+                                <input type="text" id="hero-primaryText" class="form-input" required>
+                            </div>
+                            <input type="hidden" id="hero-primaryLink">
+                            <div class="form-group">
+                                <label class="form-label" for="hero-secondaryText">Secondary CTA Text</label>
+                                <input type="text" id="hero-secondaryText" class="form-input" required>
+                            </div>
+                            <input type="hidden" id="hero-secondaryLink">
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- TAB 2: SERVICES -->
+            <section id="tab-services" class="tab-section">
+                <div class="section-header">
+                    <h2 class="section-title">Consulting Services Pillars</h2>
+                    <p class="section-description">Configure the core business columns displayed on the landing page carousel and the Services details page.</p>
+                </div>
+                <div class="list-manager-container" id="services-list">
+                    <!-- Service items loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 3: EVENTS -->
+            <section id="tab-events" class="tab-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Events &amp; Workshops Ticker</h2>
+                    <p class="section-description">Manage upcoming seminars, online webinars, and roundtables in the horizontal ticker on the homepage.</p>
+                </div>
+                <div class="list-header-row">
+                    <span class="list-title">Active Events List</span>
+                    <button class="btn btn-primary" onclick="addNewEvent()"><i class="fas fa-plus"></i> Add Event</button>
+                </div>
+                <div class="list-manager-container" id="events-list">
+                    <!-- Events loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 4: TESTIMONIALS -->
+            <section id="tab-testimonials" class="tab-section">
+                <div class="section-header">
+                    <h2 class="section-title">Client Testimonials</h2>
+                    <p class="section-description">Configure featured video reviews and detailed written feedbacks.</p>
+                </div>
+                <div class="list-header-row">
+                    <span class="list-title">All Testimonials</span>
+                    <button class="btn btn-primary" onclick="addNewTestimonial()"><i class="fas fa-plus"></i> Add Testimonial</button>
+                </div>
+                <div class="list-manager-container" id="testimonials-list">
+                    <!-- Testimonials loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 5: ABOUT & FOUNDER -->
+            <section id="tab-about" class="tab-section">
+                <div class="section-header">
+                    <h2 class="section-title">About Company &amp; Founder Profile</h2>
+                    <p class="section-description">Update the corporate advantages and the partner bio (Adv. Jaya Bhavya) for the About Us page.</p>
+                </div>
+                <div class="edit-card">
+                    <form id="form-about">
+                        <h4 class="list-title" style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; color: var(--color-purple);">The Nexus Advantage (Bento Section)</h4>
+                        <div class="form-grid" style="margin-bottom: 2rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="about-missionSubtitle">Small Heading above Advantage Title</label>
+                                <input type="text" id="about-missionSubtitle" class="form-input" required>
+                            </div>
+                            <div class="form-grid form-full-row" style="margin: 0; padding: 0; grid-template-columns: 1fr;">
+                                <div class="form-group">
+                                    <label class="form-label" for="about-missionTitle">Advantage Title</label>
+                                    <input type="text" id="about-missionTitle" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-full-row">
+                                <label class="form-label" for="about-missionDescription">Advantage Description</label>
+                                <textarea id="about-missionDescription" class="form-textarea" required></textarea>
+                            </div>
+                        </div>
+
+                        <h4 class="list-title" style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; color: var(--color-purple);">Founder Partner Profile</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="about-founderName">Founder Name</label>
+                                <input type="text" id="about-founderName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="about-founderTitle">Designation</label>
+                                <input type="text" id="about-founderTitle" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="about-founderLocation">Office Location</label>
+                                <input type="text" id="about-founderLocation" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="about-founderSummary">Short Qualification Headline</label>
+                                <input type="text" id="about-founderSummary" class="form-input" required>
+                            </div>
+                            <div class="form-group form-full-row">
+                                <label class="form-label">Founder Picture</label>
+                                <div class="image-upload-wrapper">
+                                    <div class="image-preview-box">
+                                        <img id="about-founderImage-preview" src="" alt="Founder Preview" style="display: none;">
+                                        <i class="fas fa-user-tie" id="about-founderImage-placeholder"></i>
+                                    </div>
+                                    <div class="image-upload-controls">
+                                        <input type="file" id="about-founderImage-file" class="image-upload-input" accept="image/*" onchange="handleImageUpload(this, 'about-founderImage')">
+                                        <input type="hidden" id="about-founderImage" value="">
+                                        <div class="image-upload-path" id="about-founderImage-path">No image uploaded</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-full-row">
+                                <label class="form-label">About Founder Paragraph 1</label>
+                                <textarea id="about-founderBio1" class="form-textarea" required></textarea>
+                            </div>
+                            <div class="form-group form-full-row">
+                                <label class="form-label">About Founder Paragraph 2</label>
+                                <textarea id="about-founderBio2" class="form-textarea" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-grid" style="margin-top: 1.5rem;">
+                            <!-- Accolades management row -->
+                            <div class="form-group form-full-row">
+                                <label class="form-label">Founder Key Achievements / Credentials</label>
+                                <div id="about-accolades-container" style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;"></div>
+                                <button type="button" class="btn btn-secondary" onclick="addAboutAccolade()" style="margin-top:0.5rem; align-self:flex-start;"><i class="fas fa-plus"></i> Add Accolade</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+
+
+        </main>
+    </div>
+
+    <!-- Sticky action bar at the footer -->
+    <div class="admin-action-bar">
+        <button class="btn btn-secondary" id="btnDownload" onclick="downloadActiveConfig()">
+            <i class="fas fa-download"></i> Download JSON
+        </button>
+        <button class="btn btn-primary" id="btnSave" onclick="saveActiveTab()">
+            <i class="fas fa-save"></i> Save Content
+        </button>
+    </div>
+
+    <!-- Status Toast Notifications -->
+    <div class="toast" id="toastAlert">
+        <i class="fas fa-info-circle" id="toastIcon"></i>
+        <span id="toastMsg">Notification content</span>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "hr-strategy",
+    "title": "HR Strategy & Operations",
+    "description": "Combining HR Strategy with Sourcing to build your team from the ground up.",
+    "image": "whatwedocards/hr setup and strategic.png",
+    "link": "services.html#hr-strategy",
+    "subServices": [
+      {
+        "title": "Org Architecture",
+        "description": "Custom organizational chart designs and reporting line definitions optimized for scale."
+      },
+      {
+        "title": "HR Manuals & Policies",
+        "description": "Drafting legally vetted employee handbooks, code of conduct, and corporate guidelines."
+      },
+      {
+        "title": "Audit Readiness",
+        "description": "Governance checks to ensure compliance with human resource operations and policy files."
+      }
+    ]
+  },
+  {
+    "id": "compliance",
+    "title": "Statutory, Labour Law & POSH",
+    "description": "Protecting the business with robust legal frameworks and safety standards.",
+    "image": "whatwedocards/Statutory & Labour Law, Workplace Compliance.png",
+    "link": "services.html#compliance",
+    "subServices": [
+      {
+        "title": "Labour Law Compliance",
+        "description": "Statutory record maintenance, register updates, and inspection representations."
+      },
+      {
+        "title": "POSH & Ethics (IC)",
+        "description": "Formulating Internal Committees, employee sensitization workshops, and external member representation."
+      },
+      {
+        "title": "PF/ESI/PT Registrations",
+        "description": "Smooth company enrollment and employee mapping for statutory benefits."
+      }
+    ]
+  },
+  {
+    "id": "staffing",
+    "title": "Technology & Digital Assets (IT Hardware & Software)",
+    "description": "Building the digital backbone for modern, scalable operations.",
+    "image": "whatwedocards/Sourcing & staffing.png",
+    "link": "services.html#staffing",
+    "subServices": [
+      {
+        "title": "Executive Search",
+        "description": "Locating high-level technical leadership and key executive hires."
+      },
+      {
+        "title": "Onboarding Protocol",
+        "description": "Structured digital entry systems and hardware deployment for rapid employee activation."
+      },
+      {
+        "title": "Sourcing Strategy",
+        "description": "Talent pipelines matching developer profiles to high-priority requirements."
+      }
+    ]
+  },
+  {
+    "id": "finance",
+    "title": "Finance, Tech & Growth",
+    "description": "Ensuring financial health and investment readiness.",
+    "image": "whatwedocards/accounts and finance.png",
+    "link": "services.html#finance",
+    "subServices": [
+      {
+        "title": "End-to-End Payroll",
+        "description": "Calculations, monthly distributions, payslip generations, and deduction mapping."
+      },
+      {
+        "title": "TDS & GST Flow",
+        "description": "Indirect tax computations, reconciliations, Input Tax Credit (ITC) tracking, and filings."
+      },
+      {
+        "title": "Training & Tech Hub",
+        "description": "Continuous skilling modules and custom software tool licensing deployments."
+      }
+    ]
+  },
+  {
+    "id": "others",
+    "title": "Business Support (Marketing & Events)",
+    "description": "Turning employees into brand ambassadors through engagement.",
+    "image": "whatwedocards/other services.png",
+    "link": "services.html#others",
+    "subServices": [
+      {
+        "title": "Brand Identity",
+        "description": "Defining corporate logos, guidelines, and core brand assets."
+      },
+      {
+        "title": "Corporate Events",
+        "description": "Planning workshops, summits, roundtables, and organizational gatherings."
+      },
+      {
+        "title": "Marketing Strategy",
+        "description": "Inbound channels and target campaigns mapping scaling parameters."
+      }
+    ]
+  }
+]

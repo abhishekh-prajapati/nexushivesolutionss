@@ -1,0 +1,35 @@
+[
+  {
+    "id": "testimonial-1",
+    "authorName": "Alan King",
+    "designation": "CEO at Workplace Options",
+    "company": "Workplace Options",
+    "quote": "Meeting load disappeared because meeting efficiency increased.",
+    "companyLogo": "",
+    "isFeatured": true,
+    "videoUrl": "",
+    "authorImage": "img/hero.jpg"
+  },
+  {
+    "id": "testimonial-2",
+    "authorName": "Sheeba Immanuel",
+    "designation": "Head HR",
+    "company": "Amphora Bangalore",
+    "quote": "We had a very positive experience with the comprehensive POSH services provided to Amphora across our Bangalore and Hyderabad offices. Jaya Bhavya supported us with policy vetting, employee awareness and sensitization sessions, Internal Committee (IC) capacity building, and also served as our External IC Member. She further assisted with key compliance requirements including annual POSH filings and She-Box portal registration and management. Her expertise, structured approach, and practical guidance significantly strengthened our POSH compliance framework and awareness across the organization.",
+    "companyLogo": "img/Amphora.png",
+    "isFeatured": false,
+    "videoUrl": "",
+    "authorImage": ""
+  },
+  {
+    "id": "testimonial-3",
+    "authorName": "Krishna Prasad",
+    "designation": "Assistant Manager HR - Operations",
+    "company": "TripFactory",
+    "quote": "I wish to express our sincere appreciation for the exceptional service provided by NexusHive Solutions regarding our POSH requirements. Your extensive subject knowledge was instrumental in guiding us through the complexities of POSH compliance. The training sessions were engaging, well-structured, and effectively tailored to our organization's specific needs. We particularly appreciated your approachable nature and interactive teaching style, which were well-received by all participants. We highly recommend NexusHive Solutions.",
+    "companyLogo": "img/WhatsApp Image 2026-03-02 at 6.02.11 PM.png",
+    "isFeatured": false,
+    "videoUrl": "",
+    "authorImage": ""
+  }
+]

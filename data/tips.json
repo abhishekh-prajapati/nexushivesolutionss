@@ -1,0 +1,36 @@
+{
+  "expertTips": [
+    {
+      "icon": "fas fa-clock",
+      "title": "The 2-Day Buffer Rule",
+      "description": "Always aim to file at least 2 days before the deadline. Government portals (GSTN/PF) often face heavy traffic and downtime on due dates."
+    },
+    {
+      "icon": "fas fa-exclamation-triangle",
+      "title": "Penalty Warning",
+      "description": "Late PF/ESI payments attract 12% interest plus damages up to 25%. These are non-deductible expenses in your taxes—affecting your bottom line directly."
+    },
+    {
+      "icon": "fas fa-map-marked-alt",
+      "title": "State Nuances",
+      "description": "Professional Tax and LWF dates shift depending on where your office is registered. Maharashtra, Karnataka, and Tamil Nadu have distinct statutory timelines."
+    }
+  ],
+  "startupToolkits": [
+    {
+      "icon": "fas fa-id-card",
+      "title": "Company Registration",
+      "description": "Choosing between LLP, Private Limited, or OPC. Understanding the MoA, AoA, and Director identification (DIN) process."
+    },
+    {
+      "icon": "fas fa-shield-alt",
+      "title": "Implementing POSH",
+      "description": "How to constitute an Internal Committee (IC), draft your POSH policy, and conduct mandatory employee sensitization."
+    },
+    {
+      "icon": "fas fa-file-invoice-dollar",
+      "title": "GST & Indirect Tax",
+      "description": "Basics of GST registration, HSN coding, and the importance of timely Input Tax Credit (ITC) reconciliation."
+    }
+  ]
+}

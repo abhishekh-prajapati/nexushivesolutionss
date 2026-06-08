@@ -1,0 +1,12 @@
+{
+  "name": "nexushivesolutionss",
+  "version": "1.0.0",
+  "description": "NexusHive Solutions corporate portal with custom HTML JSON Admin",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

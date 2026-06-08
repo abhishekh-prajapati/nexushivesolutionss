@@ -1,0 +1,25 @@
+{
+  "missionSubtitle": "BUILDING BETTER WORKPLACES TOGETHER",
+  "missionTitle": "The Nexus Advantage",
+  "missionDescription": "NexusHive is your single partner for all startup infrastructure needs. We build Audit-ready, Investor-ready systems with a scalability mindset—eliminating multiple vendor headaches forever.",
+  "founderName": "Adv. Jaya Bhavya",
+  "founderTitle": "Founding Partner",
+  "founderLocation": "Bangalore",
+  "founderSummary": "Qualified Advocate & ISO-certified POSH Practitioner with 15+ years of cross-industry experience in Law, HR, and Compliance.",
+  "founderAboutParagraphs": [
+    "Jaya is a founding partner at the firm's Bangalore office. Since launching NexusHive, she has pioneered a multi-disciplinary approach to startup infrastructure, merging legal precision with operational excellence. Her leadership has been instrumental in helping ventures navigate the complexities of India's regulatory landscape with institutional-grade stability.",
+    "As a Qualified Advocate and ISO-certified POSH Practitioner, Jaya specializes in building \"Audit-Ready\" systems. She has conducted over 60+ POSH trainings across multiple sectors, ensuring that workplaces are not only compliant but also safe and progressive environments for growth."
+  ],
+  "accolades": [
+    "Member of Bar Council of India & Karnataka",
+    "60+ POSH trainings conducted across high-growth sectors",
+    "Diploma in Training & Development from ISTD, New Delhi"
+  ],
+  "founderImage": "img/image.png",
+  "expertises": [
+    { "title": "Legal Operations", "link": "services.html#compliance" },
+    { "title": "HR Governance", "link": "services.html#hr-strategy" },
+    { "title": "POSH Compliance", "link": "services.html#posh" },
+    { "title": "Strategic Scaling", "link": "services.html#hr-strategy" }
+  ]
+}

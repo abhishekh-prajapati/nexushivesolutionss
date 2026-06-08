@@ -557,12 +557,12 @@
                     <div class="calendar-content">
                         <span class="tagline">Stay Compliant</span>
                         <h3>India Compliance Calendar</h3>
-                        <p>Your complete month-by-month statutory filing guide — covering GST, PF, ESI, Professional Tax, TDS, and more across all key deadlines. Curated by NexusHive experts for India-based startups and enterprises.</p>
+                        <p id="res-calendar-desc">Your complete month-by-month statutory filing guide — covering GST, PF, ESI, Professional Tax, TDS, and more across all key deadlines. Curated by NexusHive experts for India-based startups and enterprises.</p>
                         <div class="resource-btn-row">
-                            <button onclick="openPPT('India_Compliance_Calendar_NexusHive.pptx', 'India Compliance Calendar')" class="btn-view-ppt">
+                            <button id="res-calendar-view" onclick="openPPT('India_Compliance_Calendar_NexusHive.pptx', 'India Compliance Calendar')" class="btn-view-ppt">
                                 <i class="fas fa-eye"></i> Open &amp; View
                             </button>
-                            <a href="India_Compliance_Calendar_NexusHive.pptx" download class="btn-ppt-download">
+                            <a id="res-calendar-dl" href="India_Compliance_Calendar_NexusHive.pptx" download class="btn-ppt-download">
                                 <i class="fas fa-download"></i> Download PPT
                             </a>
                         </div>
@@ -585,7 +585,7 @@
                     <h2>Expert Tips for New Founders</h2>
                     <p>Critical operational nuances often overlooked during the rapid scaling phase.</p>
                 </div>
-                <div class="bento-grid">
+                <div class="bento-grid" id="grid-expert-tips">
                     <div class="bento-item reveal stagger-1">
                         <i class="fas fa-clock"></i>
                         <h4>The 2-Day Buffer Rule</h4>
@@ -613,7 +613,7 @@
                     <h2>Essential Startup Toolkits</h2>
                     <p>Step-by-step frameworks for structural and legal governance.</p>
                 </div>
-                <div class="bento-grid">
+                <div class="bento-grid" id="grid-startup-toolkits">
                     <div class="bento-item reveal stagger-1">
                         <i class="fas fa-id-card"></i>
                         <h4>Company Registration</h4>
@@ -639,12 +639,12 @@
                     <div class="sg-content">
                         <span class="sg-badge" style="background: var(--color-purple); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">Free Resource</span>
                         <h3>NexusHive Startup Guide</h3>
-                        <p>A comprehensive presentation covering everything a new startup founder needs — from incorporation and registrations to HR setup, compliance, payroll, and growth frameworks. Built for India.</p>
+                        <p id="res-guide-desc">A comprehensive presentation covering everything a new startup founder needs — from incorporation and registrations to HR setup, compliance, payroll, and growth frameworks. Built for India.</p>
                         <div class="resource-btn-row" style="gap: 1rem;">
-                            <button onclick="openPPT('NexusHive_Startup_Guide.pptx', 'NexusHive Startup Guide')" class="btn-sg-download" style="background: rgba(255,255,255,0.15); color:#fff; border: 2px solid rgba(255,255,255,0.4);">
+                            <button id="res-guide-view" onclick="openPPT('NexusHive_Startup_Guide.pptx', 'NexusHive Startup Guide')" class="btn-sg-download" style="background: rgba(255,255,255,0.15); color:#fff; border: 2px solid rgba(255,255,255,0.4);">
                                 <i class="fas fa-eye"></i> Open &amp; View
                             </button>
-                            <a href="NexusHive_Startup_Guide.pptx" download class="btn-sg-download">
+                            <a id="res-guide-dl" href="NexusHive_Startup_Guide.pptx" download class="btn-sg-download">
                                 <i class="fas fa-download"></i> Download PPT
                             </a>
                         </div>
@@ -661,7 +661,7 @@
                     <h2>The Founder's Glossary</h2>
                     <p>Decoding the complex language of HR, Law, and Compliance.</p>
                 </div>
-                <dl class="glossary-list reveal">
+                <dl class="glossary-list reveal" id="list-glossary">
                     <div class="glossary-item">
                         <dt>CTC (Cost to Company)</dt>
                         <dd>The total salary package including all benefits, bonuses, and statutory contributions from the employer's side.</dd>

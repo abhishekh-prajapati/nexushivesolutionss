@@ -455,4 +455,347 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* ═══════════════════════════════════════════════════════
+       HYDRATION ENGINE: Load JSON data with Static Fallbacks
+       ═══════════════════════════════════════════════════════ */
+
+    // Helper: Safe fetch
+    async function safeFetch(url) {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Status ${res.status}`);
+            return await res.json();
+        } catch (e) {
+            console.warn(`[CMS Fallback] Failed to fetch ${url}, keeping static HTML.`, e);
+            return null;
+        }
+    }
+
+    // 1. Hydrate Homepage Hero
+    async function hydrateHero() {
+        const titleEl = document.getElementById('hero-title-el');
+        const leadEl = document.getElementById('hero-lead-el');
+        const pCta = document.getElementById('hero-primary-cta');
+        const sCta = document.getElementById('hero-secondary-cta');
+
+        if (!titleEl && !leadEl) return;
+
+        const data = await safeFetch('/data/hero.json');
+        if (!data) return;
+
+        if (titleEl && data.title) titleEl.textContent = data.title;
+        if (leadEl && data.lead) leadEl.textContent = data.lead;
+        if (pCta && data.primaryCtaText) {
+            pCta.innerHTML = `${data.primaryCtaText} <i class="fas fa-chevron-right"></i>`;
+            pCta.href = data.primaryCtaLink || '#contact';
+        }
+        if (sCta && data.secondaryCtaText) {
+            sCta.innerHTML = `${data.secondaryCtaText} <i class="fas fa-chevron-right"></i>`;
+            sCta.href = data.secondaryCtaLink || 'services.html';
+        }
+    }
+
+    // 2. Hydrate Events Ticker
+    async function hydrateEvents() {
+        const track = document.querySelector('.events-ticker-track');
+        if (!track) return;
+
+        const data = await safeFetch('/data/events.json');
+        if (!data || data.length === 0) return;
+
+        const renderEventCard = (ev, isDup) => `
+            <a href="${ev.link || '#contact'}" class="event-card" aria-label="Register for ${ev.title} in ${ev.location} on ${ev.month} ${ev.day}${isDup ? ' - Duplicate' : ''}">
+              <div class="event-card-img">
+                <img src="${ev.image || 'img/hr_compliance_event.png'}" alt="${ev.title}" />
+              </div>
+              <div class="event-card-overlay"></div>
+              <div class="event-date-badge">
+                <span class="day">${ev.day}</span>
+                <span class="month">${ev.month}</span>
+              </div>
+              <div class="event-card-content">
+                <span class="event-badge">${ev.badge}</span>
+                <h3>${ev.title}</h3>
+                <p>${ev.description}</p>
+                <div class="event-meta-info">
+                  <span><i class="fas fa-map-marker-alt"></i> ${ev.location}</span>
+                  <span><i class="fas fa-users"></i> ${ev.platform}</span>
+                </div>
+                <div class="event-action-row">
+                  <span class="learn-more">Register <i class="fas fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </a>
+        `;
+
+        // Build duplicates for seamless scrolling track
+        let html = '';
+        data.forEach(ev => html += renderEventCard(ev, false));
+        data.forEach(ev => html += renderEventCard(ev, true));
+
+        track.innerHTML = html;
+
+        // Rebind anti-copy protection on new images
+        track.querySelectorAll('img').forEach(img => {
+            img.addEventListener('contextmenu', e => e.preventDefault());
+            img.addEventListener('dragstart', e => e.preventDefault());
+        });
+
+        // Rebind scroll animations on new cards
+        track.querySelectorAll('.event-card').forEach(card => {
+            const h3 = card.querySelector('h3');
+            const p  = card.querySelector('p');
+            const link = card.querySelector('.learn-more');
+            if (h3) h3.style.cssText += 'opacity:0;transform:translateX(50px);transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1);';
+            if (p)  p.style.cssText  += 'opacity:0;transform:translateY(12px);transition:opacity 0.5s 0.2s ease,transform 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1);';
+            if (link) link.style.cssText += 'opacity:0;transform:translateY(8px);transition:opacity 0.4s 0.3s ease,transform 0.4s 0.3s ease;';
+
+            onceVisible(card, () => {
+                if (h3) { h3.style.opacity='1'; h3.style.transform='translateY(0)'; }
+                if (p)  { p.style.opacity='1';  p.style.transform='translateY(0)'; }
+                if (link) { link.style.opacity='1';  link.style.transform='translateY(0)'; }
+            }, 0.2);
+        });
+    }
+
+    // 3. Hydrate Services (Carousel & Details page)
+    async function hydrateServices() {
+        const data = await safeFetch('/data/services.json');
+        if (!data || data.length === 0) return;
+
+        // 3a. Index Page Carousel
+        const carouselGrid = document.getElementById('servicesGrid');
+        if (carouselGrid) {
+            carouselGrid.innerHTML = data.map(service => `
+                <div class="s-card reveal">
+                    <div class="s-card-img">
+                        <img src="${service.image}" alt="${service.title}" />
+                    </div>
+                    <div class="s-card-content">
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                        <a href="${service.link}" class="learn-more"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Rebind clickability and animations on carousel cards
+            carouselGrid.querySelectorAll('.s-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const link = card.querySelector('.learn-more');
+                    if (link && link.href) window.location.href = link.href;
+                });
+
+                const h3 = card.querySelector('h3');
+                const p  = card.querySelector('p');
+                const a  = card.querySelector('a');
+                if (h3) h3.style.cssText += 'opacity:0;transform:translateX(50px);transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1);';
+                if (p)  p.style.cssText  += 'opacity:0;transform:translateY(12px);transition:opacity 0.5s 0.2s ease,transform 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1);';
+                if (a)  a.style.cssText  += 'opacity:0;transform:translateY(8px);transition:opacity 0.4s 0.3s ease,transform 0.4s 0.3s ease;';
+
+                onceVisible(card, () => {
+                    if (h3) { h3.style.opacity='1'; h3.style.transform='translateY(0)'; }
+                    if (p)  { p.style.opacity='1';  p.style.transform='translateY(0)'; }
+                    if (a)  { a.style.opacity='1';  a.style.transform='translateY(0)'; }
+                }, 0.2);
+
+                obs.observe(card);
+            });
+        }
+
+        // 3b. Services details page hydration
+        data.forEach(service => {
+            const block = document.getElementById(service.id);
+            if (!block) return;
+
+            const leadEl = block.querySelector('.service-lead');
+            if (leadEl) leadEl.textContent = service.description;
+
+            const gridEl = document.getElementById(`grid-${service.id}`);
+            if (gridEl) {
+                gridEl.innerHTML = (service.subServices || []).map(sub => `
+                    <div class="sub-item">
+                        <h4>${sub.title}</h4>
+                        <p>${sub.description}</p>
+                    </div>
+                `).join('');
+            }
+        });
+    }
+
+    // 4. Hydrate Testimonials
+    async function hydrateTestimonials() {
+        const section = document.querySelector('.testimonials');
+        if (!section) return;
+
+        const data = await safeFetch('/data/testimonials.json');
+        if (!data || data.length === 0) return;
+
+        // 4a. Hydrate Featured Review
+        const featured = data.find(t => t.isFeatured);
+        const featCard = section.querySelector('.t-card.featured');
+        if (featured && featCard) {
+            const quoteEl = featCard.querySelector('.quote');
+            const authorEl = featCard.querySelector('.t-author strong');
+            const roleEl = featCard.querySelector('.t-author span');
+            const imgEl = featCard.querySelector('.t-video-placeholder img');
+
+            if (quoteEl) quoteEl.textContent = `"${featured.quote}"`;
+            if (authorEl) authorEl.textContent = featured.authorName;
+            if (roleEl) roleEl.textContent = `${featured.designation} at ${featured.company}`;
+            if (imgEl && featured.authorImage) imgEl.src = featured.authorImage;
+        }
+
+        // 4b. Hydrate standard reviews grid
+        const rightGrid = section.querySelector('.t-grid-right');
+        if (rightGrid) {
+            const standardReviews = data.filter(t => !t.isFeatured);
+            rightGrid.innerHTML = standardReviews.map(test => `
+                <div class="t-card small reveal" style="height: 380px; display: flex; flex-direction: column; background: linear-gradient(135deg, #fdfdff 0%, #f4f6fc 100%); border: 1px solid rgba(78, 47, 218, 0.12); margin-bottom: 2rem;">
+                    <div style="margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: flex-start; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(78, 47, 218, 0.05);">
+                        ${test.companyLogo ? `<img src="${test.companyLogo}" alt="${test.company} Logo" style="height: 48px; width: auto; max-width: 140px; object-fit: contain; border-radius: 4px;" />` : `<h4 style="color:var(--color-navy); font-weight:700;">${test.company}</h4>`}
+                    </div>
+                    <div class="quote" style="flex: 1; overflow-y: auto; padding-right: 10px; margin-bottom: 1rem; font-style: normal; font-size: 1rem; line-height: 1.6; scrollbar-width: thin; text-align: left;">
+                        <p>${test.quote}</p>
+                    </div>
+                    <div class="t-author" style="margin-top: auto; padding-top: 0.8rem; text-align: left;">
+                        <div>
+                            <strong style="font-size: 0.9rem; display: block; color: var(--color-purple);">${test.authorName}</strong>
+                            <span style="font-size: 0.75rem; color: var(--color-text-muted)">${test.designation}, ${test.company}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Re-apply slide reveals observers
+            rightGrid.querySelectorAll('.t-card').forEach(card => {
+                obs.observe(card);
+            });
+        }
+    }
+
+    // 5. Hydrate About Us Page
+    async function hydrateAbout() {
+        const subEl = document.getElementById('about-missionSubtitle');
+        const titEl = document.getElementById('about-missionTitle');
+        const desEl = document.getElementById('about-missionDescription');
+
+        if (!subEl && !document.getElementById('founder-name')) return;
+
+        const data = await safeFetch('/data/about.json');
+        if (!data) return;
+
+        if (subEl && data.missionSubtitle) subEl.textContent = data.missionSubtitle;
+        if (titEl && data.missionTitle) titEl.textContent = data.missionTitle;
+        if (desEl && data.missionDescription) desEl.textContent = data.missionDescription;
+
+        // Founder specific fields
+        const imgEl = document.getElementById('founder-img');
+        const nameEl = document.getElementById('founder-name');
+        const titleEl = document.getElementById('founder-title');
+        const locEl = document.getElementById('founder-location');
+        const headEl = document.getElementById('founder-headline');
+        const bioEl = document.getElementById('founder-bio');
+        const accEl = document.getElementById('founder-accolades');
+
+        if (imgEl && data.founderImage) imgEl.src = data.founderImage;
+        if (nameEl && data.founderName) nameEl.textContent = data.founderName;
+        if (titleEl && data.founderTitle) titleEl.textContent = data.founderTitle;
+        if (locEl && data.founderLocation) locEl.textContent = data.founderLocation;
+        if (headEl && data.founderSummary) headEl.textContent = data.founderSummary;
+
+        if (bioEl && data.founderAboutParagraphs) {
+            bioEl.innerHTML = data.founderAboutParagraphs.map(p => `<p style="margin-bottom: 2rem">${p}</p>`).join('');
+        }
+
+        if (accEl && data.accolades) {
+            accEl.innerHTML = data.accolades.map(acc => `
+                <li style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <i class="fas fa-balance-scale" style="color: var(--color-purple); margin-top: 0.25rem"></i>
+                    <span>${acc}</span>
+                </li>
+            `).join('');
+        }
+    }
+
+    // 6. Hydrate Resources Page
+    async function hydrateResources() {
+        const calendarDesc = document.getElementById('res-calendar-desc');
+        if (!calendarDesc) return;
+
+        // 6a. Main Resources PPT
+        const data = await safeFetch('/data/resources.json');
+        if (data && data.length >= 2) {
+            const cal = data.find(r => r.id === 'compliance-calendar') || data[0];
+            const gui = data.find(r => r.id === 'startup-guide') || data[1];
+
+            if (calendarDesc) calendarDesc.textContent = cal.description;
+            const calView = document.getElementById('res-calendar-view');
+            const calDl = document.getElementById('res-calendar-dl');
+            if (calView) calView.setAttribute('onclick', `openPPT('${cal.file}', '${cal.title}')`);
+            if (calDl) { calDl.href = cal.file; }
+
+            const guideDesc = document.getElementById('res-guide-desc');
+            if (guideDesc) guideDesc.textContent = gui.description;
+            const guiView = document.getElementById('res-guide-view');
+            const guiDl = document.getElementById('res-guide-dl');
+            if (guiView) guiView.setAttribute('onclick', `openPPT('${gui.file}', '${gui.title}')`);
+            if (guiDl) { guiDl.href = gui.file; }
+        }
+
+        // 6b. Glossary Terminology List
+        const glossEl = document.getElementById('list-glossary');
+        if (glossEl) {
+            const glossary = await safeFetch('/data/glossary.json');
+            if (glossary && glossary.length > 0) {
+                glossEl.innerHTML = glossary.map(item => `
+                    <div class="glossary-item">
+                        <dt>${item.term}</dt>
+                        <dd>${item.definition}</dd>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // 6c. Expert Tips & Guides Bento
+        const tipsEl = document.getElementById('grid-expert-tips');
+        const toolEl = document.getElementById('grid-startup-toolkits');
+
+        const tips = await safeFetch('/data/tips.json');
+        if (tips) {
+            if (tipsEl && tips.expertTips) {
+                tipsEl.innerHTML = tips.expertTips.map((tip, idx) => `
+                    <div class="bento-item reveal stagger-${idx + 1}">
+                        <i class="${tip.icon}"></i>
+                        <h4>${tip.title}</h4>
+                        <p>${tip.description}</p>
+                    </div>
+                `).join('');
+                
+                // Rebind scroll observation
+                tipsEl.querySelectorAll('.bento-item').forEach(item => obs.observe(item));
+            }
+            if (toolEl && tips.startupToolkits) {
+                toolEl.innerHTML = tips.startupToolkits.map((tool, idx) => `
+                    <div class="bento-item reveal stagger-${idx + 1}">
+                        <i class="${tool.icon}"></i>
+                        <h4>${tool.title}</h4>
+                        <p>${tool.description}</p>
+                    </div>
+                `).join('');
+                
+                // Rebind scroll observation
+                toolEl.querySelectorAll('.bento-item').forEach(item => obs.observe(item));
+            }
+        }
+    }
+
+    // Launch page-wide dynamic data loads
+    hydrateHero();
+    hydrateEvents();
+    hydrateServices();
+    hydrateTestimonials();
+    hydrateAbout();
+    hydrateResources();
+
 });

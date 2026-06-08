@@ -1,0 +1,38 @@
+[
+  {
+    "id": "event-1",
+    "title": "HR Compliance Essentials",
+    "badge": "Workshop",
+    "day": "18",
+    "month": "Jun",
+    "description": "Practical session on labour law compliance, statutory audits, and POSH readiness protocols.",
+    "location": "Mumbai",
+    "platform": "In-Person",
+    "image": "img/upload_1780940162528.jpeg",
+    "link": "#contact"
+  },
+  {
+    "id": "event-2",
+    "title": "Payroll & Statutory Flow",
+    "badge": "Masterclass",
+    "day": "02",
+    "month": "Jul",
+    "description": "Deep dive into modern payroll automation, ESI/PF registration, and audit-ready operations.",
+    "location": "Zoom Webinar",
+    "platform": "Online",
+    "image": "img/payroll_statutory_event.png",
+    "link": "#contact"
+  },
+  {
+    "id": "event-3",
+    "title": "People Operations Roundtable",
+    "badge": "Roundtable",
+    "day": "12",
+    "month": "Aug",
+    "description": "An invite-only session for startup HR directors and managers on scaling corporate culture.",
+    "location": "Bengaluru",
+    "platform": "In-Person",
+    "image": "img/leadership_roundtable_event.png",
+    "link": "#contact"
+  }
+]
