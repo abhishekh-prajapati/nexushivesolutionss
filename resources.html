@@ -82,10 +82,165 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
+            border-radius: 6px;
         }
         .btn-external:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(78, 47, 218, 0.2);
+        }
+        .btn-ppt-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.25);
+        }
+        .btn-ppt-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(192, 57, 43, 0.35);
+            background: linear-gradient(135deg, #a93226 0%, #c0392b 100%);
+        }
+        .btn-ppt-download i {
+            font-size: 1.1rem;
+        }
+        .btn-view-ppt {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            color: var(--color-purple);
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 2px solid var(--color-purple);
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-view-ppt:hover {
+            background: var(--color-purple);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 47, 218, 0.2);
+        }
+        /* Dual-button row for resource cards */
+        .resource-btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        /* Startup Guide PPT card */
+        .startup-guide-band {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #1a0533 0%, #2d1b6e 60%, #4e2fda 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 20px 60px rgba(78, 47, 218, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .startup-guide-band::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .startup-guide-band::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: 40%;
+            width: 280px;
+            height: 280px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+        .sg-icon-col {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .sg-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        .sg-content .sg-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+        }
+        .sg-content h3 {
+            color: #fff;
+            font-size: 1.7rem;
+            margin-bottom: 0.6rem;
+        }
+        .sg-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .btn-sg-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #fff;
+            color: #2d1b6e;
+            padding: 0.9rem 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-sg-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: #f0ecff;
+        }
+        @media (max-width: 768px) {
+            .startup-guide-band { flex-direction: column; text-align: center; }
+            .sg-icon-col { margin: 0 auto; }
         }
 
         /* Bento Grid for Tips & Guides */
@@ -151,7 +306,143 @@
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: 1fr; }
             .calendar-card { flex-direction: column; text-align: center; }
+            .startup-guide-band { flex-direction: column; text-align: center; }
+            .sg-icon-col { margin: 0 auto; }
         }
+
+        /* ---- PPT Viewer Modal ---- */
+        .ppt-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(10, 5, 30, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+        }
+        .ppt-overlay.active { display: flex; }
+        .ppt-modal {
+            width: 92vw;
+            height: 90vh;
+            background: #1a1a2e;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            animation: pptSlideUp 0.35s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        @keyframes pptSlideUp {
+            from { opacity: 0; transform: scale(0.94) translateY(20px); }
+            to   { opacity: 1; transform: scale(1)   translateY(0); }
+        }
+        .ppt-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #1a0533 0%, #2d1b6e 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+        .ppt-modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ppt-modal-header-left i {
+            font-size: 1.4rem;
+            color: #ff7043;
+        }
+        .ppt-modal-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            margin: 0;
+        }
+        .ppt-modal-subtitle {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .ppt-modal-actions {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+        }
+        .ppt-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .ppt-modal-btn.download {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .ppt-modal-btn.download:hover { background: rgba(255,255,255,0.18); }
+        .ppt-modal-btn.close-btn {
+            background: rgba(255,80,80,0.15);
+            color: #ff6b6b;
+            font-size: 1rem;
+            padding: 0.5rem 0.75rem;
+        }
+        .ppt-modal-btn.close-btn:hover { background: rgba(255,80,80,0.3); }
+        .ppt-modal-body {
+            flex: 1;
+            position: relative;
+            background: #0f0f1a;
+        }
+        .ppt-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .ppt-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+        .ppt-spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(78,47,218,0.3);
+            border-top-color: #4e2fda;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        /* Localhost notice card */
+        .ppt-local-notice {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+        }
+        .ppt-local-notice.visible { display: flex; }
+        .ppt-local-notice i { font-size: 3.5rem; color: #4e2fda; }
+        .ppt-local-notice h3 { color: #fff; font-size: 1.5rem; margin: 0; }
+        .ppt-local-notice p { font-size: 0.95rem; line-height: 1.6; max-width: 480px; color: rgba(255,255,255,0.6); margin: 0; }
     </style>
 </head>
 <body>
@@ -265,15 +556,21 @@
                 <div class="calendar-card reveal">
                     <div class="calendar-content">
                         <span class="tagline">Stay Compliant</span>
-                        <h3>Statutory Compliance Calendar</h3>
-                        <p>Track monthly and quarterly statutory due dates for GST, PF, ESI, Professional Tax, and more. Our live-updated calendar ensures you never miss a critical filing deadline.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/19e4BPw0JOJ7uFI84vm4-cRqy3gLKGCDfhr3GT-j8gnI/edit?gid=0#gid=0" target="_blank" class="btn-external">
-                            View Compliance Sheet <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <h3>India Compliance Calendar</h3>
+                        <p>Your complete month-by-month statutory filing guide — covering GST, PF, ESI, Professional Tax, TDS, and more across all key deadlines. Curated by NexusHive experts for India-based startups and enterprises.</p>
+                        <div class="resource-btn-row">
+                            <button onclick="openPPT('India_Compliance_Calendar_NexusHive.pptx', 'India Compliance Calendar')" class="btn-view-ppt">
+                                <i class="fas fa-eye"></i> Open &amp; View
+                            </button>
+                            <a href="India_Compliance_Calendar_NexusHive.pptx" download class="btn-ppt-download">
+                                <i class="fas fa-download"></i> Download PPT
+                            </a>
+                        </div>
                     </div>
                     <div class="calendar-visual">
-                        <div style="font-size: 5rem; color: var(--color-purple); opacity: 0.2;">
+                        <div style="font-size: 5rem; color: var(--color-purple); opacity: 0.15; display:flex; flex-direction:column; align-items:center; gap:0.5rem;">
                             <i class="far fa-calendar-check"></i>
+                            <span style="font-size:0.9rem; opacity:0.6; font-weight:600; letter-spacing:1px; text-transform:uppercase;">India 2025–26</span>
                         </div>
                     </div>
                 </div>
@@ -331,6 +628,26 @@
                         <i class="fas fa-file-invoice-dollar"></i>
                         <h4>GST & Indirect Tax</h4>
                         <p>Basics of GST registration, HSN coding, and the importance of timely Input Tax Credit (ITC) reconciliation.</p>
+                    </div>
+                </div>
+
+                <!-- Startup Guide PPT Download Band -->
+                <div class="startup-guide-band reveal" style="margin-top: 3rem; padding: 2rem; border: 1px solid #eee; border-radius: 12px; display: flex; align-items: center; gap: 2rem;">
+                    <div class="sg-icon-col" style="font-size: 3rem; color: var(--color-purple);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="sg-content">
+                        <span class="sg-badge" style="background: var(--color-purple); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">Free Resource</span>
+                        <h3>NexusHive Startup Guide</h3>
+                        <p>A comprehensive presentation covering everything a new startup founder needs — from incorporation and registrations to HR setup, compliance, payroll, and growth frameworks. Built for India.</p>
+                        <div class="resource-btn-row" style="gap: 1rem;">
+                            <button onclick="openPPT('NexusHive_Startup_Guide.pptx', 'NexusHive Startup Guide')" class="btn-sg-download" style="background: rgba(255,255,255,0.15); color:#fff; border: 2px solid rgba(255,255,255,0.4);">
+                                <i class="fas fa-eye"></i> Open &amp; View
+                            </button>
+                            <a href="NexusHive_Startup_Guide.pptx" download class="btn-sg-download">
+                                <i class="fas fa-download"></i> Download PPT
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -559,10 +876,110 @@
       </div>
     </a>
 
+    <!-- PPT Viewer Modal -->
+    <div id="pptOverlay" class="ppt-overlay" onclick="handleOverlayClick(event)">
+        <div class="ppt-modal" role="dialog" aria-modal="true">
+            <div class="ppt-modal-header">
+                <div class="ppt-modal-header-left">
+                    <i class="fas fa-file-powerpoint"></i>
+                    <div>
+                        <p class="ppt-modal-title" id="pptModalTitle">Presentation</p>
+                        <span class="ppt-modal-subtitle">Powered by Microsoft Office Online</span>
+                    </div>
+                </div>
+                <div class="ppt-modal-actions">
+                    <a id="pptDownloadBtn" href="#" download class="ppt-modal-btn download">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button onclick="closePPTModal()" class="ppt-modal-btn close-btn" aria-label="Close viewer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="ppt-modal-body">
+                <!-- Loading spinner -->
+                <div class="ppt-loading" id="pptLoading">
+                    <div class="ppt-spinner"></div>
+                    <span>Loading presentation…</span>
+                </div>
+                <!-- Viewer iframe (live site) -->
+                <iframe id="pptIframe" src="" title="PPT Viewer"
+                    style="display:none;"
+                    onload="onIframeLoad()"></iframe>
+                <!-- Localhost notice -->
+                <div class="ppt-local-notice" id="pptLocalNotice">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Running Locally</h3>
+                    <p>The in-browser viewer requires the site to be live on a public domain. Once your website is deployed, clicking <strong>Open &amp; View</strong> will display the full presentation here.</p>
+                    <p style="margin-top:0.5rem;">For now, use the <strong>Download</strong> button above — Windows will open it directly in PowerPoint.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
     <script src="js/interactions.js"></script>
     <script>
-        // --- Hamburger Menu ---
+        // ---- PPT Viewer ----
+        let currentPPTFile = '';
+
+        function openPPT(filename, title) {
+            currentPPTFile = filename;
+            const overlay    = document.getElementById('pptOverlay');
+            const iframe     = document.getElementById('pptIframe');
+            const loading    = document.getElementById('pptLoading');
+            const notice     = document.getElementById('pptLocalNotice');
+            const dlBtn      = document.getElementById('pptDownloadBtn');
+            const titleEl    = document.getElementById('pptModalTitle');
+
+            // Reset state
+            iframe.style.display = 'none';
+            iframe.src = '';
+            loading.style.display = 'flex';
+            notice.classList.remove('visible');
+            titleEl.textContent  = title || 'Presentation';
+            dlBtn.href           = filename;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            const hostname = window.location.hostname;
+            const isLocal  = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+
+            if (isLocal) {
+                // Local: show notice, hide spinner
+                loading.style.display = 'none';
+                notice.classList.add('visible');
+            } else {
+                // Live site: embed Office Online viewer
+                const fileUrl    = encodeURIComponent(window.location.origin + '/' + filename);
+                const viewerUrl  = 'https://view.officeapps.live.com/op/embed.aspx?src=' + fileUrl;
+                iframe.src       = viewerUrl;
+            }
+        }
+
+        function onIframeLoad() {
+            document.getElementById('pptLoading').style.display = 'none';
+            const iframe = document.getElementById('pptIframe');
+            iframe.style.display = 'block';
+        }
+
+        function closePPTModal() {
+            const overlay = document.getElementById('pptOverlay');
+            const iframe  = document.getElementById('pptIframe');
+            overlay.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function handleOverlayClick(e) {
+            if (e.target === document.getElementById('pptOverlay')) closePPTModal();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePPTModal();
+        });
+
+        // ---- Hamburger Menu ----
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobileNav');
         const mobileClose = document.getElementById('mobileClose');
