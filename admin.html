@@ -38,7 +38,7 @@
             background-color: var(--color-bg-dark);
             color: var(--color-text);
             font-family: var(--font-body);
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             line-height: 1.6;
             height: 100vh;
             display: flex;
@@ -59,15 +59,28 @@
 
         .admin-logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Consolidation 2: Large/Heading */
             font-weight: 800;
             letter-spacing: -0.5px;
             text-decoration: none;
             color: var(--color-text);
+            transition: var(--transition);
         }
 
         .admin-logo span {
             color: var(--color-purple);
+        }
+
+        .admin-logo:focus-visible {
+            outline: 2px solid var(--color-purple);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .admin-header a:focus-visible {
+            outline: 2px solid var(--color-purple);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
         .server-status-pill {
@@ -77,7 +90,7 @@
             background: #fef2f2;
             border: 1px solid #fee2e2;
             color: var(--color-error);
-            font-size: 0.8rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             font-weight: 600;
             padding: 0.35rem 0.85rem;
             border-radius: 50px;
@@ -127,17 +140,24 @@
             border: none;
             color: var(--color-text-muted);
             font-family: var(--font-heading);
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             font-weight: 600;
             text-align: left;
             padding: 0.75rem 1rem;
             border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
+            min-height: 44px; /* Touch target min 44px */
         }
 
         .nav-btn:hover {
             color: var(--color-text);
+            background: #f1f5f9;
+        }
+
+        .nav-btn:focus-visible {
+            outline: 2px solid var(--color-purple);
+            outline-offset: -2px;
             background: #f1f5f9;
         }
 
@@ -163,7 +183,7 @@
 
         .tab-section {
             display: none;
-            animation: fadeIn 150ms ease-out;
+            animation: fadeIn 300ms ease-out; /* Transition: 300ms panel/modal */
         }
 
         .tab-section.active {
@@ -181,7 +201,7 @@
 
         .section-title {
             font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-size: 1.5rem; /* Consolidation 2: Large/Heading */
             font-weight: 800;
             color: var(--color-text);
             margin-bottom: 0.5rem;
@@ -190,7 +210,7 @@
 
         .section-description {
             color: var(--color-text-muted);
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
         }
 
         /* Clean SaaS Card */
@@ -223,7 +243,7 @@
         }
 
         .form-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             font-weight: 700;
             color: var(--color-text-muted);
             text-transform: uppercase;
@@ -236,11 +256,12 @@
             border-radius: 6px;
             color: var(--color-text);
             font-family: var(--font-body);
-            font-size: 0.9rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             padding: 0.65rem 0.85rem;
             outline: none;
             transition: var(--transition);
             width: 100%;
+            min-height: 44px; /* Touch target min 44px */
         }
 
         .form-input:focus, .form-textarea:focus, .form-select:focus {
@@ -276,6 +297,8 @@
             display: inline-block;
             width: 44px;
             height: 24px;
+            box-sizing: content-box;
+            padding: 10px 0; /* Add touch area padding so target is at least 44px height */
         }
 
         .switch input {
@@ -287,7 +310,7 @@
         .slider {
             position: absolute;
             cursor: pointer;
-            inset: 0;
+            inset: 10px 0; /* Align slider within padded height */
             background-color: #cbd5e1;
             border: 1px solid transparent;
             transition: .3s;
@@ -315,6 +338,10 @@
             transform: translateX(20px);
         }
 
+        input:focus-visible + .slider {
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+        }
+
         /* List Items Manager Layout */
         .list-manager-container {
             display: flex;
@@ -332,7 +359,7 @@
 
         .list-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             font-weight: 700;
             color: var(--color-text);
             letter-spacing: -0.02em;
@@ -347,7 +374,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            animation: fadeIn 150ms ease-out;
+            animation: fadeIn 300ms ease-out;
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
         }
 
@@ -366,7 +393,7 @@
             justify-content: center;
             gap: 0.5rem;
             font-family: var(--font-heading);
-            font-size: 0.88rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             font-weight: 600;
             padding: 0.65rem 1.25rem;
             border-radius: 6px;
@@ -375,7 +402,7 @@
             transition: var(--transition);
             text-decoration: none;
             outline: none;
-            min-height: 38px;
+            min-height: 44px; /* Ensure 44px touch targets */
         }
 
         .btn-primary {
@@ -426,7 +453,8 @@
             padding: 0.5rem;
             border-radius: 6px;
             font-size: 1rem;
-            min-height: 34px;
+            min-height: 44px; /* Touch target min 44px */
+            min-width: 44px;  /* Touch target min 44px */
         }
 
         .btn:disabled {
@@ -446,6 +474,7 @@
             position: sticky;
             bottom: 0;
             z-index: 100;
+            flex-shrink: 0; /* Header and footer should never shrink on mobile */
         }
 
         /* Status Toast notification */
@@ -465,7 +494,7 @@
             align-items: center;
             gap: 0.75rem;
             z-index: 9999;
-            transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 250ms;
+            transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 300ms; /* Transition: 300ms panel/modal */
             font-family: var(--font-heading);
             font-weight: 600;
             color: var(--color-text);
@@ -529,7 +558,7 @@
         }
 
         .mode-notice p {
-            font-size: 0.9rem;
+            font-size: 0.95rem; /* Consolidation 1: Regular/Body */
             color: #1e3a8a;
             line-height: 1.5;
         }
@@ -582,10 +611,11 @@
             gap: 0.35rem;
         }
         .image-upload-input {
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             color: var(--color-text-muted);
             width: 100%;
             cursor: pointer;
+            min-height: 44px; /* Ensure click targets satisfy 44px */
         }
         .image-upload-input::file-selector-button {
             background: var(--color-purple);
@@ -595,17 +625,18 @@
             border-radius: 4px;
             font-family: var(--font-heading);
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             cursor: pointer;
             margin-right: 0.75rem;
             transition: var(--transition);
+            min-height: 32px;
         }
         .image-upload-input::file-selector-button:hover {
             background: var(--color-purple-hover);
         }
         .image-upload-path {
             font-family: monospace;
-            font-size: 0.72rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             color: var(--color-text-muted);
             word-break: break-all;
         }
@@ -617,19 +648,129 @@
             padding: 1.5rem 1rem 0.5rem 1rem;
             background-color: #ffffff;
             border-top: 1px solid var(--color-border);
-            font-size: 0.8rem;
+            font-size: 0.8rem; /* Consolidation 3: Small/Caption */
             color: var(--color-text-muted);
             line-height: 1.5;
             z-index: 10;
         }
 
+        /* Dynamic template layouts */
+        .pointer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+
+        .glossary-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        /* Media Queries for responsiveness */
         @media (max-width: 900px) {
             .admin-workspace { flex-direction: column; }
-            .admin-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--color-border); padding: 1rem; flex-direction: row; overflow-x: auto; }
-            .nav-btn { white-space: nowrap; padding: 0.6rem 1rem; }
+            .admin-sidebar { 
+                width: 100%; 
+                border-right: none; 
+                border-bottom: 1px solid var(--color-border); 
+                padding: 0.75rem 1rem; 
+                flex-direction: row; 
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hide default scrollbar on Firefox */
+            }
+            .admin-sidebar::-webkit-scrollbar {
+                display: none; /* Hide default scrollbar on Chrome/Safari */
+            }
+            .nav-btn { 
+                white-space: nowrap; 
+                padding: 0.5rem 1rem; 
+                min-height: 44px;
+            }
+            .admin-content {
+                padding: 1.5rem;
+            }
+            .edit-card {
+                padding: 24px; /* Ensure exactly 24px spacing grid padding on mobile/tablet */
+            }
             .form-grid { grid-template-columns: 1fr; }
             .form-full-row { grid-column: span 1; }
             .sidebar-dev-note { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .admin-header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+                text-align: center;
+            }
+            .admin-header > a.admin-logo {
+                text-align: center;
+                font-size: 1.35rem;
+            }
+            .admin-header > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            .admin-content {
+                padding: 1rem;
+            }
+            .edit-card {
+                padding: 24px; /* Min 24px card padding is strictly enforced */
+            }
+            .image-upload-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .image-preview-box {
+                margin: 0 auto;
+            }
+            .image-upload-controls {
+                align-items: center;
+                text-align: center;
+            }
+            .pointer-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .admin-action-bar {
+                padding: 1rem;
+                justify-content: space-between;
+                width: 100%;
+                gap: 0.75rem;
+            }
+            .admin-action-bar .btn {
+                flex: 1;
+                font-size: 0.95rem;
+                padding: 0.5rem 0.75rem;
+                min-height: 44px;
+            }
+            .mode-notice {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .glossary-row {
+                grid-template-columns: 200px 1fr auto;
+                align-items: center;
+                border-bottom: none;
+            }
         }
     </style>
 </head>
@@ -637,7 +778,7 @@
 
     <!-- Login Overlay -->
     <div id="login-overlay" style="position: fixed; inset: 0; background: #f8fafc; display: flex; align-items: center; justify-content: center; z-index: 99999; font-family: 'Inter', sans-serif;">
-        <div class="edit-card" style="width: 380px; padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 0;">
+        <div class="edit-card" style="width: 100%; max-width: 380px; padding: 24px; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin: 1rem;">
             <div>
                 <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Nexus<span>Hive</span> Admin</h2>
                 <p style="color: #64748b; font-size: 0.9rem;">Please enter password to access CMS Portal.</p>

@@ -334,7 +334,7 @@ function renderServices(services) {
                     <div id="service-pointers-${sIndex}-container" class="list-manager-container" style="gap: 0.75rem; margin-top: 0.5rem;">
                         <!-- Service pointers will be rendered here dynamically -->
                     </div>
-                    <button type="button" class="btn btn-secondary" onclick="addServicePointer(${sIndex})" style="margin-top: 0.75rem; align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.82rem;">
+                    <button type="button" class="btn btn-secondary" onclick="addServicePointer(${sIndex})" style="margin-top: 0.75rem; align-self: flex-start;">
                         <i class="fas fa-plus"></i> Add Pointer
                     </button>
                 </div>
@@ -366,19 +366,19 @@ function renderServicePointers(sIndex) {
         item.style.gap = '0.75rem';
         item.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="form-label" style="font-size: 0.75rem; color: var(--color-teal); letter-spacing: 1px;">Pointer #${pIndex + 1}</span>
-                <button type="button" class="btn btn-danger btn-icon-only" onclick="deleteServicePointer(${sIndex}, ${pIndex})" style="padding: 0.35rem 0.5rem; height: 30px; min-height: 30px;" title="Delete Pointer">
+                <span class="form-label" style="font-size: 0.8rem; color: var(--color-teal); letter-spacing: 1px;">Pointer #${pIndex + 1}</span>
+                <button type="button" class="btn btn-danger btn-icon-only" onclick="deleteServicePointer(${sIndex}, ${pIndex})" title="Delete Pointer">
                     <i class="fas fa-trash" style="font-size: 0.8rem;"></i>
                 </button>
             </div>
-            <div class="form-grid" style="margin-bottom: 0; gap: 1rem; grid-template-columns: 1fr 1.5fr;">
+            <div class="pointer-grid">
                 <div class="form-group">
-                    <label class="form-label" style="font-size: 0.72rem; letter-spacing: 1px;">Pointer Title</label>
-                    <input type="text" class="form-input service-pointer-title" value="${ptr.title || ''}" data-service-index="${sIndex}" data-pointer-index="${pIndex}" placeholder="e.g. Org Architecture" required style="padding: 0.7rem 1rem; font-size: 0.9rem;">
+                    <label class="form-label" style="font-size: 0.8rem; letter-spacing: 1px;">Pointer Title</label>
+                    <input type="text" class="form-input service-pointer-title" value="${ptr.title || ''}" data-service-index="${sIndex}" data-pointer-index="${pIndex}" placeholder="e.g. Org Architecture" required style="padding: 0.7rem 1rem;">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" style="font-size: 0.72rem; letter-spacing: 1px;">Pointer Description</label>
-                    <textarea class="form-input service-pointer-desc" rows="1" data-service-index="${sIndex}" data-pointer-index="${pIndex}" placeholder="Describe details..." required style="min-height: 38px; padding: 0.7rem 1rem; font-size: 0.9rem; resize: vertical;">${ptr.description || ''}</textarea>
+                    <label class="form-label" style="font-size: 0.8rem; letter-spacing: 1px;">Pointer Description</label>
+                    <textarea class="form-input service-pointer-desc" rows="1" data-service-index="${sIndex}" data-pointer-index="${pIndex}" placeholder="Describe details..." required style="padding: 0.7rem 1rem; resize: vertical;">${ptr.description || ''}</textarea>
                 </div>
             </div>
         `;
@@ -458,7 +458,7 @@ function renderEvents(events) {
         item.innerHTML = `
             <div class="list-item-header" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.8rem; margin-bottom: 0.5rem;">
                 <span class="list-title" style="color: var(--color-purple); font-weight: 700; font-family: var(--font-heading); font-size: 1.1rem;">Event #${index + 1}</span>
-                <button type="button" class="btn btn-danger" style="padding: 0.5rem 1rem; font-size: 0.8rem; height: 36px; min-height: 36px;" onclick="deleteEvent(${index})">
+                <button type="button" class="btn btn-danger" onclick="deleteEvent(${index})">
                     <i class="fas fa-trash"></i> Delete Event
                 </button>
             </div>
@@ -550,7 +550,7 @@ function renderTestimonials(testimonials) {
         item.innerHTML = `
             <div class="list-item-header" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.8rem; margin-bottom: 0.5rem;">
                 <span class="list-title" style="color: var(--color-purple); font-weight: 700; font-family: var(--font-heading); font-size: 1.1rem;">Testimonial #${index + 1}</span>
-                <button type="button" class="btn btn-danger" style="padding: 0.5rem 1rem; font-size: 0.8rem; height: 36px; min-height: 36px;" onclick="deleteTestimonial(${index})">
+                <button type="button" class="btn btn-danger" onclick="deleteTestimonial(${index})">
                     <i class="fas fa-trash"></i> Delete Testimonial
                 </button>
             </div>
@@ -699,13 +699,11 @@ function renderGlossaryAndTips(glossary, tips) {
     glossContainer.innerHTML = '';
     glossary.forEach((item, index) => {
         const row = document.createElement('div');
-        row.style.display = 'flex';
-        row.style.gap = '1rem';
-        row.style.alignItems = 'flex-start';
+        row.className = 'glossary-row';
         row.innerHTML = `
-            <input type="text" class="form-input gloss-term" value="${item.term}" required placeholder="Term" style="width:30%;">
-            <textarea class="form-input gloss-definition" rows="1" required placeholder="Definition" style="flex:1;">${item.definition}</textarea>
-            <button type="button" class="btn btn-danger btn-icon-only" onclick="this.parentElement.remove()" style="margin-top:0.3rem;">
+            <input type="text" class="form-input gloss-term" value="${item.term}" required placeholder="Term">
+            <textarea class="form-input gloss-definition" rows="1" required placeholder="Definition">${item.definition}</textarea>
+            <button type="button" class="btn btn-danger btn-icon-only" onclick="this.parentElement.remove()">
                 <i class="fas fa-trash"></i>
             </button>
         `;
@@ -766,13 +764,11 @@ function renderGlossaryAndTips(glossary, tips) {
 function addGlossaryItem() {
     const glossContainer = document.getElementById('glossary-items-list');
     const row = document.createElement('div');
-    row.style.display = 'flex';
-    row.style.gap = '1rem';
-    row.style.alignItems = 'flex-start';
+    row.className = 'glossary-row';
     row.innerHTML = `
-        <input type="text" class="form-input gloss-term" value="" required placeholder="New Term" style="width:30%;">
-        <textarea class="form-input gloss-definition" rows="1" required placeholder="Definition description..." style="flex:1;"></textarea>
-        <button type="button" class="btn btn-danger btn-icon-only" onclick="this.parentElement.remove()" style="margin-top:0.3rem;">
+        <input type="text" class="form-input gloss-term" value="" required placeholder="New Term">
+        <textarea class="form-input gloss-definition" rows="1" required placeholder="Definition description..."></textarea>
+        <button type="button" class="btn btn-danger btn-icon-only" onclick="this.parentElement.remove()">
             <i class="fas fa-trash"></i>
         </button>
     `;
