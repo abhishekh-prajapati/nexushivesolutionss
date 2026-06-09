@@ -3235,6 +3235,7 @@ footer::before {
     align-items: center;
     justify-content: center;
     transition: all 0.4s ease;
+    border-radius: 50%;
 }
 
 .protip-icon-ring i {
@@ -3290,7 +3291,6 @@ footer::before {
 .protip-quote strong {
     color: #a78bfa;
     font-weight: 800;
-}
 }
 
 /* Responsive */
