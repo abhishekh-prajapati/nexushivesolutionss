@@ -1,0 +1,32 @@
+Options -Indexes
+RewriteEngine On
+
+# -------------------------------------------------------
+# NexusHive CMS API Routes (MilesWeb / Apache shared hosting)
+# Routes clean API URLs to their PHP handler files
+# -------------------------------------------------------
+
+# GET /api/data/:filename  →  api/data.php?file=:filename
+RewriteRule ^api/data/([a-zA-Z0-9_\-]+\.json)$ api/data.php?file=$1 [QSA,L]
+
+# POST /api/save  →  api/save.php
+RewriteRule ^api/save$ api/save.php [QSA,L]
+
+# POST /api/upload-image  →  api/upload-image.php
+RewriteRule ^api/upload-image$ api/upload-image.php [QSA,L]
+
+# -------------------------------------------------------
+# Security: block direct access to raw data files
+# -------------------------------------------------------
+<FilesMatch "\.(json)$">
+    <IfModule mod_rewrite.c>
+        RewriteCond %{REQUEST_URI} ^/data/
+        RewriteRule .* - [F,L]
+    </IfModule>
+</FilesMatch>
+
+# Block access to server config files
+<FilesMatch "(^\.htaccess|server\.js|package\.json|vercel\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
