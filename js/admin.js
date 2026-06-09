@@ -63,7 +63,7 @@ async function checkConnection() {
     const offlineNotice = document.getElementById('offlineNotice');
 
     try {
-        const response = await fetch('/api/data/hero.json');
+        const response = await fetch(`/api/data/hero.json?t=${Date.now()}`);
         if (response.ok) {
             isConnected = true;
             if (statusPill) statusPill.className = 'server-status-pill connected';
@@ -192,13 +192,13 @@ async function loadTabData(tabName) {
     
     try {
         if (isConnected) {
-            const response = await fetch(`/api/data/${filename}`);
+            const response = await fetch(`/api/data/${filename}?t=${Date.now()}`);
             if (!response.ok) throw new Error(`Failed to load ${filename}`);
             tabData[tabName] = await response.json();
             
             // If glossary tab, load tips.json too
             if (tabName === 'glossary') {
-                const tipsResponse = await fetch('/api/data/tips.json');
+                const tipsResponse = await fetch(`/api/data/tips.json?t=${Date.now()}`);
                 if (tipsResponse.ok) {
                     tabData['tips'] = await tipsResponse.json();
                 }

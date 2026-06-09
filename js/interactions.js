@@ -462,7 +462,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Helper: Safe fetch
     async function safeFetch(url) {
         try {
-            const res = await fetch(url);
+            const separator = url.includes('?') ? '&' : '?';
+            const cacheBustUrl = `${url}${separator}t=${Date.now()}`;
+            const res = await fetch(cacheBustUrl);
             if (!res.ok) throw new Error(`Status ${res.status}`);
             return await res.json();
         } catch (e) {
