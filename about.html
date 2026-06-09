@@ -25,7 +25,7 @@
         border: 1px solid rgba(78, 47, 218, 0.08);
         border-radius: 12px;
         padding: 3rem;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
       }
       .bento-card:hover {
@@ -152,7 +152,7 @@
       .partner-logo-simple img {
         filter: grayscale(1);
         opacity: 0.4;
-        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 150ms ease;
         cursor: pointer;
       }
       .partner-logo-simple:hover img {
@@ -240,7 +240,7 @@
         padding: 2.5rem;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 150ms ease, box-shadow 150ms ease;
       }
       .why-partner-card.light {
         background: #ffffff;
@@ -262,6 +262,50 @@
       @media (max-width: 768px) {
         .why-partner-card {
           padding: 1.5rem;
+        }
+      }
+
+      /* GSTIN Responsive Presentation */
+      .gst-container {
+        margin-top: 4rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .gst-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #cbd5e1;
+      }
+      .gst-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+      .gst-number {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        color: #0f172a;
+        letter-spacing: 1px;
+        font-weight: 700;
+      }
+      .gst-govt {
+        font-size: 0.8rem;
+        color: #64748b;
+      }
+      @media (max-width: 600px) {
+        .gst-container {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .gst-dot {
+          display: none;
         }
       }
     </style>
@@ -721,8 +765,8 @@
                 <a
                   href="#contact"
                   style="
-                    width: 40px;
-                    height: 40px;
+                    width: 44px;
+                    height: 44px;
                     background: #000;
                     border-radius: 50%;
                     display: flex;
@@ -745,8 +789,8 @@
                   href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true"
                   target="_blank"
                   style="
-                    width: 40px;
-                    height: 40px;
+                    width: 44px;
+                    height: 44px;
                     background: #000;
                     border-radius: 50%;
                     display: flex;
@@ -1209,55 +1253,12 @@
       </section>
 
           <!-- GSTIN - Elegant Typographic Presentation -->
-          <div class="reveal" style="margin-top: 4rem; text-align: center">
-            <div
-              style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 1.25rem;
-                flex-wrap: wrap;
-              "
-            >
-              <span
-                style="
-                  font-size: 0.75rem;
-                  font-weight: 700;
-                  color: #64748b;
-                  text-transform: uppercase;
-                  letter-spacing: 1.5px;
-                "
-                >GSTIN Registration</span
-              >
-              <span
-                style="
-                  width: 4px;
-                  height: 4px;
-                  border-radius: 50%;
-                  background: #cbd5e1;
-                "
-              ></span>
-              <span
-                style="
-                  font-family: &quot;Playfair Display&quot;, serif;
-                  font-size: 1.15rem;
-                  color: #0f172a;
-                  letter-spacing: 1px;
-                "
-                >29AAXFN7873P1ZQ</span
-              >
-              <span
-                style="
-                  width: 4px;
-                  height: 4px;
-                  border-radius: 50%;
-                  background: #cbd5e1;
-                "
-              ></span>
-              <span style="font-size: 0.8rem; color: #64748b"
-                >Govt. of India</span
-              >
-            </div>
+          <div class="gst-container reveal">
+            <span class="gst-label">GSTIN Registration</span>
+            <span class="gst-dot"></span>
+            <span class="gst-number">29AAXFN7873P1ZQ</span>
+            <span class="gst-dot"></span>
+            <span class="gst-govt">Govt. of India</span>
           </div>
         </div>
       </section>

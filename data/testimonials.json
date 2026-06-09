@@ -31,5 +31,16 @@
     "isFeatured": false,
     "videoUrl": "",
     "authorImage": ""
+  },
+  {
+    "id": "testimonial-4",
+    "authorName": "Jeevan RK",
+    "designation": "Founder",
+    "company": "Practico",
+    "quote": "Bhavya doesn't just fill roles she helps you structure your business. Her expertise was a game-changer, engaging her as our Fractional CHRO she successfully shifted us from a reactive hiring mindset to a disciplined, strategic process tailored to our business needs. Her patience, deep industry insights, and ability to refine organizational roles have been invaluable. Thanks to her expertise, our organizational processes are now professional, refined, and ready for growth. I highly recommend NexusHive for any founder looking to build their team the right way.",
+    "companyLogo": "img/practicco.png",
+    "isFeatured": false,
+    "videoUrl": "",
+    "authorImage": ""
   }
 ]
