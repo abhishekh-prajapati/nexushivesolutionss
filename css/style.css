@@ -1800,9 +1800,9 @@ footer::before {
         padding: 100px 0;
     }
     .cta-title {
-        font-size: 1.75rem !important;
-        word-break: keep-all;
-        overflow-wrap: normal;
+        font-size: 1.5rem !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
     }
     .cta-lead {
         font-size: 1.05rem !important;
