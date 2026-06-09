@@ -6,14 +6,14 @@ RewriteEngine On
 # Routes clean API URLs to their PHP handler files
 # -------------------------------------------------------
 
-# GET /api/data/:filename  →  api/data.php?file=:filename
-RewriteRule ^api/data/([a-zA-Z0-9_\-]+\.json)$ api/data.php?file=$1 [QSA,L]
+# GET /api/data/:filename  →  php/data.php?file=:filename
+RewriteRule ^api/data/([a-zA-Z0-9_\-]+\.json)$ php/data.php?file=$1 [QSA,L]
 
-# POST /api/save  →  api/save.php
-RewriteRule ^api/save$ api/save.php [QSA,L]
+# POST /api/save  →  php/save.php
+RewriteRule ^api/save$ php/save.php [QSA,L]
 
-# POST /api/upload-image  →  api/upload-image.php
-RewriteRule ^api/upload-image$ api/upload-image.php [QSA,L]
+# POST /api/upload-image  →  php/upload-image.php
+RewriteRule ^api/upload-image$ php/upload-image.php [QSA,L]
 
 # -------------------------------------------------------
 # Security: block direct access to raw data files
