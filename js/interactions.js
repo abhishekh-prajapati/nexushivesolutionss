@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btns    = ctaSec.querySelectorAll('.btn-cta');
 
         if (tagEl) { const t = animClipH2(tagEl, 0); onceVisible(tagEl, t); }
-        if (h2El)  { const t = animChars(h2El, 0.2); onceVisible(h2El, t); }
+        if (h2El)  { const t = animClipH2(h2El, 0.2); onceVisible(h2El, t); }
         if (pEl)   { const t = animBlurPara(pEl, 0.4); onceVisible(pEl, t); }
         btns.forEach((btn, i) => { const t = animScaleBounce(btn, 0.55 + i*0.1); onceVisible(btn, t); });
     }
