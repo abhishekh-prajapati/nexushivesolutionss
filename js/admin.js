@@ -26,23 +26,51 @@ function checkAuth() {
     }
 }
 
+// Invalidate session (logout)
+function logout() {
+    sessionStorage.removeItem('admin_authenticated');
+    sessionStorage.removeItem('admin_password');
+    checkAuth();
+}
+
 // Handle login submissions
-window.handleLogin = function(event) {
+window.handleLogin = async function(event) {
     event.preventDefault();
     const passwordInput = document.getElementById('admin-password');
     const errorEl = document.getElementById('login-error');
     if (!passwordInput) return;
 
-    if (passwordInput.value === 'Jita2025') {
-        sessionStorage.setItem('admin_authenticated', 'true');
-        checkAuth();
-        checkConnection().then(() => {
-            loadTabData(activeTab);
+    const password = passwordInput.value;
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+
+    try {
+        if (submitBtn) submitBtn.disabled = true;
+        if (errorEl) errorEl.style.display = 'none';
+
+        const response = await fetch('/api/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${password}`
+            }
         });
-    } else {
+
+        if (response.ok) {
+            sessionStorage.setItem('admin_authenticated', 'true');
+            sessionStorage.setItem('admin_password', password);
+            checkAuth();
+            checkConnection().then(() => {
+                loadTabData(activeTab);
+            });
+        } else {
+            throw new Error('Invalid credentials');
+        }
+    } catch (err) {
         if (errorEl) errorEl.style.display = 'block';
         passwordInput.value = '';
         passwordInput.focus();
+    } finally {
+        if (submitBtn) submitBtn.disabled = false;
     }
 };
 
@@ -118,9 +146,17 @@ async function handleImageUpload(fileInput, targetId) {
                 
                 const response = await fetch('/api/upload-image', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${sessionStorage.getItem('admin_password') || ''}`
+                    },
                     body: JSON.stringify({ base64Data, extension })
                 });
+
+                if (response.status === 401) {
+                    logout();
+                    throw new Error('Unauthorized: Session expired or invalid password.');
+                }
 
                 if (!response.ok) throw new Error('Upload failed');
                 
@@ -898,11 +934,21 @@ async function saveActiveTab() {
 
             // Save tips first
             if (isConnected) {
-                await fetch('/api/save', {
+                const tipsResponse = await fetch('/api/save', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${sessionStorage.getItem('admin_password') || ''}`
+                    },
                     body: JSON.stringify({ filename: 'tips.json', data: tipsPayload })
                 });
+                if (tipsResponse.status === 401) {
+                    logout();
+                    throw new Error('Unauthorized: Session expired or invalid password.');
+                }
+                if (!tipsResponse.ok) {
+                    throw new Error('Failed to save tips database.');
+                }
             } else {
                 triggerLocalDownload('tips.json', tipsPayload);
             }
@@ -912,9 +958,17 @@ async function saveActiveTab() {
         if (isConnected) {
             const response = await fetch('/api/save', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('admin_password') || ''}`
+                },
                 body: JSON.stringify({ filename, data: payload })
             });
+
+            if (response.status === 401) {
+                logout();
+                throw new Error('Unauthorized: Session expired or invalid password.');
+            }
 
             const result = await response.json();
             if (response.ok && result.success) {

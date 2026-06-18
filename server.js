@@ -11,6 +11,23 @@ app.use(express.json({ limit: '10mb' }));
 // Serve static assets from the current directory
 app.use(express.static(__dirname));
 
+// Helper to validate Bearer token authentication
+function validateAuth(req) {
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.substring(7) : '';
+  const correctPassword = process.env.ADMIN_PASSWORD || 'Jita2025';
+  return token === correctPassword;
+}
+
+// Endpoint to verify CMS admin password
+app.post('/api/verify', (req, res) => {
+  if (validateAuth(req)) {
+    res.json({ success: true });
+  } else {
+    res.status(401).json({ error: 'Invalid password.' });
+  }
+});
+
 // Safe whitelist of JSON database files
 const SAFE_FILES = [
   'hero.json',
@@ -48,6 +65,10 @@ app.get('/api/data/:filename', (req, res) => {
 
 // Endpoint to save JSON data
 app.post('/api/save', (req, res) => {
+  if (!validateAuth(req)) {
+    return res.status(401).json({ error: 'Unauthorized: Invalid credentials.' });
+  }
+
   const { filename, data } = req.body;
 
   if (!filename || !data) {
@@ -73,6 +94,10 @@ app.post('/api/save', (req, res) => {
 
 // Endpoint to upload base64 images and save to img/
 app.post('/api/upload-image', (req, res) => {
+  if (!validateAuth(req)) {
+    return res.status(401).json({ error: 'Unauthorized: Invalid credentials.' });
+  }
+
   const { base64Data, extension } = req.body;
 
   if (!base64Data) {

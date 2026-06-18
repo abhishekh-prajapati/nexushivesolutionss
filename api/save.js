@@ -16,7 +16,7 @@ const SAFE_FILES = [
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
   // Handle preflight
   if (req.method === 'OPTIONS') {
@@ -25,6 +25,14 @@ module.exports = async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed.' });
+  }
+
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.substring(7) : '';
+  const correctPassword = process.env.ADMIN_PASSWORD || 'Jita2025';
+
+  if (token !== correctPassword) {
+    return res.status(401).json({ error: 'Unauthorized: Invalid credentials.' });
   }
 
   const { filename, data } = req.body;
