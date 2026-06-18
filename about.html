@@ -42,11 +42,11 @@
       /* Partner Hero Flex (Founder Profile) */
       .partner-hero-flex-layout {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         gap: 5rem;
       }
       .partner-meta {
-        padding-bottom: 40px;
+        padding: 20px 0;
       }
 
       /* Details Grid (About Jaya) */
@@ -704,25 +704,21 @@
       <section
         id="founder"
         class="partner-hero"
-        style="
-          padding: 80px 0 0 0;
-          position: relative;
-          overflow: hidden;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        "
       >
         <div class="container">
           <div class="partner-hero-flex-layout">
             <div
               class="partner-portrait reveal"
-              style="flex: 0 0 450px; margin-bottom: -4px"
             >
-              <img
-                id="founder-img"
-                src="img/image.png"
-                alt="Adv. Jaya Bhavya"
-                style="width: 100%; display: block; filter: contrast(1.02)"
-              />
+
+              <!-- Circular Frame -->
+              <div class="founder-circle-frame">
+                <img
+                  id="founder-img"
+                  src="img/image.png"
+                  alt="Adv. Jaya Bhavya"
+                />
+              </div>
             </div>
             <div class="partner-meta reveal stagger-1" style="flex: 1">
               <h1
@@ -764,21 +760,10 @@
               <div class="contact-links" style="display: flex; gap: 1.5rem; align-items: center">
                 <a
                   href="#contact"
-                  style="
-                    width: 44px;
-                    height: 44px;
-                    background: #000;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    transition: var(--transition);
-                  "
-                  onmouseover="this.style.transform = 'scale(1.1)'"
-                  onmouseout="this.style.transform = 'scale(1)'"
+                  class="founder-contact-btn"
+                  aria-label="Contact Adv. Jaya Bhavya"
                 >
-                  <i class="fas fa-envelope" style="font-size: 0.9rem"></i>
+                  <i class="fas fa-envelope"></i>
                 </a>
                 <span
                   style="font-size: 0.9rem; font-weight: 600; color: #0f172a"
@@ -788,21 +773,10 @@
                 <a
                   href="https://www.linkedin.com/company/nexushive-solutions-llp/?viewAsMember=true"
                   target="_blank"
-                  style="
-                    width: 44px;
-                    height: 44px;
-                    background: #000;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    transition: var(--transition);
-                  "
-                  onmouseover="this.style.transform = 'scale(1.1)'"
-                  onmouseout="this.style.transform = 'scale(1)'"
+                  class="founder-contact-btn"
+                  aria-label="Adv. Jaya Bhavya on LinkedIn"
                 >
-                  <i class="fab fa-linkedin-in" style="font-size: 0.9rem"></i>
+                  <i class="fab fa-linkedin-in"></i>
                 </a>
                 <span
                   style="font-size: 0.9rem; font-weight: 600; color: #0f172a"
