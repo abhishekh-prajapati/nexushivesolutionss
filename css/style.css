@@ -28,7 +28,7 @@
 
     /* Layout Constants */
     --container-max: 1240px;
-    --section-pad:   160px 0;
+    --section-pad:   110px 0;
     --radius-pill:   0px;
     --radius-xl:     0px;
     --transition:    all 150ms ease;
@@ -657,7 +657,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 5rem;
+    margin-bottom: 3.5rem;
 }
 
 .head-left h2 {
@@ -890,7 +890,7 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .step-item {
@@ -921,13 +921,13 @@ img {
 
 /* --- CLIENTS (Trusted by Leaders) --- */
 .clients-strip {
-    padding: 60px 0;
+    padding: 45px 0;
     background: #ffffff;
 }
 
 /* --- STATS STRIP --- */
 .stats-strip {
-    padding: 100px 0;
+    padding: 70px 0;
     background: #f0f9ff;
 }
 
@@ -995,7 +995,7 @@ img {
 
 .ticker-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 /* --- STARTUP SUPPORT (MODERN) --- */
 .startup-support {
@@ -1115,7 +1115,7 @@ img {
 
 /* --- FOOTER --- */
 footer {
-    padding: 100px 0 40px;
+    padding: 80px 0 40px;
     background: #f8fbff; /* Lighter Shade Background */
     color: var(--color-navy);
     position: relative;
@@ -1137,7 +1137,7 @@ footer::before {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.6fr; /* widened last column for map */
     gap: 5rem;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
 }
 
 .footer-logo {
@@ -1419,7 +1419,7 @@ footer::before {
 @media (max-width: 900px) {
     /* Section padding */
     .services-section,
-    .talent-section { padding: 80px 0; }
+    .talent-section { padding: 60px 0; }
 
     /* Team section: stack columns */
     .team-grid-inner { grid-template-columns: 1fr !important; gap: 4rem !important; }
@@ -1541,13 +1541,13 @@ footer::before {
 
 /* --- TESTIMONIALS (Perfect Clone) --- */
 .testimonials {
-    padding: 120px 0;
+    padding: 90px 0;
     background: #ffffff;
 }
 
 .testimonial-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
 }
 
 .testimonial-header h2 {
@@ -1732,7 +1732,7 @@ footer::before {
 /* --- FINAL CTA SECTION --- */
 .final-cta {
     background: var(--bg-lavender);
-    padding: 100px 0;
+    padding: 80px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1856,7 +1856,7 @@ footer::before {
 
 /* --- ABOUT PAGE SPECIFICS --- */
 .about-founder-sec {
-    padding: 180px 0 140px;
+    padding: 130px 0 100px;
     background: #ffffff;
 }
 
@@ -1874,7 +1874,7 @@ footer::before {
         text-align: center;
     }
     .about-founder-sec {
-        padding: 120px 0 80px;
+        padding: 90px 0 60px;
     }
 }
 
@@ -1918,7 +1918,7 @@ footer::before {
     .featured .quote { font-size: 1.35rem; }
     
     .section-head-flex {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
     .head-left h2 {
         font-size: 2.2rem !important;
@@ -2066,7 +2066,7 @@ footer::before {
 
     /* Padding adjustments for all sections */
     section {
-        padding: 80px 0 !important;
+        padding: 60px 0 !important;
     }
 
     .container {
@@ -2253,7 +2253,7 @@ footer::before {
 
 /* --- EXECUTIVE PILLAR DESIGN SYSTEM --- */
 .executive-section {
-    padding: 140px 0;
+    padding: 100px 0;
     background: #ffffff;
     position: relative;
     overflow: hidden;
@@ -2263,7 +2263,7 @@ footer::before {
     max-width: 950px;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
 }
 
 .executive-heading {
@@ -2334,9 +2334,9 @@ footer::before {
    ============================================================ */
 .modern-contact-band {
     background: #f8fafc;
-    padding: 6rem 0;
+    padding: 4.5rem 0;
     border-top: 1px solid #e2e8f0;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .modern-contact-container {
@@ -2744,13 +2744,13 @@ footer::before {
 
 /* --- CERTIFICATES & REGISTRATIONS (Image-Based Redesign) --- */
 .certs-section {
-    padding: 80px 0;
+    padding: 60px 0;
     background: #ffffff;
 }
 
 .certs-header {
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .certs-header h2 {
@@ -2772,7 +2772,7 @@ footer::before {
 .certs-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 4rem 2rem;
+    gap: 3rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -2787,7 +2787,7 @@ footer::before {
 .cert-icon-box {
     height: 100px;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2884,7 +2884,7 @@ footer::before {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
     border-top: 1px solid rgba(15, 23, 42, 0.1);
 }
 
@@ -2893,7 +2893,7 @@ footer::before {
     grid-template-columns: 80px 1fr;
     gap: 2.5rem;
     align-items: start;
-    padding: 3.5rem 0;
+    padding: 2.5rem 0;
     position: relative;
     border-bottom: 1px solid rgba(15, 23, 42, 0.1);
     transition: background 0.3s ease;
@@ -2943,7 +2943,7 @@ footer::before {
     .nexus-adv-item {
         grid-template-columns: 50px 1fr;
         gap: 1.5rem;
-        padding: 2.5rem 0;
+        padding: 1.75rem 0;
     }
     .nexus-adv-number {
         font-size: 2.5rem;
@@ -2964,7 +2964,7 @@ footer::before {
 }
 
 .events-section .centered-head {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     text-align: left;
 }
 
@@ -3368,7 +3368,7 @@ footer::before {
     position: relative;
     background: linear-gradient(135deg, var(--bg-lavender) 0%, #C3BFFF 100%) !important;
     overflow: hidden;
-    padding: 72px 0 !important;
+    padding: 60px 0 !important;
     border-bottom: 1px solid rgba(78, 47, 218, 0.08);
 }
 
@@ -3450,7 +3450,7 @@ footer::before {
         margin-bottom: 2rem;
     }
     .partner-hero {
-        padding: 80px 0 !important;
+        padding: 60px 0 !important;
     }
 }
 
