@@ -31,11 +31,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Active Nav State Logic
     const fullPath = window.location.pathname;
-    const path = fullPath.substring(fullPath.lastIndexOf('/') + 1) || 'index.html';
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('href') === path) {
+    let currentPath = fullPath.substring(fullPath.lastIndexOf('/') + 1);
+    if (!currentPath || currentPath === 'index.html' || currentPath === 'index' || currentPath === 'home') {
+        currentPath = 'index.html';
+    } else {
+        currentPath = currentPath.replace('.html', '');
+    }
+
+    document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
+        let href = link.getAttribute('href') || '';
+        // Extract filename from href (e.g. "about.html#hash" -> "about")
+        let hrefPath = href.split('#')[0].split('?')[0];
+        if (hrefPath === '.' || hrefPath === './' || hrefPath === '') {
+            hrefPath = 'index.html';
+        } else {
+            hrefPath = hrefPath.replace('.html', '');
+        }
+
+        if (hrefPath === currentPath) {
             link.classList.add('active');
+        } else {
+            // Only remove if it's a page link (not a hashtag-only link)
+            if (href !== '#contact') {
+                link.classList.remove('active');
+            }
         }
     });
 

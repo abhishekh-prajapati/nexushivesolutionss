@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (sCta && data.secondaryCtaText) {
             sCta.innerHTML = `${data.secondaryCtaText} <i class="fas fa-chevron-right"></i>`;
-            sCta.href = data.secondaryCtaLink || 'services.html';
+            sCta.href = data.secondaryCtaLink || 'services';
         }
     }
 

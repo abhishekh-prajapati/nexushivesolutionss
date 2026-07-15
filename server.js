@@ -8,8 +8,13 @@ const PORT = process.env.PORT || 5000;
 // Enable JSON body parser with a high limit for payloads (e.g. image base64s if needed)
 app.use(express.json({ limit: '10mb' }));
 
-// Serve static assets from the current directory
-app.use(express.static(__dirname));
+// Serve static assets from the current directory with support for clean URLs
+app.use(express.static(__dirname, { extensions: ['html'] }));
+
+// Route /home to serve index.html explicitly
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Helper to validate Bearer token authentication
 function validateAuth(req) {

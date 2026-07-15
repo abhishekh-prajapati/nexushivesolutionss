@@ -1054,7 +1054,7 @@ async function getFallbackMockData(tabName) {
                 primaryCtaText: "Begin Consultation",
                 primaryCtaLink: "#contact",
                 secondaryCtaText: "Explore Pillars",
-                secondaryCtaLink: "services.html"
+                secondaryCtaLink: "services"
             },
             services: [
                 {
@@ -1062,7 +1062,7 @@ async function getFallbackMockData(tabName) {
                     title: "HR Strategy & Operations",
                     description: "Combining HR Strategy with Sourcing to build your team from the ground up.",
                     image: "whatwedocards/hr setup and strategic.png",
-                    link: "services.html#hr-strategy",
+                    link: "services#hr-strategy",
                     subServices: [
                         { title: "Org Architecture", description: "Custom organizational chart designs and reporting line definitions." },
                         { title: "HR Manuals & Policies", description: "Drafting employee handbooks, code of conduct, and guidelines." },
@@ -1114,8 +1114,8 @@ async function getFallbackMockData(tabName) {
                     "60+ POSH trainings conducted across high-growth sectors"
                 ],
                 expertises: [
-                    { title: "Legal Operations", link: "services.html#compliance" },
-                    { title: "HR Governance", link: "services.html#hr-strategy" }
+                    { title: "Legal Operations", link: "services#compliance" },
+                    { title: "HR Governance", link: "services#hr-strategy" }
                 ]
             },
             resources: [

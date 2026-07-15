@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "functions": {
     "api/**/*.js": {
       "memory": 256,
@@ -10,6 +11,7 @@
     { "source": "/api/data/:filename", "destination": "/api/data.js?file=:filename" },
     { "source": "/api/save", "destination": "/api/save.js" },
     { "source": "/api/upload-image", "destination": "/api/upload-image.js" },
-    { "source": "/api/verify", "destination": "/api/verify.js" }
+    { "source": "/api/verify", "destination": "/api/verify.js" },
+    { "source": "/home", "destination": "/" }
   ]
 }
