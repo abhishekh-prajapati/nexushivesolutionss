@@ -30,6 +30,8 @@ $itemsToCopy = @(
     "services.html",
     "resources.html",
     "admin.html",
+    "card.html",
+    "NEXUS.pdf",
     "server.js",
     "package.json",
     "package-lock.json",
@@ -43,6 +45,7 @@ $itemsToCopy = @(
     "data",
     "img",
     "api",
+    "php",
     "whatwedocards"
 )
 

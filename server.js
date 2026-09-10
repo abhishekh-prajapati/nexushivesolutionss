@@ -16,6 +16,11 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Digital Visiting Card routes
+app.get(['/card', '/digital-card', '/vcard', '/bhavya', '/jaya-bhavya'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'card.html'));
+});
+
 // Helper to validate Bearer token authentication
 function validateAuth(req) {
   const authHeader = req.headers.authorization;

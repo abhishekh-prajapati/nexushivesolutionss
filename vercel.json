@@ -12,6 +12,10 @@
     { "source": "/api/save", "destination": "/api/save.js" },
     { "source": "/api/upload-image", "destination": "/api/upload-image.js" },
     { "source": "/api/verify", "destination": "/api/verify.js" },
-    { "source": "/home", "destination": "/" }
+    { "source": "/home", "destination": "/" },
+    { "source": "/card", "destination": "/card.html" },
+    { "source": "/digital-card", "destination": "/card.html" },
+    { "source": "/vcard", "destination": "/card.html" },
+    { "source": "/jaya-bhavya", "destination": "/card.html" }
   ]
 }
