@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusHive | CMS Portal</title>
+    <link rel="icon" type="image/png" href="img/9. Primary Logo (No BG).png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -780,7 +781,7 @@
     <div id="login-overlay" style="position: fixed; inset: 0; background: #f8fafc; display: flex; align-items: center; justify-content: center; z-index: 99999; font-family: 'Inter', sans-serif;">
         <div class="edit-card" style="width: 100%; max-width: 380px; padding: 24px; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin: 1rem;">
             <div>
-                <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Nexus<span>Hive</span> Admin</h2>
+                <div style="display: flex; justify-content: center; margin-bottom: 0.75rem;"><img src="img/9. Primary Logo (No BG).png" alt="NexusHive Solutions" style="height: 48px; width: auto; object-fit: contain;"></div>
                 <p style="color: #64748b; font-size: 0.9rem;">Please enter password to access CMS Portal.</p>
             </div>
             <form id="login-form" onsubmit="handleLogin(event)" style="display: flex; flex-direction: column; gap: 1.25rem; text-align: left; width: 100%;">
@@ -796,7 +797,7 @@
 
     <!-- Header bar -->
     <header class="admin-header">
-        <a href="." class="admin-logo" target="_blank">Nexus<span>Hive</span> Admin</a>
+        <a href="." class="admin-logo" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;"><img src="img/9. Primary Logo (No BG).png" alt="NexusHive Solutions" style="height: 32px; width: auto; object-fit: contain;"> <span style="font-size: 0.9rem; color: #475569; font-weight: 700;">Admin</span></a>
         <div style="display:flex; align-items:center; gap:1rem;">
             <span class="server-status-pill" id="serverStatus">
                 <span class="status-dot"></span>

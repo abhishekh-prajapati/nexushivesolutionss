@@ -117,9 +117,12 @@ img {
 .s-card-img img, 
 .hero-image-mobile img,
 .about-founder-grid img,
+.event-card-img img,
+.event-card img,
+.founder-circle-frame img,
 .hero::before {
-    transform: scale(1.12); /* Increased zoom to guarantee corner marks are hidden */
-    transform-origin: center;
+    transform: scale(1.15) !important;
+    transform-origin: center !important;
 }
 
 .container {
@@ -129,35 +132,51 @@ img {
     padding: 0 2rem;
 }
 
-/* --- NAVIGATION (Reference: Clavius/Petals) --- */
+/* --- NAVIGATION (Classic Purple Navbar with White Text) --- */
 #mainHeader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 64px; /* Reduced from 100px */
+    height: 84px;
     background: var(--color-purple-medium-dark) !important;
     z-index: 1000;
     display: flex;
     align-items: center;
     transition: var(--transition);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 #mainHeader.scrolled {
     background: rgba(59, 33, 168, 0.98) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    height: 56px; /* Reduced from 80px */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    height: 72px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #mainHeader .logo, 
 #mainHeader .nav-links > li > a {
     color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-#mainHeader .logo span {
-    color: var(--color-purple-light) !important;
+#mainHeader .nav-links > li > a:hover,
+#mainHeader .nav-links > li > a.active {
+    color: #ffffff !important;
+    opacity: 1;
+}
+
+#mainHeader .dropdown-icon {
+    color: #ffffff !important;
+    transition: var(--transition);
+}
+
+#mainHeader .nav-links > li:hover .dropdown-icon {
+    color: #ffffff !important;
 }
 
 #mainHeader .hamburger .bar {
@@ -180,10 +199,56 @@ img {
     font-size: 1.75rem;
     font-weight: 800;
     text-decoration: none;
-    color: var(--color-navy);
+    color: #ffffff;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+}
+
+.logo img {
+    height: 72px;
+    max-height: 72px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+#mainHeader.scrolled .logo img {
+    height: 58px;
+    max-height: 58px;
+}
+
+@media (max-width: 768px) {
+    #mainHeader {
+        height: 76px;
+    }
+    #mainHeader.scrolled {
+        height: 66px;
+    }
+    .logo img {
+        height: 54px;
+        max-height: 54px;
+        padding: 0;
+    }
+    #mainHeader.scrolled .logo img {
+        height: 44px;
+        max-height: 44px;
+    }
+}
+
+.footer-logo img {
+    height: 165px;
+    max-height: 165px;
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .logo span {
@@ -830,6 +895,8 @@ img {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transform: scale(1.15) !important;
+    transform-origin: center !important;
 }
 
 /* Decorative image pattern removed for solid corporate look */
@@ -1084,8 +1151,8 @@ img {
 }
 
 .logo-track img {
-    height: 70px; /* Enhanced visibility height */
-    width: 170px;  /* Proportional uniform width constraint */
+    height: 85px; /* Enhanced visibility height */
+    width: 195px;  /* Proportional uniform width constraint */
     object-fit: contain;
     mix-blend-mode: multiply !important;
     filter: grayscale(1); 
@@ -1098,7 +1165,7 @@ img {
 
 /* Optical balance for horizontally-stretched logos */
 .logo-track img.logo-slim {
-    height: 55px;
+    height: 70px;
 }
 
 .logo-track img:hover {
@@ -1907,7 +1974,7 @@ footer::before {
         padding: 1rem 0;
     }
     .logo-track img {
-        height: 35px;
+        height: 52px;
         opacity: 0.8 !important;
         filter: grayscale(100%) !important;
     }
@@ -2108,7 +2175,8 @@ footer::before {
 
 /* --- HERO PARALLAX (REMOVED) --- */
 .hero::before {
-    transform: none !important; /* Parallax removed per user request */
+    transform: scale(1.15) !important;
+    transform-origin: center right !important;
     will-change: auto;
 }
 
@@ -3028,17 +3096,20 @@ footer::before {
     width: 100%;
     height: 100%;
     z-index: 0;
+    overflow: hidden !important;
 }
 
 .event-card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.15) !important;
+    transform-origin: center !important;
     transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .event-card:hover .event-card-img img {
-    transform: scale(1.08);
+    transform: scale(1.22) !important;
 }
 
 .event-card-overlay {
